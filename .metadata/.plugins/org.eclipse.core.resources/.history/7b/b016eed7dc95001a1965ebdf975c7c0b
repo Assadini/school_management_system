@@ -1,0 +1,286 @@
+package controllers.etudiant;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import Domaine.classe.Filiere;
+import Domaine.etablisement.Etablissement;
+import Domaine.etudiant.Etudiant;
+import Domaine.etudiant.Mention;
+import Domaine.etudiant.OptionBac;
+import Domaine.etudiant.Parent;
+import Domaine.utilisateur.PhotoUtilisateur;
+import Domaine.utilisateur.Utilisateur;
+
+import com.google.gson.Gson;
+
+import dao.etudiant.EtudiantDAO;
+import dao.utilisateur.UtilisateurDAO;
+
+/**
+ * Servlet implementation class ClasseController
+ */
+@WebServlet("/Etudiant/Add")
+public class EtudiantAdd extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private UtilisateurDAO utilisateurDAO;
+    private EtudiantDAO etudiantDAO;
+    private String path;
+    public EtudiantAdd() {
+        super();
+        utilisateurDAO = new UtilisateurDAO();
+        etudiantDAO = new EtudiantDAO();
+    }
+
+	
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		 request.setCharacterEncoding("UTF-8");
+		 
+		 String titre = request.getParameter("titre");
+		 String sexe = request.getParameter("sexe");
+		 String	nomFr = request.getParameter("nomFr");
+		 String prenomFr = request.getParameter("prenomFr"); 
+		 String cin = request.getParameter("cin");
+		 String ddnJour = request.getParameter("ddnJour");
+		 String	ddnMois = request.getParameter("ddnMois");
+		 String	ddnAnnee = request.getParameter("ddnAnnee");
+		 String	lieuNiassance = request.getParameter("lieuNiassance");
+		 String	nationalite = request.getParameter("nationalite");
+		 String	photoEtudiant = request.getParameter("photoEtudiant");
+		 String	nomAr = request.getParameter("nomAr");
+		 String	prenomAr = request.getParameter("prenomAr");
+		 String	lieuNaissAr = request.getParameter("lieuNaissAr");
+		 int filiereId = Integer.parseInt(request.getParameter("filiere"));
+		 String	cne = request.getParameter("cne");
+		 String	numeroInscription = request.getParameter("numeroInscription"); 
+		 String	anneeBac = request.getParameter("anneeBac"); 
+		 int optionBacId = Integer.parseInt(request.getParameter("optionBac"));
+		 int mentionBacId = Integer.parseInt(request.getParameter("mentionBac"));
+		 float	moyenneBac = Float.parseFloat(request.getParameter("moyenneBac"));
+		 String	candidat = request.getParameter("candidat");
+		 String	etat = request.getParameter("etat");
+		 int etablissementId= Integer.parseInt(request.getParameter("etablissement"));
+		 String	email = request.getParameter("email");
+		 String	telMobile = request.getParameter("telMobile");
+		 String	telDomicile = request.getParameter("telDomicile");
+		 String	adresseFr = request.getParameter("adresseFr");
+		 String	adresseAr = request.getParameter("adresseAr");
+		 String	titreParent = request.getParameter("titreParent");
+		 String	nomFrParent = request.getParameter("nomFrParent");
+		 String	prenomFrParent = request.getParameter("prenomFrParent");
+		 String lienParente = request.getParameter("lienParente");
+		 String	cinParent = request.getParameter("cinParent");
+		 String	photoParent = request.getParameter("photoParent");
+		 String	nomArParent = request.getParameter("nomArParent");
+		 String	prenomArParent = request.getParameter("prenomArParent");
+		 String	emailParent = request.getParameter("emailParent");
+		 String	telMobileParent = request.getParameter("telMobileParent");
+		 String	telDomicileParent = request.getParameter("telDomicileParent");
+		 String	adresseFrParent = request.getParameter("adresseFrParent");
+		 
+		
+		Etudiant etudiant = new Etudiant();
+		
+		etudiant.setTitre(titre);
+		etudiant.setSexe(sexe);
+		etudiant.setNom_Fr(nomFr);
+		etudiant.setPrenom_Fr(prenomFr);
+		etudiant.setCin(cin);
+		etudiant.setNom_Ar(nomAr);
+		etudiant.setPrenom_Ar(prenomAr);
+		etudiant.setLieuNais_Ar(lieuNaissAr);
+		etudiant.setEmail(email);
+		etudiant.setTeleMobile(telMobile);
+		etudiant.setTeleDomicile(telDomicile);
+		etudiant.setAdresse_Fr(adresseFr);
+		etudiant.setAdresse_Ar(adresseAr);
+		etudiant.setLieuNais_Fr(lieuNiassance);
+		etudiant.setNationalite(nationalite);
+		etudiant.setCne(cne);
+		etudiant.setNumInscription(numeroInscription);
+		etudiant.setAnneeBac(anneeBac);
+		etudiant.setMoyenneBac(moyenneBac);
+		etudiant.setCandidat(candidat);
+		etudiant.setEtat(etat);
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+		java.util.Date dateNaissance=null;
+        try {
+			dateNaissance =  format.parse(ddnJour+"-"+ddnMois+"-"+ddnAnnee);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		
+		etudiant.setDateNais(dateNaissance);
+		
+		Filiere filiere = new Filiere();
+		filiere.setId(filiereId);
+		etudiant.setFiliere(filiere);
+		
+		OptionBac optionBac = new OptionBac();
+		optionBac.setId(optionBacId);
+		etudiant.setOptionBac(optionBac);
+		
+		Mention mentionBac = new Mention();
+		mentionBac.setId(mentionBacId);
+		etudiant.setMentionBac(mentionBac);
+		
+		Etablissement etablissement = new Etablissement();
+		etablissement.setId(etablissementId);
+		etudiant.setEtabOrigine(etablissement);
+		
+		Parent parent = new Parent();
+		
+		parent.setTitre(titreParent);
+		parent.setNom_Fr(nomFrParent);
+		parent.setPrenom_Fr(prenomFrParent);
+		parent.setLienParente(lienParente);
+		parent.setCin(cinParent);
+		parent.setNom_Ar(nomArParent);
+		parent.setPrenom_Ar(prenomArParent);
+		parent.setEmail(emailParent);
+		parent.setTeleMobile(telMobileParent);
+		parent.setTeleDomicile(telDomicileParent);
+		parent.setAdresse_Fr(adresseFrParent);
+		parent.setDateNais(null);
+		
+		PhotoUtilisateur photoEtudiantDoc = null;
+		// Récuperer la date système
+		Calendar cal = Calendar.getInstance();
+		Date dateNow=cal.getTime();
+		
+		
+		/*
+		 * 			Gstion de des photo de l'étudiant et de son parent
+		 * 
+		 */
+		
+		// Récuperer le dossirer de sauvegarde des données de l'application
+		Properties prop = new Properties();
+   	 	InputStream input = null;
+   	 	// Ouvrir le fichier de configuration de l'application
+   	 	input = getClass().getClassLoader().getResourceAsStream("config.properties");
+        // Charger les propriétés
+   	 	prop.load(input);
+   	 	String storagePath=prop.getProperty("storagePath");
+   	 	String uploadDir="upload";
+   	 	String usersPhotoDirectory = storagePath+"\\users\\usersphotos";
+		new File(usersPhotoDirectory).mkdirs();
+
+		// Traitement la photo de l'étudiant
+   	 	if(photoEtudiant!="" ){
+			String savePath=storagePath+File.separator+uploadDir+ File.separator + photoEtudiant;
+		   	File photoEtudiantTemp=new File(savePath);
+		   	if(photoEtudiantTemp.exists()){
+		   		photoEtudiantDoc = new PhotoUtilisateur();
+		   	    photoEtudiantDoc.setDateUpload(dateNow);
+				photoEtudiantDoc.setEmplacement(photoEtudiantTemp.getAbsolutePath());
+				photoEtudiantDoc.setNom(photoEtudiantTemp.getName());
+				photoEtudiantDoc.setTaille(photoEtudiantTemp.length());
+				//Extraire l'extension du fichier 
+				 String extension = "";
+				 int i = photoEtudiantTemp.getName().lastIndexOf('.');
+				 if (i > 0) {
+				     extension = photoEtudiantTemp.getName().substring(i+1);
+				 }
+				photoEtudiantDoc.setType(extension);
+				// déplacer le photo vers le dossier : UsersPhotos 
+				FileUtils.copyFile(savePath, dest);
+		   		
+		   	}
+			
+		}
+	
+		etudiant.setPhoto(photoEtudiantDoc);
+		
+		
+		
+		
+		
+		PhotoUtilisateur photoParentDoc = new PhotoUtilisateur();
+		
+		//TODO :  Gérer l'envoie de la photo du parent
+		photoParentDoc.setId(2);
+//		photoParentDoc.setDateUpload(dateUpload);
+//		photoParentDoc.setEmplacement(emplacement);
+//		photoParentDoc.setNom(nom);
+//		photoParentDoc.setNom(nom);
+//		photoParentDoc.setTaille(taille);
+//		photoParentDoc.setType(type);
+		
+		parent.setPhoto(photoParentDoc);
+		
+		//
+		
+		etudiant.setParent(parent);
+		
+		String result=null;
+		
+		try {
+			
+			int etudiantid = utilisateurDAO.insert(etudiant);
+			//Créer le dossier de l'étudiant
+			String etudiantDirectory = storagePath+"\\users\\user_"+etudiantid;
+			new File(etudiantDirectory).mkdirs();
+			etudiant.setId(etudiantid);
+			int parentId = utilisateurDAO.insert(parent);
+			parent.setId(parentId);
+			etudiant.setParent(parent);
+			etudiantDAO.insert(etudiant);
+			//Créer le dossier du parent
+			String parentDirectory = storagePath+"\\users\\user_"+etudiantid;
+			new File(parentDirectory).mkdirs();
+			
+			
+			
+			
+			
+			result="L'étudiant à été ajouté avec succès";
+		} catch (SQLException e) {
+			result="Impossible d'ajouter l'étudiant";
+			e.printStackTrace();
+		}
+		String json = new Gson().toJson(result).toString();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+	
+}

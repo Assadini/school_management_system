@@ -1,0 +1,73 @@
+package dao.etablissement;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import Domaine.etablisement.Region;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+
+import dao.database.Db;
+
+public class RegionDAO {
+	private Connection con;
+	public RegionDAO() {
+		this.con = Db.getInstance().con;
+	}
+	public void insert(Region region) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("insert into region (ID, Code, Nom_Fr, Nom_Ar) values (null, ?, ?, ?)");
+		statement.setString(1, region.getCode());
+		statement.setString(2, region.getNom_Fr());
+		statement.setString(3, region.getNom_Ar());
+		statement.execute();
+		statement.close();
+	}
+	public ArrayList<Region> getAll() throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("select ID, Code, Nom_Fr, Nom_Ar from region");
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Region> regions = new ArrayList<Region>();
+		while (rs.next()) {
+			Region region = new Region();
+			region.setId(rs.getInt("ID"));
+			region.setCode(rs.getString("Code"));
+			region.setNom_Fr(rs.getString("Nom_Fr"));
+			region.setNom_Ar(rs.getString("Nom_Ar"));
+			regions.add(region);
+		}
+		rs.close();
+		statement.close();
+		return regions;	
+	}
+	public Region getById(int id) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("select ID, Code, Nom_Fr, Nom_Ar from region where ID = ? ");
+		statement.setInt(1, id);
+		ResultSet rs = statement.executeQuery();
+		Region region = new Region();
+		while (rs.next()) {
+			region.setId(rs.getInt("ID"));
+			region.setCode(rs.getString("Code"));
+			region.setNom_Fr(rs.getString("Nom_Fr"));
+			region.setNom_Ar(rs.getString("Nom_Ar"));
+		}
+		rs.close();
+		statement.close();
+		return region;		
+	}
+	public void update (Region region) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("update region set Code = ?, Nom_Fr = ?, Nom_Ar = ? where ID = ?");
+		statement.setString(1, region.getCode());
+		statement.setString(2, region.getNom_Fr());
+		statement.setString(3, region.getNom_Ar());
+		statement.setInt(4,region.getId());
+		statement.execute();
+	}
+	public void delete(Region region) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("delete from region where ID = ?");
+		statement.setInt(1, region.getId());
+		statement.execute();
+		statement.close();
+	}
+}

@@ -1,0 +1,186 @@
+package dao.etablissement;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import Domaine.etablissement.Etablissement;
+import Domaine.etablissement.Province;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+import dao.database.Db;
+
+public class EtablissementDAO {
+	private Connection con;
+	public EtablissementDAO() {
+		this.con = Db.getInstance().con;
+	}
+	public void insert(Etablissement etablissement) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("insert into etablissement (ID, ProvinceID, Code, Nom_Fr, Nom_Ar, Telephone, Email, Adresse_Fr, Adresse_Ar) values (null, ?, ?, ?, ?, ?, ?, ?, ?)");
+		statement.setString(1, etablissement.getProvince().getCode());
+		statement.setString(2, etablissement.getCode());
+		statement.setString(3, etablissement.getNom_Fr());
+		statement.setString(4, etablissement.getNom_Ar());
+		statement.setString(5, etablissement.getTelephone());
+		statement.setString(6, etablissement.getEmail());
+		statement.setString(7, etablissement.getAdresse_Fr());
+		statement.setString(8, etablissement.getAdresse_Ar());
+		statement.execute();
+		statement.close();
+	}
+	public ArrayList<Etablissement> getAll() throws SQLException{
+		String query="select " +
+				"`etablissement`.`ID` AS etablissementID, \r\n" +
+				"`province`.`ID` AS provinceID, \r\n" +
+				"`province`.`Code` AS provinceCode, \r\n" +
+				"`province`.`Nom_Fr` AS provinceNom_Fr, \r\n" +
+				"`province`.`Nom_Ar` AS provinceNom_Ar, \r\n" +
+				"`etablissement`.`Code` AS etablissementCode, \r\n" +
+				"`etablissement`.`Nom_Fr` AS etablissementNom_Fr, \r\n" +
+				"`etablissement`.`Nom_Ar` AS etablissementNom_Ar, \r\n" +
+				"`etablissement`.`Telephone` , \r\n" +
+				"`etablissement`.`Email` , \r\n" +
+				"`etablissement`.`Adresse_Fr` , \r\n" +
+				"`etablissement`.`Adresse_Ar`  \r\n" +
+				"FROM \r\n" +
+				"`etablissement`,`province` \r\n" +
+				"WHERE \r\n" +
+				"`etablissement`.`ProvinceID` =  `province`.`ID`;";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Etablissement> etablissements = new ArrayList<Etablissement>();
+		while (rs.next()) {
+			Etablissement etablissement = new Etablissement();
+			etablissement.setId(rs.getInt("etablissementID"));
+			Province province = new Province();
+			province.setId(rs.getInt("provinceID"));
+			province.setCode(rs.getString("provinceCode"));
+			province.setNom_Fr(rs.getString("provinceNom_Fr"));
+			province.setNom_Ar(rs.getString("provinceNom_Ar"));
+			etablissement.setProvince(province);
+			etablissement.setCode(rs.getString("etablissementCode"));
+			etablissement.setNom_Fr(rs.getString("etablissementNom_Fr"));
+			etablissement.setNom_Ar(rs.getString("etablissementNom_Ar"));
+			
+			etablissement.setTelephone(rs.getString("Telephone"));
+			etablissement.setEmail(rs.getString("Email"));
+			etablissement.setAdresse_Fr(rs.getString("Adresse_Ar"));
+			etablissement.setAdresse_Ar(rs.getString("Adresse_Ar"));
+			etablissements.add(etablissement);
+		}
+		rs.close();
+		statement.close();
+		return etablissements;
+	}
+	public ArrayList<Etablissement> getByProvince(Province pro) throws SQLException{
+		String query="select " +
+		"`etablissement`.`ID` AS etablissementID, \r\n" +
+		"`province`.`ID` AS provinceID, \r\n" +
+		"`province`.`Code` AS provinceCode, \r\n" +
+		"`province`.`Nom_Fr` AS provinceNom_Fr, \r\n" +
+		"`province`.`Nom_Ar` AS provinceNom_Ar, \r\n" +
+		"`etablissement`.`Code` AS etablissementCode, \r\n" +
+		"`etablissement`.`Nom_Fr` AS etablissementNom_Fr, \r\n" +
+		"`etablissement`.`Nom_Ar` AS etablissementNom_Ar, \r\n" +
+		"`etablissement`.`Telephone` , \r\n" +
+		"`etablissement`.`Email` , \r\n" +
+		"`etablissement`.`Adresse_Fr` , \r\n" +
+		"`etablissement`.`Adresse_Ar`  \r\n" +
+		"FROM \r\n" +
+		"`etablissement`,`province` \r\n" +
+		"WHERE \r\n" +
+		"(`etablissement`.`ProvinceID` =  `province`.`ID`) AND \r\n" +
+		"(`etablissement`.`ProvinceID` =  ? );";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setInt(1, pro.getId());
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Etablissement> etablissements = new ArrayList<Etablissement>();
+		while (rs.next()) {
+			Etablissement etablissement = new Etablissement();
+			etablissement.setId(rs.getInt("etablissementID"));
+			Province province = new Province();
+			province.setId(rs.getInt("provinceID"));
+			province.setCode(rs.getString("provinceCode"));
+			province.setNom_Fr(rs.getString("provinceNom_Fr"));
+			province.setNom_Ar(rs.getString("provinceNom_Ar"));
+			etablissement.setProvince(province);
+			etablissement.setCode(rs.getString("etablissementCode"));
+			etablissement.setNom_Fr(rs.getString("etablissementNom_Fr"));
+			etablissement.setNom_Ar(rs.getString("etablissementNom_Ar"));
+			
+			etablissement.setTelephone(rs.getString("Telephone"));
+			etablissement.setEmail(rs.getString("Email"));
+			etablissement.setAdresse_Fr(rs.getString("Adresse_Ar"));
+			etablissement.setAdresse_Ar(rs.getString("Adresse_Ar"));
+			etablissements.add(etablissement);
+		}
+		rs.close();
+		statement.close();
+		return etablissements;	
+	}
+	public Etablissement getById(int id) throws SQLException{
+		String query="select " +
+		"`etablissement`.`ID` AS etablissementID, \r\n" +
+		"`province`.`ID` AS provinceID, \r\n" +
+		"`province`.`Code` AS provinceCode, \r\n" +
+		"`province`.`Nom_Fr` AS provinceNom_Fr, \r\n" +
+		"`province`.`Nom_Ar` AS provinceNom_Ar, \r\n" +
+		"`etablissement`.`Code` AS etablissementCode, \r\n" +
+		"`etablissement`.`Nom_Fr` AS etablissementNom_Fr, \r\n" +
+		"`etablissement`.`Nom_Ar` AS etablissementNom_Ar, \r\n" +
+		"`etablissement`.`Telephone` , \r\n" +
+		"`etablissement`.`Email` , \r\n" +
+		"`etablissement`.`Adresse_Fr` , \r\n" +
+		"`etablissement`.`Adresse_Ar`  \r\n" +
+		"FROM \r\n" +
+		"`etablissement`,`province` \r\n" +
+		"WHERE \r\n" +
+		"(`etablissement`.`ProvinceID` =  `province`.`ID`) AND \r\n" +
+		"(`etablissement`.`ID` =  ? );";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setInt(1, id);
+		ResultSet rs = statement.executeQuery();
+		Etablissement etablissement = new Etablissement();
+		while (rs.next()) {
+			etablissement.setId(rs.getInt("etablissementID"));
+			Province province = new Province();
+			province.setId(rs.getInt("provinceID"));
+			province.setCode(rs.getString("provinceCode"));
+			province.setNom_Fr(rs.getString("provinceNom_Fr"));
+			province.setNom_Ar(rs.getString("provinceNom_Ar"));
+			etablissement.setProvince(province);
+			etablissement.setCode(rs.getString("etablissementCode"));
+			etablissement.setNom_Fr(rs.getString("etablissementNom_Fr"));
+			etablissement.setNom_Ar(rs.getString("etablissementNom_Ar"));
+			
+			etablissement.setTelephone(rs.getString("Telephone"));
+			etablissement.setEmail(rs.getString("Email"));
+			etablissement.setAdresse_Fr(rs.getString("Adresse_Ar"));
+			etablissement.setAdresse_Ar(rs.getString("Adresse_Ar"));
+		}
+		rs.close();
+		statement.close();
+		return etablissement;
+	}
+	public void update (Etablissement etablissement) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("update etablissement set ProvinceID = ?, Code = ?, Nom_Fr = ?, Nom_Ar = ? , Telephone = ?, Email = ?, Adresse_Fr, Adresse_Ar = ? where ID = ?");
+		statement.setInt(1, etablissement.getProvince().getId());
+		statement.setString(2, etablissement.getCode());
+		statement.setString(3, etablissement.getNom_Fr());
+		statement.setString(4, etablissement.getNom_Ar());
+		statement.setString(5, etablissement.getTelephone());
+		statement.setString(6, etablissement.getEmail());
+		statement.setString(7, etablissement.getAdresse_Fr());
+		statement.setString(8, etablissement.getAdresse_Ar());
+		statement.setInt(9,etablissement.getId());
+		statement.execute();
+	}
+	public void delete(Etablissement etablissement) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("delete from etablissement where ID = ?");
+		statement.setInt(1, etablissement.getId());
+		statement.execute();
+		statement.close();
+	}
+}

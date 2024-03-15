@@ -1,0 +1,68 @@
+package controllers.evaluation;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Domaine.evaluation.FormeExamen;
+
+import com.google.gson.Gson;
+
+import dao.evaluation.FormeEvaluationDAO;
+
+/**
+ * Servlet implementation class ClasseController
+ */
+@WebServlet("/FormeExamen/Add")
+public class FormeExamenAdd extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private FormeEvaluationDAO formeExamenDAO;  
+    public FormeExamenAdd() {
+        super();
+        formeExamenDAO = new FormeEvaluationDAO();
+    }
+
+	
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String result=null;
+		String code=request.getParameter("code");
+		String nom_Fr= request.getParameter("nom_Fr");
+		String nom_Ar=request.getParameter("nom_Ar");
+		
+		FormeExamen formeExamen = new FormeExamen();
+		formeExamen.setCode(code);
+		formeExamen.setNom_Fr(nom_Fr);
+		formeExamen.setNom_Ar(nom_Ar);
+		
+		try {
+			formeExamenDAO.insert(formeExamen);
+			result="La forme de l'examen à été ajoutée avec succès";
+		} catch (SQLException e) {
+			result="Impossible d'ajouter la forme de l'examen";
+			e.printStackTrace();
+		}
+		String json = new Gson().toJson(result).toString();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+
+}

@@ -1,0 +1,89 @@
+package controllers.classe;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+import Domaine.classe.ClasseGenerique;
+import Domaine.matiere.ClasseGUnite;
+import Domaine.matiere.Unite;
+
+import dao.classe.ClasseGeneriqueDAO;
+import dao.matiere.ClasseGUniteDAO;
+
+/**
+ * Servlet implementation class ClasseGeneriqueController
+ */
+@WebServlet("/ClasseGenerique/Unite/Add")
+public class ClasseGeneriqueUniteAdd extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private ClasseGeneriqueDAO classeGeneriqueDAO;
+       
+    public ClasseGeneriqueUniteAdd() {
+        super();
+        classeGeneriqueDAO = new ClasseGeneriqueDAO();
+    }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int classeGeneriqueId = Integer.parseInt(request.getParameter("classeGeneriqueId"));
+		int uniteId = Integer.parseInt(request.getParameter("unite"));
+		float noteEliminatoire = Float.parseFloat(request.getParameter("noteEliminatoire"));
+		
+		ClasseGenerique classeGenerique = new ClasseGenerique();
+		Unite unite = new Unite();
+		
+		
+		classeGenerique.setId(classeGeneriqueId);
+		unite.setId(uniteId);
+		
+		ClasseGUnite classeGUnite = new ClasseGUnite();
+		classeGUnite.setNoteEliminatoire(noteEliminatoire);
+		classeGUnite.setClasseGenerique(classeGenerique);
+		classeGUnite.setUnite(unite);
+		
+		
+		
+		String message=null;
+		boolean success =false;
+		boolean warning = false;
+		
+		try {
+			ClasseGUniteDAO classeGUniteDAO = new ClasseGUniteDAO();
+			if(classeGUniteDAO.exists(classeGUnite)== null){
+				classeGUniteDAO.insert(classeGUnite);
+				success=true;
+				warning = false;
+				message="L'unité a bien élé ajoutée ";
+				
+			}else{
+				success=true;
+				warning = true;
+				message="Cette unité existe déja ";
+			}
+			
+			
+		} catch (SQLException e1) {
+			success=false;
+			warning = false;
+			message="Impossible d'ajouter l'unité ";
+			e1.printStackTrace();
+		}
+		
+		String json = new Gson().toJson(message);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+
+}

@@ -1,0 +1,49 @@
+package controllers.evaluation;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+import Domaine.evaluation.FormeExamen;
+
+import dao.evaluation.FormeEvaluationDAO;
+
+/**
+ * Servlet implementation class FormeExamenList
+ */
+@WebServlet("/FormeExamen/Delete")
+public class FormeExamenDelete extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private FormeEvaluationDAO formeExamenDAO;
+    public FormeExamenDelete() {
+        super();
+        formeExamenDAO = new FormeEvaluationDAO();
+    }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String result=null;
+		int id =Integer.parseInt(request.getParameter("id"));
+		FormeExamen formeExamen= new FormeExamen();
+		formeExamen.setId(id);
+		try {
+			formeExamenDAO.delete(formeExamen);
+			result="La formeExamen à été supprimée avec succès";
+		} catch (SQLException e) {
+			result="Impossible de supprimer la formeExamen";
+			e.printStackTrace();
+		}
+		String json = new Gson().toJson(result).toString();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+}

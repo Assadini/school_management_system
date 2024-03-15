@@ -1,0 +1,326 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.equinox.p2.updatesite,1.0.201.R36x_v20100823,"org.eclipse.equinox.p2.updatesite",1590716716270
+started,bundle,org.eclipse.equinox.preferences,3.3.0.v20100503,"org.eclipse.equinox.preferences",1590716716270
+started,bundle,org.eclipse.equinox.registry,3.5.0.v20100503,"org.eclipse.equinox.registry",1590716716270
+started,bundle,org.eclipse.equinox.security,1.0.200.v20100503,"org.eclipse.equinox.security",1590716716270
+started,bundle,org.eclipse.equinox.simpleconfigurator.manipulator,2.0.0.v20100503,"org.eclipse.equinox.simpleconfigurator.manipulator",1590716716270
+started,bundle,org.eclipse.equinox.util,1.0.200.v20100503,"org.eclipse.equinox.util",1590716716270
+started,bundle,org.eclipse.help,3.5.0.v20100524,"org.eclipse.help",1590716716270
+started,bundle,org.eclipse.jdt.apt.core,3.3.402.R36_v20110120-1000,"org.eclipse.jdt.apt.core",1590716716270
+started,bundle,org.eclipse.jdt.apt.pluggable.core,1.0.301.R36_v20100727-0110,"org.eclipse.jdt.apt.pluggable.core",1590716716270
+started,bundle,org.eclipse.jdt.core,3.6.2.v_A76_R36x,"org.eclipse.jdt.core",1590716716270
+started,bundle,org.eclipse.jdt.core.manipulation,1.3.0.v20100520-0800,"org.eclipse.jdt.core.manipulation",1590716716270
+started,bundle,org.eclipse.jdt.junit.core,3.6.1.r361_v20100825-0800,"org.eclipse.jdt.junit.core",1590716716270
+started,bundle,org.eclipse.jdt.launching,3.5.200.v20110105_r362,"org.eclipse.jdt.launching",1590716716270
+started,bundle,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui",1590716716270
+started,bundle,org.eclipse.jem,2.0.400.v201005110200,"org.eclipse.jem",1590716716270
+started,bundle,org.eclipse.jem.util,2.1.3.v201012070000,"org.eclipse.jem.util",1590716716270
+started,bundle,org.eclipse.jem.workbench,2.0.300.v200910290230,"org.eclipse.jem.workbench",1590716716270
+started,bundle,org.eclipse.jface,3.6.2.M20110210-1200,"org.eclipse.jface",1590716716270
+started,bundle,org.eclipse.jsch.core,1.1.200.I20100505-1245,"org.eclipse.jsch.core",1590716716270
+started,bundle,org.eclipse.jst.common.frameworks,1.1.403.v201012160000,"org.eclipse.jst.common.frameworks",1590716716270
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.102.v201008182136,"org.eclipse.jst.common.project.facet.core",1590716716270
+started,bundle,org.eclipse.jst.j2ee,1.1.404.v201102081800,"org.eclipse.jst.j2ee",1590716716270
+started,bundle,org.eclipse.jst.j2ee.core,1.2.4.v201102101900,"org.eclipse.jst.j2ee.core",1590716716270
+started,bundle,org.eclipse.jst.j2ee.navigator.ui,1.1.403.v201012020600,"org.eclipse.jst.j2ee.navigator.ui",1590716716270
+started,bundle,org.eclipse.jst.j2ee.ui,1.1.404.v201101122300,"org.eclipse.jst.j2ee.ui",1590716716270
+started,bundle,org.eclipse.jst.j2ee.web,1.1.404.v201102030400,"org.eclipse.jst.j2ee.web",1590716716270
+started,bundle,org.eclipse.jst.j2ee.webservice,1.1.400.v201004110600,"org.eclipse.jst.j2ee.webservice",1590716716270
+started,bundle,org.eclipse.jst.j2ee.webservice.ui,1.1.400.v201004110600,"org.eclipse.jst.j2ee.webservice.ui",1590716716270
+started,bundle,org.eclipse.jst.jee,1.0.302.v201101122300,"org.eclipse.jst.jee",1590716716270
+started,bundle,org.eclipse.jst.jee.ui,1.0.304.v201101272100,"org.eclipse.jst.jee.ui",1590716716270
+started,bundle,org.eclipse.jst.jsf.common,1.2.2.v201101211220,"org.eclipse.jst.jsf.common",1590716716270
+started,bundle,org.eclipse.jst.jsf.core,1.3.3.v201102021253,"org.eclipse.jst.jsf.core",1590716716270
+started,bundle,org.eclipse.jst.jsp.core,1.2.304.v201102160550,"org.eclipse.jst.jsp.core",1590716716270
+started,bundle,org.eclipse.jst.server.core,1.2.101.v20100421,"org.eclipse.jst.server.core",1590716716270
+started,bundle,org.eclipse.jst.server.tomcat.core,1.1.203.v20110201,"org.eclipse.jst.server.tomcat.core",1590716716270
+started,bundle,org.eclipse.jst.ws.jaxrs.core,1.0.201.v201011231540,"org.eclipse.jst.ws.jaxrs.core",1590716716270
+started,bundle,org.eclipse.jst.ws.jaxws.utils,1.0.0.v201004171919,"org.eclipse.jst.ws.jaxws.utils",1590716716270
+started,bundle,org.eclipse.ltk.core.refactoring,3.5.101.r362_v20101117-0800,"org.eclipse.ltk.core.refactoring",1590716716270
+started,bundle,org.eclipse.ltk.ui.refactoring,3.5.0.v20100526-0800,"org.eclipse.ltk.ui.refactoring",1590716716270
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.4.2.v20100902-0100-e3x,"org.eclipse.mylyn.bugzilla.core",1590716716270
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.4.3.v20110131-0100-e3x,"org.eclipse.mylyn.bugzilla.ui",1590716716270
+started,bundle,org.eclipse.mylyn.commons.net,3.4.1.v20100625-2100-e3x,"org.eclipse.mylyn.commons.net",1590716716270
+started,bundle,org.eclipse.mylyn.commons.ui,3.4.0.v20100608-0100-e3x,"org.eclipse.mylyn.commons.ui",1590716716270
+started,bundle,org.eclipse.mylyn.context.core,3.4.1.v20100909-0100-e3x,"org.eclipse.mylyn.context.core",1590716716270
+started,bundle,org.eclipse.mylyn.context.ui,3.4.2.v20110131-0100-e3x,"org.eclipse.mylyn.context.ui",1590716716270
+started,bundle,org.eclipse.mylyn.monitor.ui,3.4.1.v20110131-0100-e3x,"org.eclipse.mylyn.monitor.ui",1590716716270
+started,bundle,org.eclipse.mylyn.tasks.ui,3.4.3.v20110131-0100-e3x,"org.eclipse.mylyn.tasks.ui",1590716716270
+started,bundle,org.eclipse.mylyn.team.ui,3.4.3.v20110131-0100-e3x,"org.eclipse.mylyn.team.ui",1590716716270
+started,bundle,org.eclipse.team.core,3.5.101.R36x_v20110203-1036,"org.eclipse.team.core",1590716716270
+started,bundle,org.eclipse.team.cvs.core,3.3.301.R36x_v20110119-0815,"org.eclipse.team.cvs.core",1590716716270
+started,bundle,org.eclipse.team.cvs.ui,3.3.302.R36x_v20110203-1036,"org.eclipse.team.cvs.ui",1590716716270
+started,bundle,org.eclipse.team.ui,3.5.102.R36x_v20110203-1036,"org.eclipse.team.ui",1590716716270
+started,bundle,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui",1590716716270
+started,bundle,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console",1590716716270
+started,bundle,org.eclipse.ui.editors,3.6.1.r361_v20100825-0800,"org.eclipse.ui.editors",1590716716270
+started,bundle,org.eclipse.ui.forms,3.5.2.r36_v20100702,"org.eclipse.ui.forms",1590716716270
+started,bundle,org.eclipse.ui.ide,3.6.2.M20101201-0800,"org.eclipse.ui.ide",1590716716270
+started,bundle,org.eclipse.ui.navigator,3.5.0.I20100601-0800,"org.eclipse.ui.navigator",1590716716270
+started,bundle,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.resources",1590716716270
+started,bundle,org.eclipse.ui.net,1.2.100.I20100505-1245,"org.eclipse.ui.net",1590716716270
+started,bundle,org.eclipse.ui.views,3.5.1.M20110202-0800,"org.eclipse.ui.views",1590716716270
+started,bundle,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"org.eclipse.ui.workbench",1590716716270
+started,bundle,org.eclipse.ui.workbench.texteditor,3.6.1.r361_v20100714-0800,"org.eclipse.ui.workbench.texteditor",1590716716270
+started,bundle,org.eclipse.update.configurator,3.3.100.v20100512,"org.eclipse.update.configurator",1590716716270
+started,bundle,org.eclipse.update.core,3.2.402.R36x_v20100629,"org.eclipse.update.core",1590716716270
+started,bundle,org.eclipse.update.scheduler,3.2.300.v20100512,"org.eclipse.update.scheduler",1590716716270
+started,bundle,org.eclipse.wst.common.core,1.2.0.v200908252030,"org.eclipse.wst.common.core",1590716716270
+started,bundle,org.eclipse.wst.common.emf,1.2.3.v201012100400,"org.eclipse.wst.common.emf",1590716716270
+started,bundle,org.eclipse.wst.common.emfworkbench.integration,1.2.3.v201012020600,"org.eclipse.wst.common.emfworkbench.integration",1590716716270
+started,bundle,org.eclipse.wst.common.frameworks,1.2.0.v201003040800,"org.eclipse.wst.common.frameworks",1590716716270
+started,bundle,org.eclipse.wst.common.frameworks.ui,1.2.0.v201004080500,"org.eclipse.wst.common.frameworks.ui",1590716716270
+started,bundle,org.eclipse.wst.common.modulecore,1.2.5.v201101270100,"org.eclipse.wst.common.modulecore",1590716716270
+started,bundle,org.eclipse.wst.common.project.facet.core,1.4.102.v201008170019,"org.eclipse.wst.common.project.facet.core",1590716716270
+started,bundle,org.eclipse.wst.common.ui,1.1.500.v200911190730,"org.eclipse.wst.common.ui",1590716716270
+started,bundle,org.eclipse.wst.dtd.core,1.1.401.v201101122255,"org.eclipse.wst.dtd.core",1590716716270
+started,bundle,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.ui",1590716716270
+started,bundle,org.eclipse.wst.internet.monitor.core,1.0.404.v20090609,"org.eclipse.wst.internet.monitor.core",1590716716270
+started,bundle,org.eclipse.wst.internet.monitor.ui,1.0.405.v20100309,"org.eclipse.wst.internet.monitor.ui",1590716716270
+started,bundle,org.eclipse.wst.jsdt.core,1.1.4.v201102102045,"org.eclipse.wst.jsdt.core",1590716716270
+started,bundle,org.eclipse.wst.jsdt.manipulation,1.0.200.v201004150600,"org.eclipse.wst.jsdt.manipulation",1590716716270
+started,bundle,org.eclipse.wst.jsdt.ui,1.1.4.v201102160540,"org.eclipse.wst.jsdt.ui",1590716716270
+started,bundle,org.eclipse.wst.server.core,1.1.206.v20110110,"org.eclipse.wst.server.core",1590716716270
+started,bundle,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui",1590716716270
+started,bundle,org.eclipse.wst.sse.core,1.1.504.v201102160550,"org.eclipse.wst.sse.core",1590716716270
+started,bundle,org.eclipse.wst.sse.ui,1.2.3.v201102102045,"org.eclipse.wst.sse.ui",1590716716270
+started,bundle,org.eclipse.wst.validation,1.2.201.v201101270100,"org.eclipse.wst.validation",1590716716270
+started,bundle,org.eclipse.wst.web,1.1.402.v201012160000,"org.eclipse.wst.web",1590716716270
+started,bundle,org.eclipse.wst.wsdl.validation,1.1.501.v201004201506,"org.eclipse.wst.wsdl.validation",1590716716270
+started,bundle,org.eclipse.wst.xml.core,1.1.503.v201102102045,"org.eclipse.wst.xml.core",1590716716270
+started,bundle,org.eclipse.wst.xsd.core,1.1.503.v201011121919,"org.eclipse.wst.xsd.core",1590716716270
+started,bundle,org.eclipse.wst.xsl.core,1.1.0.v201004290328,"org.eclipse.wst.xsl.core",1590716716270
+os,sysinfo,,,"win32",1590716716270
+arch,sysinfo,,,"x86",1590716716270
+ws,sysinfo,,,"win32",1590716716270
+locale,sysinfo,,,"fr_FR",1590716716270
+processors,sysinfo,,,"4",1590716716270
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1590716716270
+java.runtime.version,sysinfo,,,"1.8.0-b132",1590716716270
+java.specification.name,sysinfo,,,"Java Platform API Specification",1590716716270
+java.specification.vendor,sysinfo,,,"Oracle Corporation",1590716716270
+java.specification.version,sysinfo,,,"1.8",1590716716270
+java.vendor,sysinfo,,,"Oracle Corporation",1590716716270
+java.version,sysinfo,,,"1.8.0",1590716716270
+java.vm.info,sysinfo,,,"mixed mode",1590716716270
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1590716716270
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1590716716270
+java.vm.specification.vendor,sysinfo,,,"Oracle Corporation",1590716716270
+java.vm.specification.version,sysinfo,,,"1.8",1590716716270
+java.vm.vendor,sysinfo,,,"Oracle Corporation",1590716716270
+java.vm.version,sysinfo,,,"25.0-b70",1590716716270
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590716932666
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590716941896
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1590716941966
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1590716949266
+started,bundle,org.eclipse.jst.j2ee.ejb,1.1.402.v201102071010,"org.eclipse.jst.j2ee.ejb",1590716949306
+started,bundle,org.eclipse.jst.j2ee.jca,1.1.400.v201005270700,"org.eclipse.jst.j2ee.jca",1590716949306
+started,bundle,org.eclipse.jst.jee.ejb,1.0.301.v201007070821,"org.eclipse.jst.jee.ejb",1590716949316
+started,bundle,org.eclipse.jst.jee.web,1.0.301.v201007070907,"org.eclipse.jst.jee.web",1590716949316
+started,bundle,org.eclipse.xsd,2.6.0.v20100914-1218,"org.eclipse.xsd",1590716949356
+started,bundle,org.eclipse.jst.ws.jaxws.dom.integration,1.0.0.v201004171919,"org.eclipse.jst.ws.jaxws.dom.integration",1590716949506
+started,bundle,org.eclipse.jst.ws.jaxws.dom.ui,1.0.0.v201004171919,"org.eclipse.jst.ws.jaxws.dom.ui",1590716949516
+started,bundle,org.eclipse.jst.servlet.ui,1.1.404.v201101270100,"org.eclipse.jst.servlet.ui",1590716949526
+started,bundle,org.eclipse.compare,3.5.101.R36x_v20100929-0800,"org.eclipse.compare",1590716957596
+started,bundle,org.eclipse.debug.ui,3.6.3.v20101201_r362,"org.eclipse.debug.ui",1590716959686
+started,bundle,org.eclipse.jst.server.generic.core,1.0.606.v20100512,"org.eclipse.jst.server.generic.core",1590716961106
+started,bundle,org.eclipse.jst.server.preview.adapter,1.1.100.v20100308,"org.eclipse.jst.server.preview.adapter",1590716961106
+executed,command,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.launchShortcut.run",1590716961426
+started,bundle,org.eclipse.jst.server.tomcat.ui,1.1.200.v20100418,"org.eclipse.jst.server.tomcat.ui",1590716961446
+started,bundle,org.eclipse.jdt.debug,3.6.1.v20100715_r361,"org.eclipse.jdt.debug",1590716961526
+started,bundle,org.eclipse.jdt.debug.ui,3.5.2.v20100928a_r362,"org.eclipse.jdt.debug.ui",1590716961656
+opened,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1590716962236
+started,bundle,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser",1590716964027
+opened,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1590716964237
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1590716964337
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590716974738
+error,log,,,"Unhandled event loop exception",1590716981617
+error,log,,,"Unhandled event loop exception",1590716981957
+error,log,,,"Unhandled event loop exception",1590716982217
+error,log,,,"Unhandled event loop exception",1590716982667
+error,log,,,"Unhandled event loop exception",1590716982990
+error,log,,,"Unhandled event loop exception",1590716983249
+error,log,,,"Unhandled event loop exception",1590716983499
+error,log,,,"Unhandled event loop exception",1590716984329
+error,log,,,"Unhandled event loop exception",1590716984399
+error,log,,,"Unhandled event loop exception",1590716984459
+error,log,,,"Unhandled event loop exception",1590716984519
+error,log,,,"Unhandled event loop exception",1590716984579
+error,log,,,"Unhandled event loop exception",1590716984649
+error,log,,,"Unhandled event loop exception",1590716984709
+error,log,,,"Unhandled event loop exception",1590716984769
+error,log,,,"Unhandled event loop exception",1590716984829
+error,log,,,"Unhandled event loop exception",1590716984889
+error,log,,,"Unhandled event loop exception",1590716984949
+error,log,,,"Unhandled event loop exception",1590716985009
+error,log,,,"Unhandled event loop exception",1590716985079
+error,log,,,"Unhandled event loop exception",1590716985149
+error,log,,,"Unhandled event loop exception",1590716999937
+error,log,,,"Unhandled event loop exception",1590716999987
+error,log,,,"Unhandled event loop exception",1590717000047
+error,log,,,"Unhandled event loop exception",1590717000097
+error,log,,,"Unhandled event loop exception",1590717000157
+error,log,,,"Unhandled event loop exception",1590717000207
+error,log,,,"Unhandled event loop exception",1590717000257
+error,log,,,"Unhandled event loop exception",1590717000317
+error,log,,,"Unhandled event loop exception",1590717000377
+error,log,,,"Unhandled event loop exception",1590717000427
+error,log,,,"Unhandled event loop exception",1590717000477
+error,log,,,"Unhandled event loop exception",1590717000527
+error,log,,,"Unhandled event loop exception",1590717000587
+error,log,,,"Unhandled event loop exception",1590717000637
+error,log,,,"Unhandled event loop exception",1590717000687
+error,log,,,"Unhandled event loop exception",1590717000737
+error,log,,,"Unhandled event loop exception",1590717000797
+error,log,,,"Unhandled event loop exception",1590717000847
+error,log,,,"Unhandled event loop exception",1590717019371
+error,log,,,"Unhandled event loop exception",1590717019431
+error,log,,,"Unhandled event loop exception",1590717019491
+error,log,,,"Unhandled event loop exception",1590717019541
+error,log,,,"Unhandled event loop exception",1590717019601
+error,log,,,"Unhandled event loop exception",1590717019661
+error,log,,,"Unhandled event loop exception",1590717019711
+error,log,,,"Unhandled event loop exception",1590717019771
+error,log,,,"Unhandled event loop exception",1590717019831
+error,log,,,"Unhandled event loop exception",1590717019891
+error,log,,,"Unhandled event loop exception",1590717019961
+error,log,,,"Unhandled event loop exception",1590717020021
+error,log,,,"Unhandled event loop exception",1590717020071
+error,log,,,"Unhandled event loop exception",1590717020131
+error,log,,,"Unhandled event loop exception",1590717020191
+error,log,,,"Unhandled event loop exception",1590717020251
+error,log,,,"Unhandled event loop exception",1590717020311
+error,log,,,"Unhandled event loop exception",1590717020371
+error,log,,,"Unhandled event loop exception",1590717020421
+error,log,,,"Unhandled event loop exception",1590717020481
+error,log,,,"Unhandled event loop exception",1590717020541
+error,log,,,"Unhandled event loop exception",1590717020861
+error,log,,,"Unhandled event loop exception",1590717020921
+error,log,,,"Unhandled event loop exception",1590717020971
+error,log,,,"Unhandled event loop exception",1590717021021
+error,log,,,"Unhandled event loop exception",1590717021071
+error,log,,,"Unhandled event loop exception",1590717021131
+error,log,,,"Unhandled event loop exception",1590717021181
+error,log,,,"Unhandled event loop exception",1590717021231
+error,log,,,"Unhandled event loop exception",1590717021281
+error,log,,,"Unhandled event loop exception",1590717021331
+error,log,,,"Unhandled event loop exception",1590717021391
+error,log,,,"Unhandled event loop exception",1590717021441
+error,log,,,"Unhandled event loop exception",1590717021491
+error,log,,,"Unhandled event loop exception",1590717021551
+error,log,,,"Unhandled event loop exception",1590717021601
+error,log,,,"Unhandled event loop exception",1590717021661
+error,log,,,"Unhandled event loop exception",1590717021711
+error,log,,,"Unhandled event loop exception",1590717021761
+error,log,,,"Unhandled event loop exception",1590717021811
+error,log,,,"Unhandled event loop exception",1590717021871
+error,log,,,"Unhandled event loop exception",1590717021921
+error,log,,,"Unhandled event loop exception",1590717021971
+error,log,,,"Unhandled event loop exception",1590717075704
+error,log,,,"Unhandled event loop exception",1590717075764
+error,log,,,"Unhandled event loop exception",1590717075824
+error,log,,,"Unhandled event loop exception",1590717075884
+error,log,,,"Unhandled event loop exception",1590717075934
+error,log,,,"Unhandled event loop exception",1590717075994
+error,log,,,"Unhandled event loop exception",1590717076054
+error,log,,,"Unhandled event loop exception",1590717076114
+error,log,,,"Unhandled event loop exception",1590717076164
+error,log,,,"Unhandled event loop exception",1590717076224
+error,log,,,"Unhandled event loop exception",1590717076284
+error,log,,,"Unhandled event loop exception",1590717076344
+error,log,,,"Unhandled event loop exception",1590717076404
+error,log,,,"Unhandled event loop exception",1590717076454
+error,log,,,"Unhandled event loop exception",1590717076514
+error,log,,,"Unhandled event loop exception",1590717076574
+error,log,,,"Unhandled event loop exception",1590717076634
+error,log,,,"Unhandled event loop exception",1590717076684
+error,log,,,"Unhandled event loop exception",1590717076744
+error,log,,,"Unhandled event loop exception",1590717076804
+error,log,,,"Unhandled event loop exception",1590717076864
+error,log,,,"Unhandled event loop exception",1590717076924
+error,log,,,"Unhandled event loop exception",1590717076984
+error,log,,,"Unhandled event loop exception",1590717077034
+error,log,,,"Unhandled event loop exception",1590717077084
+error,log,,,"Unhandled event loop exception",1590717077144
+error,log,,,"Unhandled event loop exception",1590717077194
+error,log,,,"Unhandled event loop exception",1590717077244
+error,log,,,"Unhandled event loop exception",1590717077304
+error,log,,,"Unhandled event loop exception",1590717077354
+error,log,,,"Unhandled event loop exception",1590717077404
+error,log,,,"Unhandled event loop exception",1590717077454
+error,log,,,"Unhandled event loop exception",1590717077504
+error,log,,,"Unhandled event loop exception",1590717077564
+error,log,,,"Unhandled event loop exception",1590717077614
+error,log,,,"Unhandled event loop exception",1590717077664
+error,log,,,"Unhandled event loop exception",1590717077714
+error,log,,,"Unhandled event loop exception",1590717077764
+error,log,,,"Unhandled event loop exception",1590717077824
+error,log,,,"Unhandled event loop exception",1590717077874
+error,log,,,"Unhandled event loop exception",1590717077924
+error,log,,,"Unhandled event loop exception",1590717077984
+error,log,,,"Unhandled event loop exception",1590717078034
+error,log,,,"Unhandled event loop exception",1590717078084
+error,log,,,"Unhandled event loop exception",1590717178838
+error,log,,,"Unhandled event loop exception",1590717178898
+error,log,,,"Unhandled event loop exception",1590717178948
+error,log,,,"Unhandled event loop exception",1590717178998
+error,log,,,"Unhandled event loop exception",1590717179058
+error,log,,,"Unhandled event loop exception",1590717179118
+error,log,,,"Unhandled event loop exception",1590717179178
+error,log,,,"Unhandled event loop exception",1590717179228
+error,log,,,"Unhandled event loop exception",1590717179288
+error,log,,,"Unhandled event loop exception",1590717179338
+error,log,,,"Unhandled event loop exception",1590717179398
+error,log,,,"Unhandled event loop exception",1590717179458
+error,log,,,"Unhandled event loop exception",1590717179508
+error,log,,,"Unhandled event loop exception",1590717179568
+error,log,,,"Unhandled event loop exception",1590717179628
+error,log,,,"Unhandled event loop exception",1590717179678
+error,log,,,"Unhandled event loop exception",1590717179738
+error,log,,,"Unhandled event loop exception",1590717179798
+error,log,,,"Unhandled event loop exception",1590717179848
+error,log,,,"Unhandled event loop exception",1590717585604
+error,log,,,"Unhandled event loop exception",1590717585664
+error,log,,,"Unhandled event loop exception",1590717585714
+error,log,,,"Unhandled event loop exception",1590717585774
+error,log,,,"Unhandled event loop exception",1590717585834
+error,log,,,"Unhandled event loop exception",1590717585894
+error,log,,,"Unhandled event loop exception",1590717585944
+error,log,,,"Unhandled event loop exception",1590717586024
+error,log,,,"Unhandled event loop exception",1590717586084
+error,log,,,"Unhandled event loop exception",1590717586144
+error,log,,,"Unhandled event loop exception",1590717586194
+error,log,,,"Unhandled event loop exception",1590717586254
+error,log,,,"Unhandled event loop exception",1590717586314
+error,log,,,"Unhandled event loop exception",1590717586364
+error,log,,,"Unhandled event loop exception",1590717586424
+error,log,,,"Unhandled event loop exception",1590717586484
+error,log,,,"Unhandled event loop exception",1590717586534
+error,log,,,"Unhandled event loop exception",1590717586594
+error,log,,,"Unhandled event loop exception",1590717586654
+error,log,,,"Unhandled event loop exception",1590717586714
+error,log,,,"Unhandled event loop exception",1590717586764
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717650017
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1590717653227
+error,log,,,"Could not create action delegate for id: EclipseIntegration.action1",1590717673507
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717673537
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717675687
+error,log,,,"Internal plug-in action delegate error on creation.",1590717675697
+error,log,,,"Could not create action delegate for id: EclipseIntegration.actionNewSelectIn",1590717675707
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717675717
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717677447
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717678797
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717678917
+error,log,,,"Internal plug-in action delegate error on creation.",1590717678937
+error,log,,,"Could not create action delegate for id: EclipseIntegration.action3",1590717678937
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717678947
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717680517
+error,log,,,"Warning: Blocked recursive attempt by part org.eclipse.jdt.ui.CompilationUnitEditor to dispose itself during creation",1590717680647
+closed,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1590717680677
+error,log,,,"Internal plug-in action delegate error on creation.",1590717680877
+error,log,,,"Widget is disposed",1590717680887
+error,log,,,"An unexpected exception was thrown.",1590717680887
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.CompilationUnitEditor: An unexpected exception was thrown.",1590717680887
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jface"".",1590717680897
+error,log,,,"An error has occurred. See error log for more details.",1590717680897
+stopped,bundle,VPUMLEclipseIntegrationPlugIn,7.0.1.v20090819,"VPUMLEclipseIntegrationPlugIn",1590717680957

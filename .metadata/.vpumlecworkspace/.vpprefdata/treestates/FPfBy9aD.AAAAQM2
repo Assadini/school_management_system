@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectTreeState projectID="FzJYi9aGAqACEgMS" projectPath="D:\bts2019\BTS\vpproject\BTS.vpp">
+	<TreeState name="ModelRepository" viewX="0" viewY="0">
+		<ExpandedPath>ModelRepository</ExpandedPath>
+		<ExpandedPath>ModelRepository,BsjtMU6GAqACBDZ.</ExpandedPath>
+		<SelectedPath>ModelRepository,SekS3w6GAqACBza.</SelectedPath>
+	</TreeState>
+	<TreeState name="DiagramNavigator" viewX="0" viewY="389">
+		<ExpandedPath>DiagramNavigator</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
+		<ExpandedPath>UseCaseDiagram</ExpandedPath>
+		<ExpandedPath>ClassDiagram</ExpandedPath>
+		<ExpandedPath>InteractionDiagram</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Requirements Capturing</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
+		<ExpandedPath>ERDiagram</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Impact Analysis</ExpandedPath>
+		<SelectedPath>ClassDiagram,4kX4D0qD.AAAAR3G</SelectedPath>
+	</TreeState>
+	<TreeState name="ClassBrowser" viewX="0" viewY="0">
+		<ExpandedPath>ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,X2QED0qD.AAAAR3g</ExpandedPath>
+		<SelectedPath>ClassBrowser,ClassBrowser,X2QED0qD.AAAAR3g,chkykMqGAqAAwC_H</SelectedPath>
+	</TreeState>
+	<TreeState name="LogicalView" viewX="0" viewY="0">
+		<SelectedPath>LogicalView</SelectedPath>
+	</TreeState>
+	<TreeState name="DiagramNavigatorHierarchy" viewX="0" viewY="0"/>
+</ProjectTreeState>

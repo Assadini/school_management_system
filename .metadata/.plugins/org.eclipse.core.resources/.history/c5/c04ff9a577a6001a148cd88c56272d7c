@@ -1,0 +1,73 @@
+package dao.etablissement;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import Domaine.classe.Cycle;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+
+import dao.database.Db;
+
+public class CycleDAO {
+	private Connection con;
+	public CycleDAO() {
+		this.con = Db.getInstance().con;
+	}
+	public void insert(Cycle cycle) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("insert into cycle (ID, Code, Nom_Fr, Nom_Ar) values (null, ?, ?, ?)");
+		statement.setString(1, cycle.getCode());
+		statement.setString(2, cycle.getNom_Fr());
+		statement.setString(3, cycle.getNom_Ar());
+		statement.execute();
+		statement.close();
+	}
+	public ArrayList<Cycle> getAll() throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("select ID, Code, Nom_Fr, Nom_Ar from cycle");
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Cycle> cycles = new ArrayList<Cycle>();
+		while (rs.next()) {
+			Cycle cycle = new Cycle();
+			cycle.setId(rs.getInt("ID"));
+			cycle.setCode(rs.getString("Code"));
+			cycle.setNom_Fr(rs.getString("Nom_Fr"));
+			cycle.setNom_Ar(rs.getString("Nom_Ar"));
+			cycles.add(cycle);
+		}
+		rs.close();
+		statement.close();
+		return cycles;	
+	}
+	public Cycle getById(int id) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("select ID, Code, Nom_Fr, Nom_Ar from cycle where ID = ? ");
+		statement.setInt(1, id);
+		ResultSet rs = statement.executeQuery();
+		Cycle cycle = new Cycle();
+		while (rs.next()) {
+			cycle.setId(rs.getInt("ID"));
+			cycle.setCode(rs.getString("Code"));
+			cycle.setNom_Fr(rs.getString("Nom_Fr"));
+			cycle.setNom_Ar(rs.getString("Nom_Ar"));
+		}
+		rs.close();
+		statement.close();
+		return cycle;		
+	}
+	public void update (Cycle cycle) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("update cycle set Code = ?, Nom_Fr = ?, Nom_Ar = ? where ID = ?");
+		statement.setString(1, cycle.getCode());
+		statement.setString(2, cycle.getNom_Fr());
+		statement.setString(3, cycle.getNom_Ar());
+		statement.setInt(4,cycle.getId());
+		statement.execute();
+	}
+	public void delete(Cycle cycle) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("delete from cycle where ID = ?");
+		statement.setInt(1, cycle.getId());
+		statement.execute();
+		statement.close();
+	}
+}

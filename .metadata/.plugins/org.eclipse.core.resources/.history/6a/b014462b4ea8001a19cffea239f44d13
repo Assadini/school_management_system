@@ -1,0 +1,117 @@
+package Domaine.matiere;
+
+
+import java.util.ArrayList;
+
+import Domaine.evaluation.FormeEvaluation;
+
+public class ConfigurationMatiere {
+	private int id;
+	private Matiere matiere;
+	private ClasseGUnite classeGUnite;
+	private short volumeHoraire;  
+	private short horaireS1;  //  horaireS1
+	private short horaireS2;
+	private short nbreControles;
+	private FormeEvaluation formeControle;
+	private float noteEliminatoire;
+	private Periode periode;
+	private ArrayList<ConfigurationModule> configurationModules;
+	public ConfigurationMatiere() {
+		super();
+		this.configurationModules= new ArrayList<ConfigurationModule>();
+	}
+	public ConfigurationMatiere(int id, Matiere matiere,
+			ClasseGUnite classeGUnite, short volumeHoraire,
+			short horaireS1, short horaireS2,
+			short nbreControles, FormeEvaluation formeControle,
+			float noteEliminatoire, Periode periode) {
+		super();
+		this.id = id;
+		this.matiere = matiere;
+		this.classeGUnite = classeGUnite;
+		this.volumeHoraire = volumeHoraire;
+		this.horaireS1 = horaireS1;
+		this.horaireS2 = horaireS2;
+		this.nbreControles = nbreControles;
+		this.formeControle = formeControle;
+		this.noteEliminatoire = noteEliminatoire;
+		this.periode = periode;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Matiere getMatiere() {
+		return matiere;
+	}
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+	public ClasseGUnite getClasseGUnite() {
+		return classeGUnite;
+	}
+	public void setClasseGUnite(ClasseGUnite classeGUnite) {
+		this.classeGUnite = classeGUnite;
+	}
+	public short getVolumeHoraire() {
+		return volumeHoraire;
+	}
+	public void setVolumeHoraire(short volumeHoraire) {
+		this.volumeHoraire = volumeHoraire;
+	}
+	public short getHoraireS1() {
+		return horaireS1;
+	}
+	public void setHoraireS1(short horaireS1) {
+		this.horaireS1 = horaireS1;
+	}
+	public short getHoraireS2() {
+		return horaireS2;
+	}
+	public void setHoraireS2(short horaireS2) {
+		this.horaireS2 = horaireS2;
+	}
+	public short getNbreControles() {
+		return nbreControles;
+	}
+	public void setNbreControles(short nbreControles) {
+		this.nbreControles = nbreControles;
+	}
+	public FormeEvaluation getFormeControle() {
+		return formeControle;
+	}
+	public void setFormeControle(FormeEvaluation formeControle) {
+		this.formeControle = formeControle;
+	}
+	public float getNoteEliminatoire() {
+		return noteEliminatoire;
+	}
+	public void setNoteEliminatoire(float noteEliminatoire) {
+		this.noteEliminatoire = noteEliminatoire;
+	}
+	public Periode getPeriode() {
+		return periode;
+	}
+	public void setPeriode(Periode periode) {
+		this.periode = periode;
+	}
+	
+	public ArrayList<ConfigurationModule> getConfigurationModules() {
+		return configurationModules;
+	}
+	public void addConfigurationModules(ConfigurationModule configurationModule) {
+		this.configurationModules.add(configurationModule);
+	}
+	@Override
+	public String toString() {
+		return "ConfigurationMatiere [id=" + id + ", matiere=" + matiere
+				+ ", classeGUnite=" + classeGUnite + ", Volume Horaire="
+				+ volumeHoraire + ", Horaire S1=" + horaireS1 + ", Horaire S2=" + horaireS2
+				+ ", nbreControles=" + nbreControles + ", formeControle="
+				+ formeControle + ", noteEliminatoire=" + noteEliminatoire
+				+ ", periode=" + periode + "]";
+	}
+}

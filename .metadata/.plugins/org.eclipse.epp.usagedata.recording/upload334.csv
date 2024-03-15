@@ -1,0 +1,351 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Unhandled event loop exception",1586554318442
+error,log,,,"Unhandled event loop exception",1586554323075
+error,log,,,"Unhandled event loop exception",1586554325899
+error,log,,,"Unhandled event loop exception",1586554328676
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586554329316
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586554331110
+error,log,,,"Unhandled event loop exception",1586554331344
+error,log,,,"Unhandled event loop exception",1586554334012
+error,log,,,"Unhandled event loop exception",1586554336789
+error,log,,,"Unhandled event loop exception",1586554337382
+error,log,,,"Unhandled event loop exception",1586554342608
+error,log,,,"Unhandled event loop exception",1586554342624
+error,log,,,"Unhandled event loop exception",1586554348554
+error,log,,,"Unhandled event loop exception",1586554351752
+error,log,,,"Unhandled event loop exception",1586554354482
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586554370606
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586554371542
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1586554375880
+executed,command,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.run",1586554380528
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586554382651
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1586554383603
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586554388454
+error,log,,,"Unhandled event loop exception",1586554391371
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586554398542
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586554398542
+error,log,,,"Unhandled event loop exception",1586554398558
+error,log,,,"Unhandled event loop exception",1586554400180
+error,log,,,"Unhandled event loop exception",1586554400866
+error,log,,,"Unhandled event loop exception",1586554403487
+error,log,,,"Unhandled event loop exception",1586554405141
+error,log,,,"Unhandled event loop exception",1586554406514
+error,log,,,"Unhandled event loop exception",1586554410616
+error,log,,,"Unhandled event loop exception",1586554410616
+error,log,,,"Unhandled event loop exception",1586554413847
+error,log,,,"Unhandled event loop exception",1586554416842
+error,log,,,"Unhandled event loop exception",1586554417778
+error,log,,,"Unhandled event loop exception",1586554421459
+error,log,,,"Unhandled event loop exception",1586554421771
+error,log,,,"Unhandled event loop exception",1586554426124
+error,log,,,"Unhandled event loop exception",1586554431194
+error,log,,,"Unhandled event loop exception",1586554432754
+error,log,,,"Unhandled event loop exception",1586554434345
+error,log,,,"Unhandled event loop exception",1586554439697
+error,log,,,"Unhandled event loop exception",1586554442162
+error,log,,,"Unhandled event loop exception",1586554443598
+error,log,,,"Unhandled event loop exception",1586554447436
+error,log,,,"Unhandled event loop exception",1586554448950
+error,log,,,"Unhandled event loop exception",1586554449371
+error,log,,,"Unhandled event loop exception",1586554449480
+error,log,,,"Unhandled event loop exception",1586554452444
+error,log,,,"Unhandled event loop exception",1586554461228
+error,log,,,"Unhandled event loop exception",1586554464395
+error,log,,,"Unhandled event loop exception",1586554467093
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1586554467421
+error,log,,,"Unhandled event loop exception",1586554470557
+error,log,,,"Unhandled event loop exception",1586554474613
+error,log,,,"Unhandled event loop exception",1586554478154
+error,log,,,"Unhandled event loop exception",1586554479620
+error,log,,,"Unhandled event loop exception",1586554479839
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586554480057
+error,log,,,"Unhandled event loop exception",1586554483832
+error,log,,,"Unhandled event loop exception",1586554489043
+error,log,,,"Unhandled event loop exception",1586554492131
+error,log,,,"Unhandled event loop exception",1586554498699
+error,log,,,"Unhandled event loop exception",1586554501447
+error,log,,,"Unhandled event loop exception",1586554504179
+error,log,,,"Unhandled event loop exception",1586554506832
+error,log,,,"Unhandled event loop exception",1586554509516
+error,log,,,"Unhandled event loop exception",1586554512200
+error,log,,,"Unhandled event loop exception",1586554514993
+error,log,,,"Unhandled event loop exception",1586554517598
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557738434
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586557742942
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586557772818
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557782540
+error,log,,,"Unhandled event loop exception",1586557784553
+error,log,,,"Unhandled event loop exception",1586557791612
+error,log,,,"Unhandled event loop exception",1586557793905
+error,log,,,"Unhandled event loop exception",1586557795465
+error,log,,,"Unhandled event loop exception",1586557797009
+error,log,,,"Unhandled event loop exception",1586557798569
+error,log,,,"Unhandled event loop exception",1586557799895
+error,log,,,"Unhandled event loop exception",1586557802579
+error,log,,,"Unhandled event loop exception",1586557804841
+error,log,,,"Unhandled event loop exception",1586557807727
+error,log,,,"Unhandled event loop exception",1586557810004
+error,log,,,"Unhandled event loop exception",1586557810628
+error,log,,,"Unhandled event loop exception",1586557816697
+error,log,,,"Unhandled event loop exception",1586557818241
+error,log,,,"Unhandled event loop exception",1586557821362
+error,log,,,"Unhandled event loop exception",1586557824134
+error,log,,,"Unhandled event loop exception",1586557825826
+error,log,,,"Unhandled event loop exception",1586557827418
+error,log,,,"Unhandled event loop exception",1586557832706
+error,log,,,"Unhandled event loop exception",1586557835483
+error,log,,,"Unhandled event loop exception",1586557836871
+error,log,,,"Unhandled event loop exception",1586557840381
+error,log,,,"Unhandled event loop exception",1586557846777
+error,log,,,"Unhandled event loop exception",1586557847713
+error,log,,,"Unhandled event loop exception",1586557851447
+error,log,,,"Unhandled event loop exception",1586557853038
+error,log,,,"Unhandled event loop exception",1586557856220
+error,log,,,"Unhandled event loop exception",1586557856220
+error,log,,,"Unhandled event loop exception",1586557859309
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557859637
+error,log,,,"Unhandled event loop exception",1586557862164
+error,log,,,"Unhandled event loop exception",1586557863708
+error,log,,,"Unhandled event loop exception",1586557865565
+error,log,,,"Unhandled event loop exception",1586557867109
+error,log,,,"Unhandled event loop exception",1586557868653
+error,log,,,"Unhandled event loop exception",1586557872663
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557875751
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557877187
+error,log,,,"Unhandled event loop exception",1586557877452
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1586557879433
+error,log,,,"Unhandled event loop exception",1586557879995
+error,log,,,"Unhandled event loop exception",1586557882974
+error,log,,,"Unhandled event loop exception",1586557885782
+error,log,,,"Unhandled event loop exception",1586557888481
+error,log,,,"Unhandled event loop exception",1586557891117
+error,log,,,"Unhandled event loop exception",1586557893567
+error,log,,,"Unhandled event loop exception",1586557895938
+error,log,,,"Unhandled event loop exception",1586557897404
+error,log,,,"Unhandled event loop exception",1586557900087
+error,log,,,"Unhandled event loop exception",1586557904003
+error,log,,,"Unhandled event loop exception",1586557905454
+error,log,,,"Unhandled event loop exception",1586557909432
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557909744
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586557911241
+error,log,,,"Unhandled event loop exception",1586557912786
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586557913113
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586557921194
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1586557952769
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586557953096
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586557997198
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586558021612
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586558025371
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586558039380
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586558066025
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586558069597
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586558080316
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586558102717
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586558104979
+error,log,,,"Unhandled event loop exception",1586558106555
+error,log,,,"Unhandled event loop exception",1586558113731
+error,log,,,"Unhandled event loop exception",1586558115433
+error,log,,,"Unhandled event loop exception",1586558117788
+error,log,,,"Unhandled event loop exception",1586558119395
+error,log,,,"Unhandled event loop exception",1586558123203
+error,log,,,"Unhandled event loop exception",1586558124778
+error,log,,,"Unhandled event loop exception",1586558126884
+error,log,,,"Unhandled event loop exception",1586558128538
+error,log,,,"Unhandled event loop exception",1586558128553
+error,log,,,"Unhandled event loop exception",1586558130940
+error,log,,,"Unhandled event loop exception",1586558133046
+error,log,,,"Unhandled event loop exception",1586558136261
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586558138102
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586558139303
+error,log,,,"Unhandled event loop exception",1586558141206
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586558142407
+error,log,,,"Unhandled event loop exception",1586558142828
+error,log,,,"Unhandled event loop exception",1586558146572
+error,log,,,"Unhandled event loop exception",1586558148117
+error,log,,,"Unhandled event loop exception",1586558149692
+error,log,,,"Unhandled event loop exception",1586558151143
+error,log,,,"Unhandled event loop exception",1586558153546
+error,log,,,"Unhandled event loop exception",1586558159692
+error,log,,,"Unhandled event loop exception",1586558162282
+error,log,,,"Unhandled event loop exception",1586558163732
+error,log,,,"Unhandled event loop exception",1586558167679
+error,log,,,"Unhandled event loop exception",1586558167788
+error,log,,,"Unhandled event loop exception",1586558170487
+error,log,,,"Unhandled event loop exception",1586558175822
+error,log,,,"Unhandled event loop exception",1586558178927
+error,log,,,"Unhandled event loop exception",1586558181548
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586559956520
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586560995272
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586561401915
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561404863
+error,log,,,"Unhandled event loop exception",1586561406689
+error,log,,,"Unhandled event loop exception",1586561414412
+error,log,,,"Unhandled event loop exception",1586561424319
+error,log,,,"Unhandled event loop exception",1586561429874
+error,log,,,"Unhandled event loop exception",1586561432714
+error,log,,,"Unhandled event loop exception",1586561434212
+error,log,,,"Unhandled event loop exception",1586561435694
+error,log,,,"Unhandled event loop exception",1586561437191
+error,log,,,"Unhandled event loop exception",1586561445257
+error,log,,,"Unhandled event loop exception",1586561448471
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561453541
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586561454992
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586561502089
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586561556033
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561680181
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561682162
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1586561685095
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561687872
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1586561714688
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561717902
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1586561726513
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561728510
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561728697
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1586561736201
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561739680
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.cut",1586561762112
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561765217
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1586561771504
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561784296
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561784561
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1586561806775
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561809755
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1586561830799
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586561836212
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586561859769
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561861625
+error,log,,,"Unhandled event loop exception",1586561863217
+error,log,,,"Unhandled event loop exception",1586561870561
+error,log,,,"Unhandled event loop exception",1586561872355
+error,log,,,"Unhandled event loop exception",1586561874056
+error,log,,,"Unhandled event loop exception",1586561875148
+error,log,,,"Unhandled event loop exception",1586561877878
+error,log,,,"Unhandled event loop exception",1586561877878
+error,log,,,"Unhandled event loop exception",1586561880921
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561883370
+error,log,,,"Unhandled event loop exception",1586561885476
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561886630
+error,log,,,"Unhandled event loop exception",1586561887051
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561887176
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561888112
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561888736
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561889469
+error,log,,,"Unhandled event loop exception",1586561890109
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561890858
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561891295
+error,log,,,"Unhandled event loop exception",1586561892496
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561892667
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561893369
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561893900
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561894539
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561895070
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561896739
+error,log,,,"Unhandled event loop exception",1586561896848
+error,log,,,"Unhandled event loop exception",1586561896848
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561897457
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561898299
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561900405
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561900935
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561901466
+error,log,,,"Unhandled event loop exception",1586561901575
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561901903
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561902339
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561902870
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561903307
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561903837
+error,log,,,"Unhandled event loop exception",1586561903946
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561904274
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1586561904711
+error,log,,,"Unhandled event loop exception",1586561905553
+error,log,,,"Unhandled event loop exception",1586561907113
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586561908923
+error,log,,,"Unhandled event loop exception",1586561912370
+error,log,,,"Unhandled event loop exception",1586561912370
+error,log,,,"Unhandled event loop exception",1586561914633
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586561916739
+error,log,,,"Unhandled event loop exception",1586561919859
+error,log,,,"Unhandled event loop exception",1586561921326
+error,log,,,"Unhandled event loop exception",1586561922792
+error,log,,,"Unhandled event loop exception",1586561924291
+error,log,,,"Unhandled event loop exception",1586561930765
+error,log,,,"Unhandled event loop exception",1586561933479
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586561935289
+error,log,,,"Unhandled event loop exception",1586561936662
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561963432
+error,log,,,"Unhandled event loop exception",1586561966100
+error,log,,,"Unhandled event loop exception",1586561973179
+error,log,,,"Unhandled event loop exception",1586561974802
+error,log,,,"Unhandled event loop exception",1586561976377
+error,log,,,"Unhandled event loop exception",1586561978608
+error,log,,,"Unhandled event loop exception",1586561980605
+error,log,,,"Unhandled event loop exception",1586561980839
+error,log,,,"Unhandled event loop exception",1586561983632
+error,log,,,"Unhandled event loop exception",1586561987128
+error,log,,,"Unhandled event loop exception",1586561989608
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561989717
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1586561991012
+error,log,,,"Unhandled event loop exception",1586561991886
+error,log,,,"Unhandled event loop exception",1586561994226
+error,log,,,"Unhandled event loop exception",1586561996550
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586561996753
+error,log,,,"Unhandled event loop exception",1586562000481
+error,log,,,"Unhandled event loop exception",1586562002120
+error,log,,,"Unhandled event loop exception",1586562006270
+error,log,,,"Unhandled event loop exception",1586562007846
+error,log,,,"Unhandled event loop exception",1586562009406
+error,log,,,"Unhandled event loop exception",1586562014647
+error,log,,,"Unhandled event loop exception",1586562017284
+error,log,,,"Unhandled event loop exception",1586562018906
+error,log,,,"Unhandled event loop exception",1586562022213
+error,log,,,"Unhandled event loop exception",1586562023726
+error,log,,,"Unhandled event loop exception",1586562025224
+error,log,,,"Unhandled event loop exception",1586562026706
+error,log,,,"Unhandled event loop exception",1586562028157
+error,log,,,"Unhandled event loop exception",1586562035894
+error,log,,,"Unhandled event loop exception",1586562039014
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586562040699
+error,log,,,"Unhandled event loop exception",1586562041651
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586562041994
+error,log,,,"Unhandled event loop exception",1586562044287
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1586562064817
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1586562070386
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586562077983
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586562102211
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586562120354
+error,log,,,"Unhandled event loop exception",1586562136110
+error,log,,,"Unhandled event loop exception",1586562143242
+error,log,,,"Unhandled event loop exception",1586562145613
+error,log,,,"Unhandled event loop exception",1586562147205
+error,log,,,"Unhandled event loop exception",1586562148889
+error,log,,,"Unhandled event loop exception",1586562151073
+error,log,,,"Unhandled event loop exception",1586562152025
+error,log,,,"Unhandled event loop exception",1586562153616
+error,log,,,"Unhandled event loop exception",1586562156346
+error,log,,,"Unhandled event loop exception",1586562157876
+error,log,,,"Unhandled event loop exception",1586562159467
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586562163633
+error,log,,,"Unhandled event loop exception",1586562164506
+error,log,,,"Unhandled event loop exception",1586562166394
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1586562166971
+error,log,,,"Unhandled event loop exception",1586562171261
+error,log,,,"Unhandled event loop exception",1586562172415
+error,log,,,"Unhandled event loop exception",1586562175910
+error,log,,,"Unhandled event loop exception",1586562177470
+error,log,,,"Unhandled event loop exception",1586562179061
+error,log,,,"Unhandled event loop exception",1586562184287
+error,log,,,"Unhandled event loop exception",1586562186923
+error,log,,,"Unhandled event loop exception",1586562188265
+error,log,,,"Unhandled event loop exception",1586562191759
+error,log,,,"Unhandled event loop exception",1586562193226
+error,log,,,"Unhandled event loop exception",1586562194692
+error,log,,,"Unhandled event loop exception",1586562197095
+error,log,,,"Unhandled event loop exception",1586562198873
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1586562203413
+error,log,,,"Unhandled event loop exception",1586562205504
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586562205707
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586562207766
+error,log,,,"Unhandled event loop exception",1586562208764
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1586562208874
+error,log,,,"Unhandled event loop exception",1586562212178
+error,log,,,"Unhandled event loop exception",1586562218926
+error,log,,,"Unhandled event loop exception",1586562221359

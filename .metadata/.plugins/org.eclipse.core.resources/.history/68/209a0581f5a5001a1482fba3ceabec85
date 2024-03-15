@@ -1,0 +1,96 @@
+package Domaine.matiere;
+
+import Domaine.evaluation.FormeEvaluation;
+
+public class ConfigurationModule {
+	private int id;
+	private Module module;
+	private ConfigurationMatiere configurationMatiere;
+	private short volumeHoraire;
+	private short horaireHebdo;
+	private short nbreControles;
+	private FormeEvaluation formeControle;
+	private float noteEliminatoire;
+	private Periode periode;
+	public ConfigurationModule() {
+		super();
+	}
+	public ConfigurationModule(int id, Module module,
+			ConfigurationMatiere configurationMatiere, short nbreHeures,
+			short nbreSeances, short nbreControles, FormeEvaluation formeControle,
+			float noteEliminatoire, Periode periode) {
+		super();
+		this.id = id;
+		this.module = module;
+		this.configurationMatiere = configurationMatiere;
+		this.volumeHoraire = nbreHeures;
+		this.horaireHebdo = nbreSeances;
+		this.nbreControles = nbreControles;
+		this.formeControle = formeControle;
+		this.noteEliminatoire = noteEliminatoire;
+		this.periode = periode;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Module getModule() {
+		return module;
+	}
+	public void setModule(Module module) {
+		this.module = module;
+	}
+	public ConfigurationMatiere getConfigurationMatiere() {
+		return configurationMatiere;
+	}
+	public void setConfigurationMatiere(ConfigurationMatiere configurationMatiere) {
+		this.configurationMatiere = configurationMatiere;
+	}
+	public short getNbreHeures() {
+		return volumeHoraire;
+	}
+	public void setNbreHeures(short nbreHeures) {
+		this.volumeHoraire = nbreHeures;
+	}
+	public short getNbreSeances() {
+		return horaireHebdo;
+	}
+	public void setNbreSeances(short nbreSeances) {
+		this.horaireHebdo = nbreSeances;
+	}
+	public short getNbreControles() {
+		return nbreControles;
+	}
+	public void setNbreControles(short nbreControles) {
+		this.nbreControles = nbreControles;
+	}
+	public FormeEvaluation getFormeControle() {
+		return formeControle;
+	}
+	public void setFormeControle(FormeEvaluation formeControle) {
+		this.formeControle = formeControle;
+	}
+	public float getNoteEliminatoire() {
+		return noteEliminatoire;
+	}
+	public void setNoteEliminatoire(float noteEliminatoire) {
+		this.noteEliminatoire = noteEliminatoire;
+	}
+	public Periode getPeriode() {
+		return periode;
+	}
+	public void setPeriode(Periode periode) {
+		this.periode = periode;
+	}
+	@Override
+	public String toString() {
+		return "ConfigurationModule [id=" + id + ", module=" + module
+				+ ", configurationMatiere=" + configurationMatiere
+				+ ", nbreHeures=" + volumeHoraire + ", nbreSeances=" + horaireHebdo
+				+ ", nbreControles=" + nbreControles + ", formeControle="
+				+ formeControle + ", noteEliminatoire=" + noteEliminatoire
+				+ ", periode=" + periode + "]";
+	}
+}

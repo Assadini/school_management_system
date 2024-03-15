@@ -1,0 +1,14 @@
+package Domaine.classe;
+
+import java.util.ArrayList;
+import Domaine.etudiant.Scolarite;
+
+public class Classe {
+	private int iD;
+	private String code;
+	private String nom;
+	private String description;
+	private String anneeScolaire;
+	public ArrayList<Scolarite> scolarite = new ArrayList<Scolarite>();
+	private ClasseGenerique classeGenerique;
+}

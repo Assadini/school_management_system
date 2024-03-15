@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>BTS</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_AnneeScolaire</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/AnneeScolaire.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_AnneeScolaire</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/AnneeScolaire</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_CyclesFilieresNiveaux</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/CyclesFilieresNiveaux.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_CyclesFilieresNiveaux</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/CyclesFilieresNiveaux</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_ClassesGeneriques</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/ClassesGeneriques.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_ClassesGeneriques</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/ClassesGeneriques</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_UnitesMatieresModules</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/UnitesMatieresModules.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_UnitesMatieresModules</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/UnitesMatieresModules</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_Evaluations</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/Evaluations.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_Evaluations</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/Evaluations</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_Classes</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/Classes.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_Classes</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/Classes</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_Etudiants</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/Etudiants.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_Etudiants</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/Etudiants</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_ClasseDetails</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/ClasseDetails.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_ClasseDetails</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/ClasseDetails</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_ProgrammeClasseGenerique</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/ProgrammeClasseGenerique.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_ProgrammeClasseGenerique</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/ProgrammeClasseGenerique</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>E_DirecteurEtudes_ProfileUtilisateur</servlet-name>
+    <jsp-file>/WEB-INF/E.DirecteurEtudes/ProfileUtilisateur.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>E_DirecteurEtudes_ProfileUtilisateur</servlet-name>
+    <url-pattern>/E.DirecteurEtudes/ProfileUtilisateur</url-pattern>
+  </servlet-mapping>
+</web-app>

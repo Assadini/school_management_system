@@ -1,0 +1,73 @@
+package dao.evaluation;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import Domaine.evaluation.FormeExamen;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+
+import dao.database.Db;
+
+public class FormeEvaluationDAO {
+	private Connection con;
+	public FormeEvaluationDAO() {
+		this.con = Db.getInstance().con;
+	}
+	public void insert(FormeExamen formeExamen) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("insert into formeExamen (ID, Code, Nom_Fr, Nom_Ar) values (null, ?, ?, ?)");
+		statement.setString(1, formeExamen.getCode());
+		statement.setString(2, formeExamen.getNom_Fr());
+		statement.setString(3, formeExamen.getNom_Ar());
+		statement.execute();
+		statement.close();
+	}
+	public ArrayList<FormeExamen> getAll() throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("select ID, Code, Nom_Fr, Nom_Ar from formeExamen");
+		ResultSet rs = statement.executeQuery();
+		ArrayList<FormeExamen> formeExamens = new ArrayList<FormeExamen>();
+		while (rs.next()) {
+			FormeExamen formeExamen = new FormeExamen();
+			formeExamen.setId(rs.getInt("ID"));
+			formeExamen.setCode(rs.getString("Code"));
+			formeExamen.setNom_Fr(rs.getString("Nom_Fr"));
+			formeExamen.setNom_Ar(rs.getString("Nom_Ar"));
+			formeExamens.add(formeExamen);
+		}
+		rs.close();
+		statement.close();
+		return formeExamens;	
+	}
+	public FormeExamen getById(int id) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("select ID, Code, Nom_Fr, Nom_Ar from formeExamen where ID = ? ");
+		statement.setInt(1, id);
+		ResultSet rs = statement.executeQuery();
+		FormeExamen formeExamen = new FormeExamen();
+		while (rs.next()) {
+			formeExamen.setId(rs.getInt("ID"));
+			formeExamen.setCode(rs.getString("Code"));
+			formeExamen.setNom_Fr(rs.getString("Nom_Fr"));
+			formeExamen.setNom_Ar(rs.getString("Nom_Ar"));
+		}
+		rs.close();
+		statement.close();
+		return formeExamen;		
+	}
+	public void update (FormeExamen formeExamen) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("update formeExamen set Code = ?, Nom_Fr = ?, Nom_Ar = ?  where ID = ?");
+		statement.setString(1, formeExamen.getCode());
+		statement.setString(2, formeExamen.getNom_Fr());
+		statement.setString(3, formeExamen.getNom_Ar());
+		statement.setInt(4,formeExamen.getId());
+		statement.execute();
+	}
+	public void delete(FormeExamen formeExamen) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("delete from formeExamen where ID = ?");
+		statement.setInt(1, formeExamen.getId());
+		statement.execute();
+		statement.close();
+	}
+}

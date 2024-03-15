@@ -1,0 +1,38 @@
+package Domaine.documentAdministratif;
+
+import java.util.Date;
+
+import Domaine.personnel.Personnel;
+
+public class DemandeDocPersonnel extends DemandeDocument {
+	private TypeDocumentPersonnel type;
+	private Personnel personnel;
+	public DemandeDocPersonnel() {
+		super();
+	}
+	public DemandeDocPersonnel(int id, Date date, String etat,
+			String observation, TypeDocumentPersonnel type, Personnel personnel) {
+		super(id, date, etat, observation);
+		this.personnel=personnel;
+		this.type=type;
+	}
+	public TypeDocumentPersonnel getType() {
+		return type;
+	}
+	public void setType(TypeDocumentPersonnel type) {
+		this.type = type;
+	}
+	public Personnel getPersonnel() {
+		return personnel;
+	}
+	public void setPersonnel(Personnel personnel) {
+		this.personnel = personnel;
+	}
+	@Override
+	public String toString() {
+		return "DemandeDocPersonnel [type=" + type + ", personnel=" + personnel
+				+ ", id=" + id + ", date=" + date + ", etat=" + etat
+				+ ", dateRetrait=" + dateRetrait + ", observation="
+				+ observation + "]";
+	}
+}

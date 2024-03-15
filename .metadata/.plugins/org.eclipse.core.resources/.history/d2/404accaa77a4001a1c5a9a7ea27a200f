@@ -1,0 +1,41 @@
+package Domaine.projet;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import Domaine.projet.Projet;
+import Domaine.document.Document;
+
+public class CahierChargeProjet extends Document {
+	private ArrayList<Projet> projet = new ArrayList<Projet>();
+
+	public CahierChargeProjet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CahierChargeProjet(int id, String code, String nom,
+			String emplacement, String type, long taille, Date dateUpload) {
+		super(id, code, nom, emplacement, type, taille, dateUpload);
+		// TODO Auto-generated constructor stub
+	}
+
+	public CahierChargeProjet(ArrayList<Projet> projet) {
+		this.projet = projet;
+	}
+	public ArrayList<Projet> getProjet() {
+		return projet;
+	}
+
+	public void addProjet(Projet projet) {
+		this.projet.add(projet);
+	}
+
+	@Override
+	public String toString() {
+		return "CahierChargeProjet [projet=" + projet + ", id=" + id
+				+ ", code=" + code + ", nom=" + nom + ", emplacement="
+				+ emplacement + ", type=" + type + ", taille=" + taille
+				+ ", dateUpload=" + dateUpload + "]";
+	}	
+}

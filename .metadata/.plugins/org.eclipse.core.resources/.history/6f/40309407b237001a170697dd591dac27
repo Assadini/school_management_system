@@ -1,0 +1,234 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/fonts.css">
+<style type="text/css">
+.modal-content {
+	overflow: hidden;
+}
+.modal-header{
+color :#f7f7f7 ;
+	background-color:#0275d8 ;
+	}
+
+</style>
+</head>
+<body>
+<div class="container">
+	<div>
+		<div>
+		Liste des classe génériques :
+		</div>
+		<div>
+			<table border="1">
+				<tr>
+					<th>Code</th>
+					<th>Cycle</th>
+					<th>Filière</th>
+					<th>Niveau</th>
+				</tr>
+				<tr>
+					<td> 1 BTS DSI </td>
+					<td> BTS </td>
+					<td> DSI </td>
+					<td> 1ere Année </td>
+				</tr>
+				<tr>
+					<td> 2 BTS DSI </td>
+					<td> BTS </td>
+					<td> DSI </td>
+					<td> 2eme Année </td>
+				</tr>
+				<tr>
+					<td> 1 BTS MI </td>
+					<td> BTS </td>
+					<td> MI </td>
+					<td> 1ere Année </td>
+				</tr>
+				<tr>
+					<td> 2 BTS MI </td>
+					<td> BTS </td>
+					<td> MI </td>
+					<td> 2eme Année </td>
+				</tr>
+			</table>
+		</div>
+		<button id ="btnNew" type="submit" class="btn btn-primary">Ajouter</button>
+		<button id ="btnTest"  class="btn btn-primary">test</button>
+		</div>
+	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <form class="form-horizontal" method="POST" action="ClasseGenerique/Add" id="myForm">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"> <i class="fas fa-camera"></i> Ajouter une classe générique</h4>
+	      </div>
+	      <div class="modal-body">
+			
+			  <div class="form-group">
+			    <label for="cycle" class="col-sm-2 control-label">Cycle</label>
+			    <div class="col-sm-10">
+			      <select class="form-control"  name="cycle">
+				      <option  selected="selected" value="1">BTS</option>
+				      <option value="2">SQ</option>
+				      <option value="3">SP</option>
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="filiere" class="col-sm-2 control-label">Filière</label>
+			    <div class="col-sm-10">
+			      <select class="form-control" id="filiere" name="filiere">
+				     <option value="2">test</option> 
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="niveau" class="col-sm-2 control-label">Niveau</label>
+			    <div class="col-sm-10">
+			      <select class="form-control" id="niveau" name="niveau">
+				      <option>test</option>
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="description" class="col-sm-2 control-label">Description</label>
+			    <div class="col-sm-10">
+			      <textarea class="form-control" id="niveau" name="description">  
+				  </textarea>
+			    </div>
+			  </div>			  
+			 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-success"  data-dismiss="modal" id="btnAnnuler">Annuler</button>
+	        <button type="submit" class="btn btn-primary"  id="btnEnregistrer">Enregistrer</button>
+	      </div>
+	      </form> 
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<div class="modal fade" tabindex="-1" role="dialog" id="modalResult">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        
+	      </div>
+	      <div class="modal-body" id="modalResultHTML">
+			<p> ...</p>
+	      </div>
+	      <div class="modal-footer">
+	      
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function() 
+		    {
+				$("#filieresSelect").change(function() {
+					alert("document ready");
+			
+				});
+				
+				$('#btnCancel').click(function(e) {
+					$('#myModal').modal('hide');
+					 // e.preventDefault();
+					  return false;
+			
+				});
+				$('#btnNew').on('click', function(e){
+					  //------------ load filières to select form
+					  	  $('#myForm').trigger("reset");
+						  $.ajax({
+							url : "FiliereList",
+							type: "GET",
+							dataType: 'json',
+							success: function(response,textStatus ,jqXHR){
+								$("#filiere").html("");
+								for(i=0;i<response.length;i++){
+									content = "<option value=\""+response[i].id +"\"> " +response[i].code+ "</option> ";
+					                $("#filiere").append(content);
+								}
+						    },
+						    error: function(response,textStatus ,jqXHR){
+						    	console.log("Something really bad happened " + textStatus);
+			                      $("#ajaxResponse").html(jqXHR.responseText);
+						        }
+						        
+						});
+					  //----------- load niveaux to select form
+					  
+					  $.ajax({
+							url : "NiveauList",
+							type: "GET",
+							dataType: 'json',
+							success: function(response,textStatus ,jqXHR){
+								$("#niveau").html("");
+								for(i=0;i<response.length;i++){
+									content = "<option value=\""+response[i].id +"\"> " +response[i].code+ "</option> ";
+					                $("#niveau").append(content);
+								}
+						    },
+						    error: function(response,textStatus ,jqXHR){
+						    	alert(textStatus);
+						    	console.log("Something really bad happened " + textStatus);
+			                      $("#ajaxResponse").html(jqXHR.responseText);
+						        }
+						        
+						});
+					  //-------------------------
+					  
+					  $('#myModal').modal('show');
+					  e.preventDefault();
+					});
+				
+				$('#btnTest').on('click', function(e){
+					  $('#modalResult').modal('show');
+					  e.preventDefault();
+					});
+				$("#myForm").submit(function(event){ 
+					var post_url = $(this).attr("action"); //get form action url
+					var request_method = $(this).attr("method"); //get form GET/POST method
+					var form_data = $(this).serialize(); //Encode form elements for submission
+					$('#myModal').modal('hide');
+					$.ajax({
+						url : post_url,
+						type: request_method,
+						data : form_data,
+						dataType: 'json',
+						success: function(response,textStatus ,jqXHR){
+							$("#modalResultHTML").html("");
+							$("#modalResultHTML").html(response);
+					   		$('#modalResult').modal('show');
+					    	setTimeout(function() { $('#modalResult').modal('hide'); }, 5000);
+					    },
+					    error: function(response,textStatus ,jqXHR){
+					    	console.log("Something really bad happened " + textStatus);
+		                      $("#ajaxResponse").html(jqXHR.responseText);
+					        }
+					        
+					});
+					return false;
+				});
+				
+		    });
+	
+	</script>
+</div>
+</body>
+</html>

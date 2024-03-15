@@ -1,0 +1,243 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Ajouter un fonctioonaire</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style yupe="text/css">
+	input.error {
+    border-color: #f00 !important;
+	}
+	small.required {
+	    color:#f00;
+	}
+</style>
+<script type="text/javascript">
+	$(function() {
+	    
+	    $('#validate').validate({
+	        ignore: [],
+	        errorPlacement: function() {},
+	        submitHandler: function() {
+	            alert('Successfully saved!');
+	        },
+	        invalidHandler: function() {
+	            setTimeout(function() {
+	                $('.nav-tabs a small.required').remove();
+	                var validatePane = $('.tab-content.tab-validate .tab-pane:has(input.error)').each(function() {
+	                    var id = $(this).attr('id');
+	                    $('.nav-tabs').find('a[href^="#' + id + '"]').append(' <small class="required">***</small>');
+	                });
+	            });            
+	        },
+	        rules: {
+	            name: 'required',
+	            email: {
+	                required: true,
+	                email: true
+	            },
+	            zipcode: 'required',
+	            address: 'required',
+	            city: 'required'
+	        }
+	    });
+	    
+	});
+</script>
+</head>
+<body>
+	<div class="container" style="margin-top: 20px;">
+	    <div class="panel panel-primary">
+	        <div class="panel-heading">
+	            Ajouter un fonctionnaire
+	        </div>
+	        <div class="panel-body">
+	            <form action="" class="form-horizontal" id="validate">
+	                <ul class="nav nav-tabs nav-justified nav-inline">
+	                    <li class="active"><a href="#primary" data-toggle="tab">Etat civil</a></li>
+	                    <li><a href="#secondary" data-toggle="tab">Fonctions</a></li>
+	                    <li><a href="#third" data-toggle="tab">Diplômes</a></li>
+	                    <li><a href="#four" data-toggle="tab">Notes</a></li>
+	                </ul>
+					<!-- Tab  -->
+	                <div class="tab-content tab-validate" style="margin-top:20px;">
+	                    <div class="tab-pane active" id="primary">
+	                    <!-- colone Francais -->
+		                	<div class="col-md-6">
+		                        <div class="form-group">
+		                            <label for="titre" class="control-label col-md-2">Titre</label> 
+		                            <div class="col-md-4">
+		                            	<select name="titre" class="form-control" >
+		                            		<option value="1">M.</option>
+		                            		<option value="2">Mme.</option>
+		                            		<option value="3">Mlle</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="nomFr" class="control-label col-md-2">Nom</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="nomFr" class="form-control" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="prenomFr" class="control-label col-md-2">Prénom</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="prenomFr" class="form-control" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="dateNiassance" class="control-label col-md-2">Date de naissance</label> 
+		                            
+		                            	<div class="col-md-1">
+		                            	<select name="jour" class="form-control" >
+		                            		<option value="" selected>Jour</option>
+		                            		<option value="1">01</option>
+		                            		<option value="2">02</option>
+		                            		<option value="3">03</option>
+		                            	</select>
+		                            	</div>
+		                            	<div class="col-md-2">
+		                            	<select name="mois" class="form-control" >
+		                            		<option value="" selected>Mois</option>
+		                            		<option value="1">Janvier</option>
+		                            		<option value="2">Février</option>
+		                            		<option value="3">Mars</option>
+		                            		<option value="4">Avril</option>
+		                            	</select>
+		                            	</div>
+		                            	<div class="col-md-1">
+		                            	<select name="annee" class="form-control" >
+		                            		<option value="" selected>Année</option>
+		                            		<option value="1">1961</option>
+		                            		<option value="2">1962</option>
+		                            		<option value="3">1963</option>
+		                            		<option value="4">1964</option>
+		                            	</select>
+		                            	</div>
+		                            
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="lieuNiassance" class="control-label col-md-2">Lieu de naissance</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="lieuNiassance" class="form-control" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="nationalite" class="control-label col-md-2">Nation. marocaine</label> 
+		                            <div class="col-md-4">
+		                            	<div class="col-md-2">
+		                                OUI <input type="radio" name="nationalite" value ="1" checked class="form-control" />
+		                            	</div>
+		                            	<div class="col-md-2">
+		                            	 NON<input type="radio" name="nationalite" value ="0"  class="form-control" />
+		                            	</div>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="som" class="control-label col-md-2">SOM</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="som" class="form-control" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="cin" class="control-label col-md-2">CIN</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="som" class="form-control" />
+		                            </div>
+		                        </div>
+	                   		</div>
+	                        <!-- colone Arabe -->
+	                        <div class="col-md-6">
+	                        	<div class="form-group">
+		                            <label for="som" class="control-label col-md-2">SOM</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="som" class="form-control" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="cin" class="control-label col-md-2">CIN</label> 
+		                            <div class="col-md-4">
+		                                <input type="text" name="som" class="form-control" />
+		                            </div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="secondary">
+	                        <div class="form-group">
+	                            <label for="zipcode" class="control-label col-md-2">Zip Code</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="zipcode" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="address" class="control-label col-md-2">Address</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="address" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="city" class="control-label col-md-2">City</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="city" class="form-control" />
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="third">
+	                        <div class="form-group">
+	                            <label for="zipcode" class="control-label col-md-2">Zip Code</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="zipcode" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="address" class="control-label col-md-2">Address</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="address" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="city" class="control-label col-md-2">City</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="city" class="form-control" />
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="four">
+	                        <div class="form-group">
+	                            <label for="zipcode" class="control-label col-md-2">Zip Code</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="zipcode" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="address" class="control-label col-md-2">Address</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="address" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="city" class="control-label col-md-2">City</label> 
+	                            <div class="col-md-10">
+	                                <input type="text" name="city" class="form-control" />
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group col-md-2 pull-right">
+	                    <button type="submit" class="btn btn-success btn-block">Enregistrer</button>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div> <!-- /div container -->
+</body>
+</html>

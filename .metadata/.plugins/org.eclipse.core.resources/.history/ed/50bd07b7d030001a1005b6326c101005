@@ -1,0 +1,644 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Ajouter un fonctioonaire</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/fontawesome.css">
+<link rel="stylesheet" href="css/fonts.css">
+<style type="text/css">
+	input.error {
+    border-color: #f00 !important;
+	}
+	small.required {
+	    color:#f00;
+	}
+</style>
+<script type="text/javascript">
+	$(function() {
+	    
+	    $('#validate').validate({
+	        ignore: [],
+	        errorPlacement: function() {},
+	        submitHandler: function() {
+	            alert('Successfully saved!');
+	        },
+	        invalidHandler: function() {
+	            setTimeout(function() {
+	                $('.nav-tabs a small.required').remove();
+	                var validatePane = $('.tab-content.tab-validate .tab-pane:has(input.error)').each(function() {
+	                    var id = $(this).attr('id');
+	                    $('.nav-tabs').find('a[href^="#' + id + '"]').append(' <small class="required">***</small>');
+	                });
+	            });            
+	        },
+	        rules: {
+	            name: 'required',
+	            email: {
+	                required: true,
+	                email: true
+	            },
+	            zipcode: 'required',
+	            address: 'required',
+	            city: 'required'
+	        }
+	    });
+	    
+	});
+	///////////
+	
+</script>
+</head>
+<body>
+	<div class="container" style="margin-top: 20px;">
+	    <div class="panel panel-primary">
+	        <div class="panel-heading">
+	        	<i class="fas fa-camera"></i>
+	            Ajouter un fonctionnaire
+	        </div>
+	        <div class="panel-body">
+	            <form action="" class="form-horizontal" id="validate">
+	                <ul class="nav nav-tabs nav-justified nav-inline">
+	                    <li class="active"><a href="#primary" data-toggle="tab">Etat civil</a></li>
+	                    <li><a href="#contacts" data-toggle="tab">Contact</a></li>
+	                    <li><a href="#third" data-toggle="tab">Situation</a></li>
+	                    <li><a href="#secondary" data-toggle="tab">Fonctions</a></li>
+	                    <li><a href="#four" data-toggle="tab">Notes</a></li>
+	                </ul>
+	                <div class="tab-content tab-validate" style="margin-top:20px;">
+	                <!-- Tab  -->
+	                    <div class="tab-pane active" id="primary">
+	                    <!-- colone Francais -->
+		                	<div class="col-md-6">
+		                       <div class="form-group">
+		                            <label for="titre" class="control-label col-md-4">Titre</label> 
+		                            <div class="col-md-8">
+		                            	<select name="titre" class="form-control" >
+		                            		<option value="1">M.</option>
+		                            		<option value="2">Mme.</option>
+		                            		<option value="3">Mlle</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="nomFr" class="control-label col-md-4">Nom</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="nomFr" class="form-control" placeholder="Nom"/>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="prenomFr" class="control-label col-md-4">Prénom</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="prenomFr" class="form-control" placeholder="Préom"/>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="cin" class="control-label col-md-4">CIN</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="som" class="form-control" placeholder="Numéro de la carte d'identité nationale" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="dateNiassance" class="control-label col-md-4">Date de naissance</label> 
+		                            
+		                            	<div class="col-md-2">
+		                            	<select name="jour" class="form-control" >
+		                            		<option value="" selected>J</option>
+		                            		<option value="1">01</option>
+		                            		<option value="2">02</option>
+		                            		<option value="3">03</option>
+		                            	</select>
+		                            	</div>
+		                            	<div class="col-md-3">
+		                            	<select name="mois" class="form-control" >
+		                            		<option value="" selected>M</option>
+		                            		<option value="1">Janvier</option>
+		                            		<option value="2">Février</option>
+		                            		<option value="3">Mars</option>
+		                            		<option value="4">Avril</option>
+		                            	</select>
+		                            	</div>
+		                            	<div class="col-md-3">
+		                            	<select name="annee" class="form-control" >
+		                            		<option value="" selected>A</option>
+		                            		<option value="1">1961</option>
+		                            		<option value="2">1962</option>
+		                            		<option value="3">1963</option>
+		                            		<option value="4">1964</option>
+		                            	</select>
+		                            	</div>
+		                            
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="lieuNiassance" class="control-label col-md-4">Lieu de naissance</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="lieuNiassance" class="form-control" placeholder="Lieu de Naissance" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="nationalite" class="control-label col-md-4">Nation. marocaine</label> 
+		                            <div class="col-md-8">
+		                            	<div class="col-md-4">
+			                            	<label class="radio-inline">
+	    										<input type="radio" name="nationalite" value="oui" checked> Oui
+											</label>
+		                            	</div>
+		                            	<div class="col-md-4">
+		                            	 	<label class="radio-inline">
+	    										<input type="radio" name="nationalite" value="oui" > Non
+											</label>
+		                            	</div>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="sitFamilialle" class="control-label col-md-4">Sit. Familialle</label> 
+		                            <div class="col-md-8">
+		                            	<select name="sitFamilialle" class="form-control" >
+		                            		<option value="1">Célibataire</option>
+		                            		<option value="2">Marié(e)</option>
+		                            		<option value="3">Divorcé(e)</option>
+		                            		<option value="4">Veuf(ve)</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="nbrEnfant" class="control-label col-md-4">Nbre. Enfants</label> 
+		                            <div class="col-md-8">
+		                            	<select name="nbrEnfant" class="form-control" >
+		                            		<option value="0">0</option>
+		                            		<option value="1">1</option>
+		                            		<option value="2">2</option>
+		                            		<option value="3">3</option>
+		                            		<option value="3">4</option>
+		                            		<option value="3">5</option>
+		                            		<option value="3">6</option>
+		                            		<option value="3">7</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+	                   		</div>
+	                        <!-- colone Arabe -->
+	                        <div class="col-md-6">
+	                        	<div class="form-group">
+		                            <label for="nomAr" class="control-label col-md-3 pull-right">الإسم العائلي</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="nomAr" style="direction:RTL;" class="form-control" placeholder="الإسم العائلي بالعربية"/>
+		                            </div>
+		                            <div class="col-md-1">
+		                            <button class="btn btn-default" title="Clavier Arabe">ع</button>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="prenomAr" class="control-label col-md-3 pull-right">الإسم الشخصي</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="prenomAr" style="direction:RTL;" class="form-control" placeholder="الإسم الشخصي بالعربية"/>
+		                            </div>
+		                            <div class="col-md-1">
+		                            <button class="btn btn-default" title="Clavier Arabe">ع</button>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="lieuNaissAr" class="control-label col-md-3 pull-right">مكان الإزدياد</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="lieuNaissAr" style="direction:RTL;" class="form-control" placeholder="مكان الإزدياد بالعربية"/>
+		                            </div>
+		                            <div class="col-md-1">
+		                            <button class="btn btn-default" title="Clavier Arabe">ع</button>
+		                            </div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="contacts">
+	                    <!-- colone Francais -->
+		                	<div class="col-md-6">
+		                        <div class="form-group">
+		                            <label for="email" class="control-label col-md-4">Email</label> 
+		                            <div class="col-md-8">
+		                                <input type="email" name="email" class="form-control" placeholder="Email"/>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="telMobile" class="control-label col-md-4">Tél. Mobile</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="telMobile" class="form-control" placeholder="Télèphone Mobile"/>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="telDomicile" class="control-label col-md-4">Tél. Domicile</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="telDomicile" class="form-control" placeholder="Télèphone domocile" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="adresseFr" class="control-label col-md-4">Adresse</label> 
+		                            <div class="col-md-8">
+		                            	<textarea name="adresseFr" class="form-control" placeholder="Adresse complète"></textarea>
+		                            </div>
+		                        </div>
+	                   		</div>
+	                        <!-- colone Arabe -->
+	                        <div class="col-md-6">
+	                        	<div class="form-group">
+		                            <label for="adresseAr" class="control-label col-md-3 pull-right">العنوان الشخصي</label> 
+		                            <div class="col-md-8">
+		                            	<textarea name="adresseAr" style="direction:RTL;" class="form-control" placeholder="العنوان الشخصي بالعربية"></textarea>
+		                            </div>
+		                            <div class="col-md-1">
+		                            	<button class="btn btn-default" title="Clavier Arabe">ع</button>
+		                            </div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="secondary">
+	                        <div class="fcol-md-12">
+		                        <table class="table table-striped">
+							        <thead class="thead-primary">
+							          <tr><th>Fonction</th><th>Région</th><th>Province</th><th>Etablissement</th><th>Début</th><th>Fin</th><th></th><th></th></tr>
+							        </thead>
+							        <tbody id="fonctionsHist">
+							         <tr><td></td><td></th><td></td><td></td><td></td><td></td><td></td><td></td></td>
+							       	</tbody>
+							    </table>
+	                       </div>
+	                       <div class="form-group">
+		                            <div class="col-md-2">
+		                            <input type="button" class="btn btn-default" id="btnNewFonction" value="Ajouter une Fonction"/>
+		                            </div>
+		                   </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="third">
+	                        <!-- colone Francais -->
+		                	<div class="col-md-6">
+		                        <div class="form-group">
+		                            <label for="som" class="control-label col-md-4">SOM</label> 
+		                            <div class="col-md-8">
+		                                <input type="text" name="som" class="form-control" placeholder="Numéro de SOM" />
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="dateRecrut" class="control-label col-md-4">Date de recrutement</label> 
+		                            <div class="col-md-2">
+		                            	<select name="jourRec" class="form-control" >
+		                            		<option value="" selected>J</option>
+		                            		<option value="1">01</option>
+		                            		<option value="2">02</option>
+		                            		<option value="3">03</option>
+		                            	</select>
+		                            </div>
+		                            <div class="col-md-3">
+		                            	<select name="moisRec" class="form-control" >
+		                            		<option value="" selected>M</option>
+		                            		<option value="1">Janvier</option>
+		                            		<option value="2">Février</option>
+		                            		<option value="3">Mars</option>
+		                            		<option value="4">Avril</option>
+		                            	</select>
+		                            </div>
+		                            <div class="col-md-3">
+		                            	<select name="anneeRec" class="form-control" >
+		                            		<option value="" selected>A</option>
+		                            		<option value="1">1961</option>
+		                            		<option value="2">1962</option>
+		                            		<option value="3">1963</option>
+		                            		<option value="4">1964</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="dateAffec" class="control-label col-md-4">Date d'affectation</label> 
+		                            <div class="col-md-2">
+		                            	<select name="jourAffect" class="form-control" >
+		                            		<option value="" selected>J</option>
+		                            		<option value="1">01</option>
+		                            		<option value="2">02</option>
+		                            		<option value="3">03</option>
+		                            	</select>
+		                            </div>
+		                            <div class="col-md-3">
+		                            	<select name="moisAffect" class="form-control" >
+		                            		<option value="" selected>M</option>
+		                            		<option value="1">Janvier</option>
+		                            		<option value="2">Février</option>
+		                            		<option value="3">Mars</option>
+		                            		<option value="4">Avril</option>
+		                            	</select>
+		                            </div>
+		                            <div class="col-md-3">
+		                            	<select name="anneeAffect" class="form-control" >
+		                            		<option value="" selected>A</option>
+		                            		<option value="1">1961</option>
+		                            		<option value="2">1962</option>
+		                            		<option value="3">1963</option>
+		                            		<option value="4">1964</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="cadre" class="control-label col-md-4">Cadre actuel</label> 
+		                            <div class="col-md-8">
+		                            	<select name="cadre" class="form-control" >
+		                            		<option value="1">M.</option>
+		                            		<option value="2">Mme.</option>
+		                            		<option value="3">Mlle</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="echelle" class="control-label col-md-4">Echelle</label> 
+		                            <div class="col-md-8">
+		                            	<select name="echelel" class="form-control" >
+		                            		<option value="1">09</option>
+		                            		<option value="2">10</option>
+		                            		<option value="3">11</option>
+		                            		<option value="4">HE</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="echelon" class="control-label col-md-4">Echelon</label> 
+		                            <div class="col-md-8">
+		                            	<select name="echelon" class="form-control" >
+		                            		<option value="1">1</option>
+		                            		<option value="2">2</option>
+		                            		<option value="3">3</option>
+		                            		<option value="4">4</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+	                   		</div>
+	                        <!-- colone Arabe -->
+	                        <div class="col-md-6">
+	                        	<div class="form-group">
+		                            <label for="fonctionActuel" class="control-label col-md-4">Fonction Actuelle</label> 
+		                            <div class="col-md-8">
+		                            	<select name="fonctionActuel" class="form-control" >
+		                            		<option value="1">Enseig</option>
+		                            		<option value="2">2</option>
+		                            		<option value="3">3</option>
+		                            		<option value="4">4</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="cycleEnseig" class="control-label col-md-4">Cycle d'enseignement</label> 
+		                            <div class="col-md-8">
+		                            	<select name="cycleEnseig" class="form-control" >
+		                            		<option value="1">Enseig</option>
+		                            		<option value="2">2</option>
+		                            		<option value="3">3</option>
+		                            		<option value="4">4</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="matEnseig" class="control-label col-md-4">Matière enseignée</label> 
+		                            <div class="col-md-8">
+		                            	<select name="matEnseig" class="form-control" >
+		                            		<option value="1">Math</option>
+		                            		<option value="2">Inf</option>
+		                            		<option value="3">Sport</option>
+		                            		<option value="4">Sciences physique</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="noteInspect" class="control-label col-md-4">Note inspection</label> 
+		                            <div class="col-md-4">
+		                            	<input type="text" name="noteInspect" class="form-control" placeholder="Dernière note d'inspection" />
+		                            </div>
+		                            <div class="col-md-4">
+		                            	<select name="anneNoteInspec" class="form-control" >
+		                            		<option value="" selected>Année</option>
+		                            		<option value="1">2000</option>
+		                            		<option value="2">2001</option>
+		                            		<option value="3">2002</option>
+		                            		<option value="4">2003</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+		                        <div class="form-group">
+		                            <label for="noteAdminstr" class="control-label col-md-4">Note Administrative</label> 
+		                            <div class="col-md-4">
+		                            	<input type="text" name="noteAdminstr" class="form-control" placeholder="Dernière note administrative" />
+		                            </div>
+		                            <div class="col-md-4">
+		                            	<select name="anneNoteAdministr" class="form-control" >
+		                            		<option value="" selected>Année</option>
+		                            		<option value="1">2000</option>
+		                            		<option value="2">2001</option>
+		                            		<option value="3">2002</option>
+		                            		<option value="4">2003</option>
+		                            	</select>
+		                            </div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                    <!-- Tab  -->
+	                    <div class="tab-pane" id="four">
+	                        <div class="form-group">
+	                            <label for="zipcode" class="control-label col-md-4">Zip Code</label> 
+	                            <div class="col-md-8">
+	                                <input type="text" name="zipcode" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="address" class="control-label col-md-4">Address</label> 
+	                            <div class="col-md-8">
+	                                <input type="text" name="address" class="form-control" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="city" class="control-label col-md-4">City</label> 
+	                            <div class="col-md-8">
+	                                <input type="text" name="city" class="form-control" />
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </form>
+	        </div>
+	        <div class="panel-footer">
+	        	<div class="form-group text-right">
+	        		<input type="button" class="btn btn-danger"  data-dismiss="modal" id="btnAnnulFonctHist" value="Annuler"/>
+	        		<button type="submit" class="btn btn-primary" id="btnEnregistrer">Eregistrer</button>
+     			</div>
+	        </div>    
+	    </div>
+	    <!-- Modal Ajouter une fonction -->
+	 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	    <form class="form-horizontal" method="POST" action="#" id="myForm">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Ajouter une Fonction</h4>
+	      </div>
+	      <div class="modal-body">
+			  <div class="form-group">
+			    <label for="fonctionhist" class="col-sm-4 control-label">Fonction</label>
+			    <div class="col-sm-8">
+			      <select class="form-control"  name="fonctionhist" id="fonctionhist">
+				      <option  selected="selected" value="1">Enseignant</option>
+				      <option value="2">Directeur</option>
+				      <option value="3">Surveillant</option>
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="regionHist" class="col-sm-4 control-label">Région</label>
+			    <div class="col-sm-8">
+			      <select class="form-control" id="regionHist" name="filiere">
+				     <option value="2">Rabat-Kénitra</option> 
+				     <option value="2">Tanger-Tétouan</option>
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="provinceHist" class="col-sm-4 control-label">Province</label>
+			    <div class="col-sm-8">
+			      <select class="form-control" id="provinceHist" name="niveau">
+				      <option>Rabat</option>
+				      <option>Kénitra</option>
+				      <option>Salé</option>
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="etablissmHist" class="col-sm-4 control-label">Etablissement</label>
+			    <div class="col-sm-8">
+			      <select class="form-control" id="etablissmHist" name="etablissmHist">
+				      <option>Lycée Technique IBN SINA</option>
+				      <option>Lycée Taha Hssein</option>
+				      <option>Lycée Mohammed V</option>
+				   </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+                <label for="datDebFoncHist" class="control-label col-md-4">Date début</label> 
+                <div class="col-md-2">
+                	<select name="jourFonctHistDeb" class="form-control" >
+                		<option value="" selected>J</option>
+                		<option value="1">01</option>
+                		<option value="2">02</option>
+                		<option value="3">03</option>
+                	</select>
+                </div>
+                <div class="col-md-3">
+                	<select name="moisFonctHistDeb" class="form-control" >
+                		<option value="" selected>M</option>
+                		<option value="1">Janvier</option>
+                		<option value="2">Février</option>
+                		<option value="3">Mars</option>
+                		<option value="4">Avril</option>
+                	</select>
+                </div>
+                <div class="col-md-3">
+                	<select name="anneeFonctHistDeb" class="form-control" >
+                		<option value="" selected>A</option>
+                		<option value="1">1961</option>
+                		<option value="2">1962</option>
+                		<option value="3">1963</option>
+                		<option value="4">1964</option>
+                	</select>
+                </div>
+		  	</div>
+		  	<div class="form-group">
+                <label for="datFinFoncHist" class="control-label col-md-4">Date fin</label> 
+                <div class="col-md-2">
+                	<select name="jourFonctHistFin" class="form-control" >
+                		<option value="" selected>J</option>
+                		<option value="1">01</option>
+                		<option value="2">02</option>
+                		<option value="3">03</option>
+                	</select>
+                </div>
+                <div class="col-md-3">
+                	<select name="moisFonctHistFin" class="form-control" >
+                		<option value="" selected>M</option>
+                		<option value="1">Janvier</option>
+                		<option value="2">Février</option>
+                		<option value="3">Mars</option>
+                		<option value="4">Avril</option>
+                	</select>
+                </div>
+                <div class="col-md-3">
+                	<select name="anneeFonctHistFin" class="form-control" >
+                		<option value="" selected>A</option>
+                		<option value="1">1961</option>
+                		<option value="2">1962</option>
+                		<option value="3">1963</option>
+                		<option value="4">1964</option>
+                	</select>
+                </div>
+		  	</div>
+	      <div class="modal-footer">
+	        <input type="button" class="btn btn-danger"  data-dismiss="modal" id="btnAnnulFonctHist" value="Annuler"/>
+	        <input type="button" class="btn btn-primary"  id="btnEnregistFonctHist" value="Enregistrer" />
+	      </div>
+	      </form> 
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- /div modal ajouter une fonction -->
+	</div> <!-- /div container -->
+	<script type="text/javascript">
+	$('#btnNewFonction').on('click', function(e){
+					  //------------ load filières to select form
+					  	  $('#myForm').trigger("reset");
+					  /*
+						  $.ajax({
+							url : "FiliereList",
+							type: "GET",
+							dataType: 'json',
+							success: function(response,textStatus ,jqXHR){
+								$("#filiere").html("");
+								for(i=0;i<response.length;i++){
+									content = "<option value=\""+response[i].id +"\"> " +response[i].code+ "</option> ";
+					                $("#filiere").append(content);
+								}
+						    },
+						    error: function(response,textStatus ,jqXHR){
+						    	console.log("Something really bad happened " + textStatus);
+			                      $("#ajaxResponse").html(jqXHR.responseText);
+						        }
+						        
+						});
+					  //----------- load niveaux to select form
+					  
+					  $.ajax({
+							url : "NiveauList",
+							type: "GET",
+							dataType: 'json',
+							success: function(response,textStatus ,jqXHR){
+								$("#niveau").html("");
+								for(i=0;i<response.length;i++){
+									content = "<option value=\""+response[i].id +"\"> " +response[i].code+ "</option> ";
+					                $("#niveau").append(content);
+								}
+						    },
+						    error: function(response,textStatus ,jqXHR){
+						    	alert(textStatus);
+						    	console.log("Something really bad happened " + textStatus);
+			                      $("#ajaxResponse").html(jqXHR.responseText);
+						        }
+						        
+						});
+					  //-------------------------
+				*/	  
+					  $('#myModal').modal('show');
+					  e.preventDefault();
+					});
+	 $("#btnEnregistFonctHist").on('click', function(e){
+		 let content ="<tr><td><input type=\"hidden\" name=fonctions[] value=\""+$("#fonctionhist").children("option:selected"). val()+"\"/>"+$("#fonctionhist").children("option:selected"). val()+"</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+		 $("#fonctionsHist").append(content);
+	 });
+	</script>
+</body>
+</html>

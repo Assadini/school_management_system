@@ -1,0 +1,108 @@
+package Domaine.matiere;
+
+
+import java.util.ArrayList;
+
+import Domaine.evaluation.FormeEvaluation;
+
+public class ConfigurationMatiere {
+	private int id;
+	private Matiere matiere;
+	private ClasseGUnite classeGUnite;
+	private short volumeHoraire;  // nbreHeures volumeHoraire
+	private short horaireHebdo;  // nbreSeances horaireHebdo
+	private short nbreControles;
+	private FormeEvaluation formeControle;
+	private float noteEliminatoire;
+	private Periode periode;
+	private ArrayList<ConfigurationModule> configurationModules;
+	public ConfigurationMatiere() {
+		super();
+		this.configurationModules= new ArrayList<ConfigurationModule>();
+	}
+	public ConfigurationMatiere(int id, Matiere matiere,
+			ClasseGUnite classeGUnite, short volumeHoraire, short horaireHebdo,
+			short nbreControles, FormeEvaluation formeControle,
+			float noteEliminatoire, Periode periode) {
+		super();
+		this.id = id;
+		this.matiere = matiere;
+		this.classeGUnite = classeGUnite;
+		this.volumeHoraire = volumeHoraire;
+		this.horaireHebdo = horaireHebdo;
+		this.nbreControles = nbreControles;
+		this.formeControle = formeControle;
+		this.noteEliminatoire = noteEliminatoire;
+		this.periode = periode;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Matiere getMatiere() {
+		return matiere;
+	}
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+	public ClasseGUnite getClasseGUnite() {
+		return classeGUnite;
+	}
+	public void setClasseGUnite(ClasseGUnite classeGUnite) {
+		this.classeGUnite = classeGUnite;
+	}
+	public short getVolumeHoraire() {
+		return volumeHoraire;
+	}
+	public void setVolumeHoraire(short volumeHoraire) {
+		this.volumeHoraire = volumeHoraire;
+	}
+	public short getHoraireHebdo() {
+		return horaireHebdo;
+	}
+	public void setHoraireHebdo(short horaireHebdo) {
+		this.horaireHebdo = horaireHebdo;
+	}
+	public short getNbreControles() {
+		return nbreControles;
+	}
+	public void setNbreControles(short nbreControles) {
+		this.nbreControles = nbreControles;
+	}
+	public FormeEvaluation getFormeControle() {
+		return formeControle;
+	}
+	public void setFormeControle(FormeEvaluation formeControle) {
+		this.formeControle = formeControle;
+	}
+	public float getNoteEliminatoire() {
+		return noteEliminatoire;
+	}
+	public void setNoteEliminatoire(float noteEliminatoire) {
+		this.noteEliminatoire = noteEliminatoire;
+	}
+	public Periode getPeriode() {
+		return periode;
+	}
+	public void setPeriode(Periode periode) {
+		this.periode = periode;
+	}
+	
+	public ArrayList<ConfigurationModule> getConfigurationModules() {
+		return configurationModules;
+	}
+	public void addConfigurationModules(ConfigurationModule configurationModule) {
+		this.configurationModules.add(configurationModule);
+	}
+	@Override
+	public String toString() {
+		return "ConfigurationMatiere [id=" + id + ", matiere=" + matiere
+				+ ", classeGUnite=" + classeGUnite + ", Volume Horaire="
+				+ volumeHoraire + ", Horaire Hebdomadaire=" + horaireHebdo
+				+ ", nbreControles=" + nbreControles + ", formeControle="
+				+ formeControle + ", noteEliminatoire=" + noteEliminatoire
+				+ ", periode=" + periode + "]";
+	}
+}

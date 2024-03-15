@@ -1,0 +1,78 @@
+package Domaine.personnel;
+
+import java.util.Date;
+
+import Domaine.etablissement.Etablissement;
+
+public class FonctionPersonnel {
+	private int id;
+	private Date dateDebut;
+	private Date dateFin;
+	private String observation;
+	private Etablissement etablissement;
+	public Fonction fonction;
+	public Personnel personnel;
+	public FonctionPersonnel() {
+		super();
+	}
+	public FonctionPersonnel(int id, Date dateDebut, Date dateFin,
+			String observation, Etablissement etablissement, Fonction fonction,
+			Personnel personnel) {
+		this.id = id;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.observation = observation;
+		this.etablissement = etablissement;
+		this.fonction = fonction;
+		this.personnel = personnel;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Date getDateDebut() {
+		return dateDebut;
+	}
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	public Date getDateFin() {
+		return dateFin;
+	}
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+	public String getObservation() {
+		return observation;
+	}
+	public void setObservation(String observation) {
+		this.observation = observation;
+	}
+	public Etablissement getEtablissement() {
+		return etablissement;
+	}
+	public void setEtablissement(Etablissement etablissement) {
+		this.etablissement = etablissement;
+	}
+	public Fonction getFonction() {
+		return fonction;
+	}
+	public void setFonction(Fonction fonction) {
+		this.fonction = fonction;
+	}
+	public Personnel getPersonnel() {
+		return personnel;
+	}
+	public void setPersonnel(Personnel personnel) {
+		this.personnel = personnel;
+	}
+	@Override
+	public String toString() {
+		return "FonctionPersonnel [id=" + id + ", dateDebut=" + dateDebut
+				+ ", dateFin=" + dateFin + ", observation=" + observation
+				+ ", etablissement=" + etablissement + ", fonction=" + fonction
+				+ ", personnel=" + personnel + "]";
+	}
+}

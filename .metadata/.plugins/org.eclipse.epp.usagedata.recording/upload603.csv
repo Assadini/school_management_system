@@ -1,0 +1,401 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Unhandled event loop exception",1591382037257
+error,log,,,"Unhandled event loop exception",1591382037357
+error,log,,,"Unhandled event loop exception",1591382037457
+error,log,,,"Unhandled event loop exception",1591382037567
+error,log,,,"Unhandled event loop exception",1591382037667
+error,log,,,"Unhandled event loop exception",1591382037777
+error,log,,,"Unhandled event loop exception",1591382037887
+error,log,,,"Unhandled event loop exception",1591382041517
+error,log,,,"Unhandled event loop exception",1591382041607
+error,log,,,"Unhandled event loop exception",1591382041707
+error,log,,,"Unhandled event loop exception",1591382041797
+error,log,,,"Unhandled event loop exception",1591382041897
+error,log,,,"Unhandled event loop exception",1591382041997
+error,log,,,"Unhandled event loop exception",1591382042087
+error,log,,,"Unhandled event loop exception",1591382042187
+error,log,,,"Unhandled event loop exception",1591382042287
+error,log,,,"Unhandled event loop exception",1591382042387
+error,log,,,"Unhandled event loop exception",1591382042487
+error,log,,,"Unhandled event loop exception",1591382042587
+error,log,,,"Unhandled event loop exception",1591382042687
+error,log,,,"Unhandled event loop exception",1591382042777
+error,log,,,"Unhandled event loop exception",1591382042877
+error,log,,,"Unhandled event loop exception",1591382042967
+error,log,,,"Unhandled event loop exception",1591382043057
+error,log,,,"Unhandled event loop exception",1591382043147
+error,log,,,"Unhandled event loop exception",1591382043247
+error,log,,,"Unhandled event loop exception",1591382043337
+error,log,,,"Unhandled event loop exception",1591382043447
+error,log,,,"Unhandled event loop exception",1591382043597
+error,log,,,"Unhandled event loop exception",1591382043707
+error,log,,,"Unhandled event loop exception",1591382043807
+error,log,,,"Unhandled event loop exception",1591382043917
+error,log,,,"Unhandled event loop exception",1591382044017
+error,log,,,"Unhandled event loop exception",1591382044127
+error,log,,,"Unhandled event loop exception",1591382044257
+error,log,,,"Unhandled event loop exception",1591382044378
+error,log,,,"Unhandled event loop exception",1591382044478
+error,log,,,"Unhandled event loop exception",1591382044588
+error,log,,,"Unhandled event loop exception",1591382044698
+error,log,,,"Unhandled event loop exception",1591382044808
+error,log,,,"Unhandled event loop exception",1591382044918
+error,log,,,"Unhandled event loop exception",1591382045018
+error,log,,,"Unhandled event loop exception",1591382045118
+error,log,,,"Unhandled event loop exception",1591382045228
+error,log,,,"Unhandled event loop exception",1591382045328
+error,log,,,"Unhandled event loop exception",1591382045438
+error,log,,,"Unhandled event loop exception",1591382045538
+error,log,,,"Unhandled event loop exception",1591382045648
+error,log,,,"Unhandled event loop exception",1591382045748
+error,log,,,"Unhandled event loop exception",1591382045858
+error,log,,,"Unhandled event loop exception",1591382045958
+error,log,,,"Unhandled event loop exception",1591382046068
+error,log,,,"Unhandled event loop exception",1591382046178
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382067049
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1591382078699
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1591382115559
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1591382118379
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382121959
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382140515
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1591382147235
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382151135
+error,log,,,"Unhandled event loop exception",1591382162303
+error,log,,,"Unhandled event loop exception",1591382162413
+error,log,,,"Unhandled event loop exception",1591382162523
+error,log,,,"Unhandled event loop exception",1591382162633
+error,log,,,"Unhandled event loop exception",1591382162733
+error,log,,,"Unhandled event loop exception",1591382162843
+error,log,,,"Unhandled event loop exception",1591382162943
+error,log,,,"Unhandled event loop exception",1591382163063
+error,log,,,"Unhandled event loop exception",1591382163163
+error,log,,,"Unhandled event loop exception",1591382163273
+error,log,,,"Unhandled event loop exception",1591382163373
+error,log,,,"Unhandled event loop exception",1591382163483
+error,log,,,"Unhandled event loop exception",1591382163583
+error,log,,,"Unhandled event loop exception",1591382163683
+error,log,,,"Unhandled event loop exception",1591382163793
+error,log,,,"Unhandled event loop exception",1591382163893
+error,log,,,"Unhandled event loop exception",1591382164003
+error,log,,,"Unhandled event loop exception",1591382164103
+error,log,,,"Unhandled event loop exception",1591382164213
+error,log,,,"Unhandled event loop exception",1591382164323
+error,log,,,"Unhandled event loop exception",1591382164423
+error,log,,,"Unhandled event loop exception",1591382164533
+error,log,,,"Unhandled event loop exception",1591382164633
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382167263
+error,log,,,"Unhandled event loop exception",1591382169803
+error,log,,,"Unhandled event loop exception",1591382169903
+error,log,,,"Unhandled event loop exception",1591382169993
+error,log,,,"Unhandled event loop exception",1591382170103
+error,log,,,"Unhandled event loop exception",1591382170203
+error,log,,,"Unhandled event loop exception",1591382170293
+error,log,,,"Unhandled event loop exception",1591382170403
+error,log,,,"Unhandled event loop exception",1591382170503
+error,log,,,"Unhandled event loop exception",1591382170593
+error,log,,,"Unhandled event loop exception",1591382170703
+error,log,,,"Unhandled event loop exception",1591382170803
+error,log,,,"Unhandled event loop exception",1591382170903
+error,log,,,"Unhandled event loop exception",1591382170993
+error,log,,,"Unhandled event loop exception",1591382171103
+error,log,,,"Unhandled event loop exception",1591382171193
+error,log,,,"Unhandled event loop exception",1591382171303
+error,log,,,"Unhandled event loop exception",1591382171433
+error,log,,,"Unhandled event loop exception",1591382171543
+error,log,,,"Unhandled event loop exception",1591382171643
+error,log,,,"Unhandled event loop exception",1591382171763
+error,log,,,"Unhandled event loop exception",1591382171903
+error,log,,,"Unhandled event loop exception",1591382172023
+error,log,,,"Unhandled event loop exception",1591382172143
+error,log,,,"Unhandled event loop exception",1591382172343
+error,log,,,"Unhandled event loop exception",1591382172473
+error,log,,,"Unhandled event loop exception",1591382172593
+error,log,,,"Unhandled event loop exception",1591382172703
+error,log,,,"Unhandled event loop exception",1591382172803
+error,log,,,"Unhandled event loop exception",1591382172913
+error,log,,,"Unhandled event loop exception",1591382173023
+error,log,,,"Unhandled event loop exception",1591382173123
+error,log,,,"Unhandled event loop exception",1591382173233
+error,log,,,"Unhandled event loop exception",1591382173333
+error,log,,,"Unhandled event loop exception",1591382173443
+error,log,,,"Unhandled event loop exception",1591382173553
+error,log,,,"Unhandled event loop exception",1591382173663
+error,log,,,"Unhandled event loop exception",1591382173773
+error,log,,,"Unhandled event loop exception",1591382173883
+error,log,,,"Unhandled event loop exception",1591382173983
+error,log,,,"Unhandled event loop exception",1591382174093
+error,log,,,"Unhandled event loop exception",1591382174193
+error,log,,,"Unhandled event loop exception",1591382174303
+error,log,,,"Unhandled event loop exception",1591382174413
+error,log,,,"Unhandled event loop exception",1591382174523
+error,log,,,"Unhandled event loop exception",1591382174633
+error,log,,,"Unhandled event loop exception",1591382174733
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1591382204057
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1591382205637
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1591382214597
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382215877
+error,log,,,"Unhandled event loop exception",1591382226572
+error,log,,,"Unhandled event loop exception",1591382226692
+error,log,,,"Unhandled event loop exception",1591382226802
+error,log,,,"Unhandled event loop exception",1591382226912
+error,log,,,"Unhandled event loop exception",1591382227032
+error,log,,,"Unhandled event loop exception",1591382227142
+error,log,,,"Unhandled event loop exception",1591382227252
+error,log,,,"Unhandled event loop exception",1591382227362
+error,log,,,"Unhandled event loop exception",1591382227472
+error,log,,,"Unhandled event loop exception",1591382227582
+error,log,,,"Unhandled event loop exception",1591382227692
+error,log,,,"Unhandled event loop exception",1591382227802
+error,log,,,"Unhandled event loop exception",1591382227902
+error,log,,,"Unhandled event loop exception",1591382228012
+error,log,,,"Unhandled event loop exception",1591382228122
+error,log,,,"Unhandled event loop exception",1591382228232
+error,log,,,"Unhandled event loop exception",1591382228342
+error,log,,,"Unhandled event loop exception",1591382228452
+error,log,,,"Unhandled event loop exception",1591382228552
+error,log,,,"Unhandled event loop exception",1591382228702
+error,log,,,"Unhandled event loop exception",1591382228822
+error,log,,,"Unhandled event loop exception",1591382235382
+error,log,,,"Unhandled event loop exception",1591382235482
+error,log,,,"Unhandled event loop exception",1591382235582
+error,log,,,"Unhandled event loop exception",1591382235682
+error,log,,,"Unhandled event loop exception",1591382235772
+error,log,,,"Unhandled event loop exception",1591382235872
+error,log,,,"Unhandled event loop exception",1591382235992
+error,log,,,"Unhandled event loop exception",1591382236092
+error,log,,,"Unhandled event loop exception",1591382236212
+error,log,,,"Unhandled event loop exception",1591382236322
+error,log,,,"Unhandled event loop exception",1591382236422
+error,log,,,"Unhandled event loop exception",1591382236532
+error,log,,,"Unhandled event loop exception",1591382236632
+error,log,,,"Unhandled event loop exception",1591382236742
+error,log,,,"Unhandled event loop exception",1591382236842
+error,log,,,"Unhandled event loop exception",1591382236942
+error,log,,,"Unhandled event loop exception",1591382237052
+error,log,,,"Unhandled event loop exception",1591382237152
+error,log,,,"Unhandled event loop exception",1591382237252
+error,log,,,"Unhandled event loop exception",1591382237352
+error,log,,,"Unhandled event loop exception",1591382237452
+error,log,,,"Unhandled event loop exception",1591382237602
+error,log,,,"Unhandled event loop exception",1591382237712
+error,log,,,"Unhandled event loop exception",1591382237822
+error,log,,,"Unhandled event loop exception",1591382237942
+error,log,,,"Unhandled event loop exception",1591382238052
+error,log,,,"Unhandled event loop exception",1591382238172
+error,log,,,"Unhandled event loop exception",1591382238292
+error,log,,,"Unhandled event loop exception",1591382238402
+error,log,,,"Unhandled event loop exception",1591382238512
+error,log,,,"Unhandled event loop exception",1591382238622
+error,log,,,"Unhandled event loop exception",1591382238732
+error,log,,,"Unhandled event loop exception",1591382238842
+error,log,,,"Unhandled event loop exception",1591382238952
+error,log,,,"Unhandled event loop exception",1591382239062
+error,log,,,"Unhandled event loop exception",1591382239172
+error,log,,,"Unhandled event loop exception",1591382239282
+error,log,,,"Unhandled event loop exception",1591382239392
+error,log,,,"Unhandled event loop exception",1591382239502
+error,log,,,"Unhandled event loop exception",1591382239602
+error,log,,,"Unhandled event loop exception",1591382239712
+error,log,,,"Unhandled event loop exception",1591382239812
+error,log,,,"Unhandled event loop exception",1591382239922
+error,log,,,"Unhandled event loop exception",1591382240032
+error,log,,,"Unhandled event loop exception",1591382240142
+error,log,,,"Unhandled event loop exception",1591382240252
+error,log,,,"Unhandled event loop exception",1591382285573
+error,log,,,"Unhandled event loop exception",1591382285683
+error,log,,,"Unhandled event loop exception",1591382285793
+error,log,,,"Unhandled event loop exception",1591382285893
+error,log,,,"Unhandled event loop exception",1591382286013
+error,log,,,"Unhandled event loop exception",1591382286123
+error,log,,,"Unhandled event loop exception",1591382286243
+error,log,,,"Unhandled event loop exception",1591382286353
+error,log,,,"Unhandled event loop exception",1591382286463
+error,log,,,"Unhandled event loop exception",1591382286573
+error,log,,,"Unhandled event loop exception",1591382286683
+error,log,,,"Unhandled event loop exception",1591382286793
+error,log,,,"Unhandled event loop exception",1591382286893
+error,log,,,"Unhandled event loop exception",1591382287013
+error,log,,,"Unhandled event loop exception",1591382287123
+error,log,,,"Unhandled event loop exception",1591382287233
+error,log,,,"Unhandled event loop exception",1591382287343
+error,log,,,"Unhandled event loop exception",1591382287453
+error,log,,,"Unhandled event loop exception",1591382287563
+error,log,,,"Unhandled event loop exception",1591382287673
+error,log,,,"Unhandled event loop exception",1591382287783
+error,log,,,"Unhandled event loop exception",1591382287893
+error,log,,,"Unhandled event loop exception",1591382288003
+error,log,,,"Unhandled event loop exception",1591382293483
+error,log,,,"Unhandled event loop exception",1591382293583
+error,log,,,"Unhandled event loop exception",1591382293683
+error,log,,,"Unhandled event loop exception",1591382293783
+error,log,,,"Unhandled event loop exception",1591382293883
+error,log,,,"Unhandled event loop exception",1591382293983
+error,log,,,"Unhandled event loop exception",1591382294083
+error,log,,,"Unhandled event loop exception",1591382294193
+error,log,,,"Unhandled event loop exception",1591382294293
+error,log,,,"Unhandled event loop exception",1591382294393
+error,log,,,"Unhandled event loop exception",1591382294493
+error,log,,,"Unhandled event loop exception",1591382294593
+error,log,,,"Unhandled event loop exception",1591382294693
+error,log,,,"Unhandled event loop exception",1591382294783
+error,log,,,"Unhandled event loop exception",1591382294883
+error,log,,,"Unhandled event loop exception",1591382294983
+error,log,,,"Unhandled event loop exception",1591382295093
+error,log,,,"Unhandled event loop exception",1591382295193
+error,log,,,"Unhandled event loop exception",1591382295293
+error,log,,,"Unhandled event loop exception",1591382295393
+error,log,,,"Unhandled event loop exception",1591382295493
+error,log,,,"Unhandled event loop exception",1591382295633
+error,log,,,"Unhandled event loop exception",1591382295743
+error,log,,,"Unhandled event loop exception",1591382295853
+error,log,,,"Unhandled event loop exception",1591382295963
+error,log,,,"Unhandled event loop exception",1591382296063
+error,log,,,"Unhandled event loop exception",1591382296183
+error,log,,,"Unhandled event loop exception",1591382296293
+error,log,,,"Unhandled event loop exception",1591382296403
+error,log,,,"Unhandled event loop exception",1591382296523
+error,log,,,"Unhandled event loop exception",1591382296633
+error,log,,,"Unhandled event loop exception",1591382296743
+error,log,,,"Unhandled event loop exception",1591382296853
+error,log,,,"Unhandled event loop exception",1591382296973
+error,log,,,"Unhandled event loop exception",1591382297083
+error,log,,,"Unhandled event loop exception",1591382297193
+error,log,,,"Unhandled event loop exception",1591382297303
+error,log,,,"Unhandled event loop exception",1591382297413
+error,log,,,"Unhandled event loop exception",1591382297513
+error,log,,,"Unhandled event loop exception",1591382297623
+error,log,,,"Unhandled event loop exception",1591382297733
+error,log,,,"Unhandled event loop exception",1591382297843
+error,log,,,"Unhandled event loop exception",1591382297953
+error,log,,,"Unhandled event loop exception",1591382298063
+error,log,,,"Unhandled event loop exception",1591382298173
+error,log,,,"Unhandled event loop exception",1591382298283
+error,log,,,"Unhandled event loop exception",1591382338093
+error,log,,,"Unhandled event loop exception",1591382338203
+error,log,,,"Unhandled event loop exception",1591382338313
+error,log,,,"Unhandled event loop exception",1591382338433
+error,log,,,"Unhandled event loop exception",1591382338543
+error,log,,,"Unhandled event loop exception",1591382338663
+error,log,,,"Unhandled event loop exception",1591382338783
+error,log,,,"Unhandled event loop exception",1591382338893
+error,log,,,"Unhandled event loop exception",1591382339003
+error,log,,,"Unhandled event loop exception",1591382339123
+error,log,,,"Unhandled event loop exception",1591382339243
+error,log,,,"Unhandled event loop exception",1591382339353
+error,log,,,"Unhandled event loop exception",1591382339483
+error,log,,,"Unhandled event loop exception",1591382350653
+error,log,,,"Unhandled event loop exception",1591382350763
+error,log,,,"Unhandled event loop exception",1591382350863
+error,log,,,"Unhandled event loop exception",1591382350963
+error,log,,,"Unhandled event loop exception",1591382351063
+error,log,,,"Unhandled event loop exception",1591382351163
+error,log,,,"Unhandled event loop exception",1591382351263
+error,log,,,"Unhandled event loop exception",1591382351363
+error,log,,,"Unhandled event loop exception",1591382351463
+error,log,,,"Unhandled event loop exception",1591382351683
+error,log,,,"Unhandled event loop exception",1591382351793
+error,log,,,"Unhandled event loop exception",1591382351913
+error,log,,,"Unhandled event loop exception",1591382352103
+error,log,,,"Unhandled event loop exception",1591382352317
+error,log,,,"Unhandled event loop exception",1591382352497
+error,log,,,"Unhandled event loop exception",1591382352679
+error,log,,,"Unhandled event loop exception",1591382352849
+error,log,,,"Unhandled event loop exception",1591382352999
+error,log,,,"Unhandled event loop exception",1591382353129
+error,log,,,"Unhandled event loop exception",1591382353259
+error,log,,,"Unhandled event loop exception",1591382353419
+error,log,,,"Unhandled event loop exception",1591382353549
+error,log,,,"Unhandled event loop exception",1591382353689
+error,log,,,"Unhandled event loop exception",1591382353889
+error,log,,,"Unhandled event loop exception",1591382354039
+error,log,,,"Unhandled event loop exception",1591382354179
+error,log,,,"Unhandled event loop exception",1591382354329
+error,log,,,"Unhandled event loop exception",1591382354459
+error,log,,,"Unhandled event loop exception",1591382354619
+error,log,,,"Unhandled event loop exception",1591382354769
+error,log,,,"Unhandled event loop exception",1591382354899
+error,log,,,"Unhandled event loop exception",1591382355019
+error,log,,,"Unhandled event loop exception",1591382355139
+error,log,,,"Unhandled event loop exception",1591382355259
+error,log,,,"Unhandled event loop exception",1591382355379
+error,log,,,"Unhandled event loop exception",1591382355499
+error,log,,,"Unhandled event loop exception",1591382355609
+error,log,,,"Unhandled event loop exception",1591382355729
+error,log,,,"Unhandled event loop exception",1591382355839
+error,log,,,"Unhandled event loop exception",1591382355959
+error,log,,,"Unhandled event loop exception",1591382356069
+error,log,,,"Unhandled event loop exception",1591382356199
+error,log,,,"Unhandled event loop exception",1591382356319
+error,log,,,"Unhandled event loop exception",1591382356439
+error,log,,,"Unhandled event loop exception",1591382356559
+error,log,,,"Unhandled event loop exception",1591382356669
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382433800
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382439660
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382448520
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1591382450560
+error,log,,,"Could not create action delegate for id: EclipseIntegration.action1",1591382463080
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382463090
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382465860
+error,log,,,"Internal plug-in action delegate error on creation.",1591382465870
+error,log,,,"Could not create action delegate for id: EclipseIntegration.actionNewSelectIn",1591382465880
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382465890
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382467260
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382469160
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382469310
+error,log,,,"Internal plug-in action delegate error on creation.",1591382469330
+error,log,,,"Could not create action delegate for id: EclipseIntegration.action3",1591382469330
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382469350
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382470600
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382473770
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382473910
+error,log,,,"Internal plug-in action delegate error on creation.",1591382473920
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1591382473960
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1591382474000
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382474250
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382475580
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1591382477920
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1591382478080
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1591382485160
+opened,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1591382492730
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1591382492830
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1591382537560
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382540490
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382619987
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1591382622317
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382625327
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382626597
+executed,command,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.launchShortcut.run",1591382626617
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382627047
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382628917
+error,log,,,"Unhandled event loop exception",1591382628957
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382630937
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382632587
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382634127
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382634297
+error,log,,,"An internal error occurred during: ""Stopping Tomcat v7.0 Server at localhost"".",1591382634307
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382634317
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382635867
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1591382637227
+error,log,,,"Several ports (8005, 8080, 8009) required by Tomcat v7.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).",1591382638467
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382638497
+opened,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1591382638577
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382638607
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1591382638617
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382642167
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382642357
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1591382643767
+executed,command,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.stop",1591382643977
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1591382645318
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1591382645449
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1591382645509
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382647709
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382696379
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382698409
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1591382709869
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1591382713639
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1591382713739
+closed,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1591382713739
+closed,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1591382715689
+activated,view,org.eclipse.ui.navigator.resources,3.4.202.M20101124-0800,"org.eclipse.ui.navigator.ProjectExplorer",1591382718279
+executed,command,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.launchShortcut.run",1591382728349
+opened,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1591382730870

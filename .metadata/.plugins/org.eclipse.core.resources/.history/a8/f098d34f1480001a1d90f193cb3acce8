@@ -1,0 +1,37 @@
+package controllers.classe;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+import Domaine.classe.ClasseGenerique;
+import Domaine.matiere.ClasseGUnite;
+import Domaine.matiere.Unite;
+
+import dao.classe.ClasseGeneriqueDAO;
+import dao.matiere.ClasseGUniteDAO;
+
+/**
+ * Servlet implementation class ClasseGeneriqueController
+ */
+@WebServlet("/ClasseGenerique/Unite/List")
+public class ClasseGeneriqueUniteList extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private ClasseGeneriqueDAO classeGeneriqueDAO;
+       
+    public ClasseGeneriqueUniteList() {
+        super();
+        classeGeneriqueDAO = new ClasseGeneriqueDAO();
+    }
+	
+
+}

@@ -1,0 +1,42 @@
+1591061971787	Rename field 'employer'
+1591152664235	Rename field 'classes'
+1591155790252	Delete element
+1591155799383	Delete element
+1591222520083	Rename field 'nbreHeures'
+1591222585793	Rename field 'nbreSeances'
+1591227149381	Rename type 'FormeExamenDAO'
+1591227428441	Rename compilation unit 'FormeExamenAdd.java'
+1591227553574	Rename type 'FormeExamenDelete'
+1591227664756	Rename type 'FormeExamenDetails'
+1591227758428	Rename type 'FormeExamenList'
+1591227883731	Rename type 'FormeExamenUpdate'
+1591227961093	Delete element
+1591228240962	Rename field 'nbreHeures'
+1591228273512	Rename field 'nbreSeances'
+1591228879729	Rename resource 'FormeExamens.jsp'
+1591230100409	Rename field 'formeExamen'
+1591284311332	Copy compilation unit
+1591284340472	Rename type 'CycleDAO'
+1591284361444	Rename type 'EtablissementDAO'
+1591284497054	Rename package 'Domaine.etablisement'
+1591284538284	Copy compilation units
+1591284560614	Rename type 'CycleAdd'
+1591284656034	Rename type 'CycleDelete'
+1591284757614	Rename type 'CycleDetails'
+1591284819854	Rename type 'CycleUpdate'
+1591284965684	Rename compilation unit 'CycleList.java'
+1591285058738	Copy compilation unit
+1591288209965	Copy compilation unit
+1591289290494	Copy compilation unit
+1591289642304	Copy compilation unit
+1591378045401	Rename resource 'Profile.jsp'
+1591378337463	Rename resource 'ProfileUtilisateur.jsp'
+1591388044913	Copy file
+1591388551306	Delete element
+1591404207440	Rename field 'documents'
+1591482723332	Rename field 'avancement'
+1591482876942	Rename field 'projet'
+1591493480801	Rename field 'avancement'
+1591496795672	Delete element
+1591496887742	Delete element
+1591496947682	Move 'E.Etudiant' to 'WEB-INF'

@@ -1,0 +1,10 @@
+#Thu Jun 04 16:33:39 WEST 2020
+eclipse.preferences.version=1
+encoding//WebContent/js/buttons.html5.min.js=UTF-8
+encoding//src/controllers/classe/CycleUpdate.java=UTF-8
+encoding//src/controllers/classe/NiveauUpdate.java=UTF-8
+encoding//src/controllers/etablissement/CycleUpdate.java=UTF-8
+encoding//src/controllers/etablissement/RegionUpdate.java=UTF-8
+encoding//src/controllers/etudiant/MentionUpdate.java=UTF-8
+encoding//src/controllers/etudiant/OptionBacUpdate.java=UTF-8
+encoding//src/controllers/matiere/PeriodeUpdate.java=UTF-8

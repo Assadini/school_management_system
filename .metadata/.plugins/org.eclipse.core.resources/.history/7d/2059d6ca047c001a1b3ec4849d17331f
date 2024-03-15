@@ -1,0 +1,125 @@
+package controllers.classe;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Domaine.classe.AnneeScolaire;
+import Domaine.classe.Classe;
+import Domaine.classe.ClasseGenerique;
+import Domaine.classe.Cycle;
+import Domaine.classe.Filiere;
+import Domaine.classe.Niveau;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import dao.classe.AnneeScolaireDAO;
+import dao.classe.ClasseDAO;
+import dao.classe.ClasseGeneriqueDAO;
+import dao.classe.CycleDAO;
+import dao.classe.FiliereDAO;
+import dao.classe.NiveauDAO;
+
+
+/**
+ * Servlet implementation class ClasseController
+ */
+@WebServlet("/Classe/Add")
+public class ClasseAdd extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private ClasseDAO classeDAO;  
+    public ClasseAdd() {
+        super();
+        classeDAO = new ClasseDAO();
+    }
+
+	
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int cycleId=Integer.parseInt(request.getParameter("cycle"));
+		int filiereId=Integer.parseInt(request.getParameter("filiere"));
+		int niveauId=Integer.parseInt(request.getParameter("niveau"));
+		int anneeScolaireId=Integer.parseInt(request.getParameter("annneescolaire"));
+		String label=request.getParameter("label");
+		
+		
+		
+		String message=null;
+		boolean success =false;
+		
+		try {
+			Cycle cycle = new Cycle();
+			Filiere filiere = new Filiere();
+			Niveau niveau = new Niveau();
+			AnneeScolaire anneeScolaire = new AnneeScolaire();
+			ClasseGenerique classeGenerique = new ClasseGenerique();
+			
+			CycleDAO cycleDA0 = new CycleDAO();
+			FiliereDAO filiereDAO = new FiliereDAO();
+			NiveauDAO niveauDA0 = new NiveauDAO();
+			AnneeScolaireDAO anneeScolaireDAO = new AnneeScolaireDAO();
+			ClasseGeneriqueDAO classeGeneriqueDAO = new ClasseGeneriqueDAO();
+			
+			cycle = cycleDA0.getById(cycleId);
+			filiere= filiereDAO.getById(filiereId);
+			niveau = niveauDA0.getById(niveauId);
+			anneeScolaire = anneeScolaireDAO.getById(anneeScolaireId);
+			
+			classeGenerique.setCycle(cycle);
+			classeGenerique.setFiliere(filiere);
+			classeGenerique.setNiveau(niveau);
+			classeGenerique.setCode();
+			if(classeGeneriqueDAO.exists(classeGenerique)!= null){
+			    Classe classe = new Classe();
+			    classe.setClasseGenerique(classeGeneriqueDAO.exists(classeGenerique));
+			    classe.setAnneeScolaire(anneeScolaire);
+			    classe.setLabel(label);
+			    classe.setCode();
+			    System.out.println("*******************");
+			    System.out.println(classe);
+			    if(classeDAO.exists(classe)==null){
+					classeDAO.insert(classe);
+					success=true;
+					message="La classe à élé ajoutée avec succès ";
+			    }else{
+			    	success=false;
+					message="Impossible d'ajouter la classe, cette classe existe déjà";	
+			    }
+				
+			}else{
+				success=false;
+				message="Impossible de créer la classe avant d'avoir créer la classe générique correspondante";
+			}
+			
+			
+		} catch (SQLException e1) {
+			success=false;
+			message="Impossible d'ajouter l'enregistrement ";
+			e1.printStackTrace();
+		}
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+
+}

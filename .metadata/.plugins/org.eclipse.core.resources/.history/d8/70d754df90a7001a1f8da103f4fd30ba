@@ -1,0 +1,9 @@
+package Domaine.communication;
+
+import Domaine.document.Document;
+
+public class DocumentActualite extends Document {
+	public DocumentActualite() {
+		super();
+	}	
+}

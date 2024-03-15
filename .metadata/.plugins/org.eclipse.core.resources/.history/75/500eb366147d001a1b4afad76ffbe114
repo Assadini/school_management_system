@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  	<title>Sidebar 07</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	
+		<link rel="stylesheet" href="css/fontawesome.min.css">
+		<link rel="stylesheet" href="css/all.min.css">
+		<link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<h1><a href="index.html" class="logo">E.</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="#"><span class="fa fa-home"></span>Accueil</a>
+          </li>
+          <li> 
+              <a href="#"><span class="fa fa-chalkboard-teacher"></span>Classes</a>
+          </li>
+		  <li> 
+              <a href="#"><span class="far fa-calendar-alt"></span>Emplois</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-user-tie"></span>Personnel</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-users"></span>Etudiants</a>
+			
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-file-signature"></span>Evaluations</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-user-check"></span>Absences</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-book"></span>Bibliothèque</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-desktop"></span>Materiel</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-bullhorn"></span>Annonces</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-newspaper"></span>Actualités</a>
+          </li>
+		  <li>
+            <a href="#"><span class="far fa-file-alt"></span>Cahiers du texte</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-project-diagram"></span>Projets</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-tools"></span>Stages</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-file-upload"></span>Documents</a>
+          </li>
+		  <li>
+            <a href="#"><span class="fa fa-print"></span>Photocopie</a>
+          </li>
+        </ul>
+
+        
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+		<!-- Start content -->
+		<div class="row">
+            <div class="col-md-8">
+				
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<i class="fas fa-camera"></i>
+						Ajouter un fonctionnaire
+					</div>
+					<div class="panel-body">
+						<form action="" class="form-horizontal" id="validate">
+							<ul class="nav nav-tabs nav-justified nav-inline">
+								<li class="active"><a href="#primary" data-toggle="tab">Classes</a></li>
+								<li><a href="#contacts" data-toggle="tab">Classes Génériques</a></li>
+							</ul>
+							<div class="tab-content tab-validate" style="margin-top:20px;">
+								<!-- Tab classes  -->
+								<div class="tab-pane active" id="primary">
+									<h3><i class="fa fa-chalkboard-teacher"></i> Classes</h3>
+										<div>
+											<fieldset>
+												<form method="post" action="#">
+												<div class="form-group">
+													<label>Année Courante</label>
+													<input type="radio" name="modeAnnee"/>
+													<label>Choisir une Année</label>
+													<input type="radio" name="modeAnnee"/>
+												</div>
+												<select name="anneScolaire">
+													<option>2019/2020</option>
+													<option>2020/2021</option>
+													<option>2021/2022</option>
+													<option>2022/2023</option>
+												</select>
+												</form>
+											</fieldset>
+										</div>
+										<table class="table table-striped">
+											<thead>
+												<tr><th>Classe</th><th>Année Scolaire</th><th>Cycle</th><th>Filière</th><th>Niveau</th><th colspan="3"></th></tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1BTS-DSI-19/20</td>
+													<td>2019/2020</td>
+													<td>BTS</td>
+													<td>DSI</td>
+													<td>1ere Année</td>
+													<td><a href="#" title="Détails"><i class="fa fa-file-alt"></i></a></td>
+													<td><a href="#" title="Modifier"><i class="fa fa-edit"></i></a></td>
+												</tr>
+												<tr>
+													<td>2BTS-DSI-19/20</td>
+													<td>2019/2020</td>
+													<td>BTS</td>
+													<td>DSI</td>
+													<td>2eme Année</td>
+													<td><a href="#" title="Détails"><i class="fa fa-file-alt"></i></a></td>
+													<td><a href="#" title="Modifier"><i class="fa fa-edit"></i></a></td>
+													<td><a href="#" title="Supprimer"><i class="fa fa-cut"></i></a></td>
+												</tr>
+												<tr>
+													<td>1BTS-CPI-19/20</td>
+													<td>2019/2020</td>
+													<td>BTS</td>
+													<td>CPI</td>
+													<td>1ere Année</td>
+													<td><a href="#" title="Détails"><i class="fa fa-file-alt"></i></a></td>
+													<td><a href="#" title="Modifier"><i class="fa fa-edit"></i></a></td>
+													<td><a href="#" title="Supprimer"><i class="fa fa-cut"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- Pagination -->
+										<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+										<!-- /Pagination -->
+										<button class="btn btn-primary">
+													  Ajouter une Nouvelle Classe
+										</button>
+								</div>
+								<!-- Tab classes Génériques -->
+								<div class="tab-pane" id="contacts">
+								<!-- colone Francais -->
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="email" class="control-label col-md-4">Email</label> 
+											<div class="col-md-8">
+												<input type="email" name="email" class="form-control" placeholder="Email"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="telMobile" class="control-label col-md-4">Tél. Mobile</label> 
+											<div class="col-md-8">
+												<input type="text" name="telMobile" class="form-control" placeholder="Télèphone Mobile"/>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="telDomicile" class="control-label col-md-4">Tél. Domicile</label> 
+											<div class="col-md-8">
+												<input type="text" name="telDomicile" class="form-control" placeholder="Télèphone domocile" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="adresseFr" class="control-label col-md-4">Adresse</label> 
+											<div class="col-md-8">
+												<textarea name="adresseFr" class="form-control" placeholder="Adresse complète"></textarea>
+											</div>
+										</div>
+									</div>
+									<!-- colone Arabe -->
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="adresseAr" class="control-label col-md-3 pull-right">العنوان الشخصي</label> 
+											<div class="col-md-8">
+												<textarea name="adresseAr" style="direction:RTL;" class="form-control" placeholder="العنوان الشخصي بالعربية"></textarea>
+											</div>
+											<div class="col-md-1">
+												<button class="btn btn-default" title="Clavier Arabe">ع</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Tab  -->
+								<div class="tab-pane" id="secondary">
+									<div class="fcol-md-12">
+										<table class="table table-striped">
+											<thead class="thead-primary">
+											  <tr><th>Fonction</th><th>Région</th><th>Province</th><th>Etablissement</th><th>Début</th><th>Fin</th><th></th><th></th></tr>
+											</thead>
+											<tbody id="fonctionsHist">
+											 <tr><td></td><td></th><td></td><td></td><td></td><td></td><td></td><td></td></td>
+											</tbody>
+										</table>
+								   </div>
+								   <div class="form-group">
+											<div class="col-md-2">
+											<input type="button" class="btn btn-default" id="btnNewFonction" value="Ajouter une Fonction"/>
+											</div>
+								   </div>
+								</div>
+								<!-- Tab  -->
+								<div class="tab-pane" id="third">
+									<!-- colone Francais -->
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="som" class="control-label col-md-4">SOM</label> 
+											<div class="col-md-8">
+												<input type="text" name="som" class="form-control" placeholder="Numéro de SOM" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="dateRecrut" class="control-label col-md-4">Date de recrutement</label> 
+											<div class="col-md-2">
+												<select name="jourRec" class="form-control" >
+													<option value="" selected>J</option>
+													<option value="1">01</option>
+													<option value="2">02</option>
+													<option value="3">03</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<select name="moisRec" class="form-control" >
+													<option value="" selected>M</option>
+													<option value="1">Janvier</option>
+													<option value="2">Février</option>
+													<option value="3">Mars</option>
+													<option value="4">Avril</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<select name="anneeRec" class="form-control" >
+													<option value="" selected>A</option>
+													<option value="1">1961</option>
+													<option value="2">1962</option>
+													<option value="3">1963</option>
+													<option value="4">1964</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="dateAffec" class="control-label col-md-4">Date d'affectation</label> 
+											<div class="col-md-2">
+												<select name="jourAffect" class="form-control" >
+													<option value="" selected>J</option>
+													<option value="1">01</option>
+													<option value="2">02</option>
+													<option value="3">03</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<select name="moisAffect" class="form-control" >
+													<option value="" selected>M</option>
+													<option value="1">Janvier</option>
+													<option value="2">Février</option>
+													<option value="3">Mars</option>
+													<option value="4">Avril</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<select name="anneeAffect" class="form-control" >
+													<option value="" selected>A</option>
+													<option value="1">1961</option>
+													<option value="2">1962</option>
+													<option value="3">1963</option>
+													<option value="4">1964</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cadre" class="control-label col-md-4">Cadre actuel</label> 
+											<div class="col-md-8">
+												<select name="cadre" class="form-control" >
+													<option value="1">M.</option>
+													<option value="2">Mme.</option>
+													<option value="3">Mlle</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="echelle" class="control-label col-md-4">Echelle</label> 
+											<div class="col-md-8">
+												<select name="echelel" class="form-control" >
+													<option value="1">09</option>
+													<option value="2">10</option>
+													<option value="3">11</option>
+													<option value="4">HE</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="echelon" class="control-label col-md-4">Echelon</label> 
+											<div class="col-md-8">
+												<select name="echelon" class="form-control" >
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<!-- colone Arabe -->
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="fonctionActuel" class="control-label col-md-4">Fonction Actuelle</label> 
+											<div class="col-md-8">
+												<select name="fonctionActuel" class="form-control" >
+													<option value="1">Enseig</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="cycleEnseig" class="control-label col-md-4">Cycle d'enseignement</label> 
+											<div class="col-md-8">
+												<select name="cycleEnseig" class="form-control" >
+													<option value="1">Enseig</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="matEnseig" class="control-label col-md-4">Matière enseignée</label> 
+											<div class="col-md-8">
+												<select name="matEnseig" class="form-control" >
+													<option value="1">Math</option>
+													<option value="2">Inf</option>
+													<option value="3">Sport</option>
+													<option value="4">Sciences physique</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="noteInspect" class="control-label col-md-4">Note inspection</label> 
+											<div class="col-md-4">
+												<input type="text" name="noteInspect" class="form-control" placeholder="Dernière note d'inspection" />
+											</div>
+											<div class="col-md-4">
+												<select name="anneNoteInspec" class="form-control" >
+													<option value="" selected>Année</option>
+													<option value="1">2000</option>
+													<option value="2">2001</option>
+													<option value="3">2002</option>
+													<option value="4">2003</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="noteAdminstr" class="control-label col-md-4">Note Administrative</label> 
+											<div class="col-md-4">
+												<input type="text" name="noteAdminstr" class="form-control" placeholder="Dernière note administrative" />
+											</div>
+											<div class="col-md-4">
+												<select name="anneNoteAdministr" class="form-control" >
+													<option value="" selected>Année</option>
+													<option value="1">2000</option>
+													<option value="2">2001</option>
+													<option value="3">2002</option>
+													<option value="4">2003</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Tab  -->
+								<div class="tab-pane" id="four">
+									<div class="form-group">
+										<label for="zipcode" class="control-label col-md-4">Zip Code</label> 
+										<div class="col-md-8">
+											<input type="text" name="zipcode" class="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="address" class="control-label col-md-4">Address</label> 
+										<div class="col-md-8">
+											<input type="text" name="address" class="form-control" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="city" class="control-label col-md-4">City</label> 
+										<div class="col-md-8">
+											<input type="text" name="city" class="form-control" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="panel-footer">
+						<div class="form-group text-right">
+							<input type="button" class="btn btn-danger"  data-dismiss="modal" id="btnAnnulFonctHist" value="Annuler"/>
+							<button type="submit" class="btn btn-primary" id="btnEnregistrer">Eregistrer</button>
+						</div>
+					</div>    
+				</div>
+			</div>
+			<div class="col-md-4">
+				<!-- span-3 -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					  <div class="panel-title">
+						<i class="glyphicon glyphicon-wrench pull-right"></i>
+						<h4>Submit Request</h4>
+					  </div>
+					</div>
+					<div class="panel-body">
+					  
+					  <form class="form form-vertical">
+						<div class="control-group">
+						  <label>Name</label>
+						  <div class="controls">
+							<input type="text" class="form-control" placeholder="Enter Name">
+						  </div>
+						</div>      
+						<div class="control-group">
+						  <label>Title</label>
+						  <div class="controls">
+							<input type="password" class="form-control" placeholder="Password">
+							
+						  </div>
+						</div>   
+						<div class="control-group">
+						  <label>Details</label>
+						  <div class="controls">
+							<textarea class="form-control"></textarea>
+						  </div>
+						</div> 
+						<div class="control-group">
+						  <label>Select</label>
+						  <div class="controls">
+							<select class="form-control"><option>General Question</option><option>Server Issues</option><option>Billing Question</option></select>
+						  </div>
+						</div>    
+						<div class="control-group">
+						  <label></label>
+						  <div class="controls">
+							<button type="submit" class="btn btn-primary">
+							  Post
+							</button>
+						  </div>
+						</div>   
+						
+					  </form>
+					  
+					  
+					</div>
+				  </div>
+			</div>
+		</div>
+		<!-- End content -->
+        
+	</div>
+
+    <script src="js/jquery.min.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

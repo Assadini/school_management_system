@@ -1,0 +1,69 @@
+package controllers.evaluation;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+import Domaine.evaluation.FormeExamen;
+import dao.evaluation.FormeEvaluationDAO;
+
+/**
+ * Servlet implementation class ClasseController
+ */
+@WebServlet("/FormeExamen/Update")
+public class FormeExamenUpdate extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private FormeEvaluationDAO formeExamenDAO;  
+    public FormeExamenUpdate() {
+        super();
+        formeExamenDAO = new FormeEvaluationDAO();
+    }
+
+	
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String result=null;
+		int id=Integer.parseInt(request.getParameter("id"));
+		String code=request.getParameter("code");
+		String nom_Fr= request.getParameter("nom_Fr");
+		String nom_Ar=request.getParameter("nom_Ar");
+		
+		FormeExamen formeExamen = new FormeExamen();
+		formeExamen.setId(id);
+		formeExamen.setCode(code);
+		formeExamen.setNom_Fr(nom_Fr);
+		formeExamen.setNom_Ar(nom_Ar);
+		
+		try {
+			formeExamenDAO.update(formeExamen);
+			result="La formeExamen à été modifié avec succès";
+		} catch (SQLException e) {
+			result="Impossible de modifier la formeExamen";
+			e.printStackTrace();
+		}
+		String json = new Gson().toJson(result).toString();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+
+}

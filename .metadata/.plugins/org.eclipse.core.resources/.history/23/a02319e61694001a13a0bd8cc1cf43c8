@@ -1,0 +1,1438 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+  	<title>Liste des Etudiants</title>
+  	
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/all.min.css" type="text/css" >
+	<link rel="stylesheet" href="../css/style.css" type="text/css" >
+	<link rel="stylesheet" href="../css/dataTables.bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="../css/jquery.dataTables.min.css" type="text/css" >
+	<link rel="stylesheet" href="../css/fontawesome.min.css" type="text/css" >
+	<link rel="stylesheet" href="../css/bootstap.min.css" type="text/css" >
+	<link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css" >
+		
+	<style type="text/css">
+	body{
+			background-color:#fff;
+		}
+	/***************** Modal confirm **********************/
+	.modal-confirm {		
+		color: #636363;
+		width: 325px;
+	}
+	.modal-confirm .modal-content {
+		padding: 20px;
+		border-radius: 5px;
+		border: none;
+	}
+	.modal-confirm .modal-header {
+		border-bottom: none;   
+        position: relative;
+	}
+	.modal-confirm h4 {
+		width:100%;
+		text-align: center;
+		font-size: 26px;
+		margin: 30px 0 -15px;
+	}
+	.modal-confirm .form-control, .modal-confirm .btn {
+		min-height: 40px;
+		border-radius: 3px; 
+	}
+	.modal-confirm .close {
+        position: absolute;
+		top: -5px;
+		right: -5px;
+	}	
+	.modal-confirm .modal-footer {
+		border: none;
+		text-align: center;
+		border-radius: 5px;
+		font-size: 13px;
+	}	
+	.modal-confirm .icon-box {
+		color: #fff;		
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		top: -70px;
+		width: 95px;
+		height: 95px;
+		border-radius: 50%;
+		z-index: 9;
+		/* background: #82ce34; */
+		padding: 15px;
+		text-align: center;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+	.modal-confirm .icon-box i {
+		font-size: 58px;
+		position: relative;
+		top: 3px;
+	}
+	.modal-confirm.modal-dialog {
+		margin-top: 80px;
+	}
+    .modal-confirm .btn {
+        color: #fff;
+        border-radius: 4px;
+		text-decoration: none;
+		transition: all 0.4s;
+        line-height: normal;
+        border: none;
+        width:100%;
+    }
+
+/********************************************************************/
+		.page-header h3{
+		padding:10px;
+		}
+		.panel-primary{
+		border:1px solid #3071a9 !important;
+		}
+		.panel-body{
+			padding:20px;
+		}
+		.panel.with-nav-tabs .panel-heading{
+		    padding: 5px 5px 0 5px;
+		    background-color: #3071a9;
+		}
+		.panel.with-nav-tabs.panel-body{
+		    padding: 10px 15px;
+		}
+		.panel.with-nav-tabs .nav-tabs{
+			border-bottom: none;
+		}
+		.panel.with-nav-tabs .nav-justified{
+			margin-bottom: -1px;
+		}
+		/*** PANEL PRIMARY ***/
+		.with-nav-tabs.panel-primary .nav-tabs > a,
+		.with-nav-tabs.panel-primary .nav-tabs > a:hover,
+		.with-nav-tabs.panel-primary .nav-tabs > a:focus {
+		    color: #fff;
+		}
+		.with-nav-tabs.panel-primary .nav-tabs > .open > a,
+		.with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
+		.with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
+		.with-nav-tabs.panel-primary .nav-tabs > a:hover,
+		.with-nav-tabs.panel-primary .nav-tabs >  a:focus {
+			color: #fff;
+			background-color: #3071a9;
+			border-color: transparent;
+		}
+		.with-nav-tabs.panel-primary .nav-tabs > a.active,
+		.with-nav-tabs.panel-primary .nav-tabs > a.active > a:hover,
+		.with-nav-tabs.panel-primary .nav-tabs > a.active > a:focus {
+			color: #428bca;
+			background-color: #fff;
+			border-color: #428bca;
+			border-bottom-color: transparent;
+		}
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu {
+		    background-color: #428bca;
+		    border-color: #3071a9;
+		}
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
+		    color: #fff;   
+		}
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+		    background-color: #3071a9;
+		}
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+		.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+		    background-color: #4a9fe9;
+		}
+		/********************************************************************/
+			input.error {
+		    border-color: #f00 !important;
+			}
+			small.required {
+			    color:#f00;
+			}
+.modal-backdrop {
+   /* display: none; */
+}
+	/**************** Data Table *******************/
+	
+		</style>	
+  </head>
+ <body>
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar" class="active">
+			<h1><a href="index.html" class="logo"><span class="fa fa-cubes"></span></a></h1>
+	      	<ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="#"><span class="fa fa-home"></span>Accueil</a>
+	          </li>
+	          <li>
+	            <a href="#confirurationSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="fa fa-cog"></span>Configuration</a>
+	            <ul class="collapse list-unstyled" id="confirurationSubmenu">
+	            	<li>
+	                    <a href="AnneeScolaire.jsp"><i class="fa fa-calendar-alt mr-2"></i>Année scolaire</a>
+	                </li>
+	                <li>
+	                    <a href="Etudiants.jsp"><i class="fa fa-list-ol mr-2"></i>Etudiants</a>
+	                </li>
+	                <li>
+	                    <a href="Filieres.jsp"><i class="fa fa-sitemap mr-2"></i>Filières</a>
+	                </li>
+	                <li>
+	                    <a href="Niveaux.jsp"><i class="fa fa-cubes mr-2"></i>Niveaux</a>
+	                </li>
+	                <li>
+	                    <a href="ClassesGeneriques.jsp"><i class="fa fa-chalkboard mr-2"></i>Classes Génériques</a>
+	                </li>
+	                <li>
+	                    <a href="Unites.jsp"><i class="fa fa-list-ul mr-2"></i>Unités</a>
+	                </li>
+	                <li>
+	                    <a href="Matieres.jsp"><i class="fa fa-square-root-alt mr-2"></i>Matières</a>
+	                </li>
+	                <li>
+	                    <a href="Modules.jsp"><i class="fa fa-stream mr-2"></i>Modules</a>
+	                </li>
+              	</ul>
+	          </li>
+	          <li> 
+	              <a href="Classes.jsp"><span class="fa fa-chalkboard-teacher"></span>Classes</a>
+	          </li>
+			  <li> 
+	              <a href="#"><span class="far fa-calendar-alt"></span>Emplois</a>
+	          </li>
+	          <li>
+	            <a href="#"><span class="fa fa-user-tie"></span>Personnel</a>
+	          </li>
+	          <li>
+	            <a href="Etudiants.jsp"><span class="fa fa-users"></span>Etudiants</a>
+	          </li>
+	          <li>
+	            <a href="#"><span class="fa fa-file-signature"></span>Evaluations</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-user-check"></span>Absences</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-book"></span>Bibliothèque</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-desktop"></span>Materiel</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-bullhorn"></span>Annonces</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-newspaper"></span>Actualités</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="far fa-file-alt"></span>Cahiers du texte</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-project-diagram"></span>Projets</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-tools"></span>Stages</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-file-upload"></span>Documents</a>
+	          </li>
+			  <li>
+	            <a href="#"><span class="fa fa-print"></span>Photocopie</a>
+	          </li>
+	        </ul>
+		</nav>
+	<!-- Page Content  -->
+      <div id="content" class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><span class="fa fa-home"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-envelope"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-bell"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-user"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+<!-- Start content -->
+	<div class="container"> 
+	<div class="row">
+		<div class="col-md-9"> <!-- Col 1 -->
+	   		<div class="alert bg-light text-secondary" role="alert">
+	   			<i class="fa fa-list-ol mr-2"></i>
+	   			Etudiants
+		        <a href="#" data-toggle="modal" data-target="#etudiant_Add_Modal" class="btn btn-outline-info float-right" title="Ajouter un etudiant"><i class="fa fa-plus"></i></a>
+		    </div>
+			<table id="data_table_etudiants" class="table table-striped table-bordered" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>N°</th>
+						<th>CNE</th>
+						<th>Nom</th>
+			            <th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<!-- Début : Modal Add New Etudiant -->
+				<div id="etudiant_Add_Modal" class="modal" tabindex="-1" role="dialog">
+					<div class="modal-dialog modal-lg">
+					<form id="etudiant_Add_Form" method="POST" action="../Etudiant/Add" enctype="multipart/form-data">
+				      	<div class="modal-content shadow-lg p-3 mb-5 bg-white rounded">
+				          	<div class="modal-header">
+				        		<h4 class="modal-title custom_align">
+				        			Ajouter un etudiant
+				        		</h4>
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			    					<span aria-hidden="true">&times;</span>
+			  					</button>
+				        	</div>
+				          	<div class="modal-body">
+				          		<!-- Début: Formulaire Ajout etudiant -->
+				        		<div class="panel with-nav-tabs panel-primary">
+				        			<div class="panel-heading">
+										<nav class="nav nav-tabs flex-column flex-sm-row"  id="Tab-Content" role="tablist">
+										    <a id="tab_EtatCivil" href="#content-tab-EtatCivil" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="content-tab-EtatCivil" aria-selected="false">
+										        <i class="fa fa-user mr-2"></i> Etat civil
+										    </a>
+										    <a id="tab_Scolarite" href="#content-tab-Scolarite" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="content-tab-Scolarire" aria-selected="false">
+										        <i class="fa fa-chalkboard-teacher mr-2"></i> Scolarité
+										    </a>
+										    <a id="tab_Contact" href="#content-tab-Contact" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="content-tab-Contact" aria-selected="false">
+										        <i class="fa fa-envelope mr-2"></i> Contact
+										    </a>
+										    <a id="tab_Parent" href="#content-tab-Parent" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="content-tab-Parent" aria-selected="false">
+										        <i class="fa fa-users mr-2"></i> Parent
+										    </a>
+										</nav>
+									</div>
+									<div class="panel-body">
+										<div class="tab-content" id="Tab-Content">
+											<div id="content-tab-EtatCivil" class="tab-pane active" role="tabpanel" aria-labelledby="">
+					   						<!-- Début : Etat Civil  -->
+						   						<div class="row">
+						   							<!-- colone Francais -->
+								                	<div class="col-md-6">
+								                       <div class="form-group row mt-lg">
+								                            <label for="titre" class="control-label col-sm-4">Titre</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="titre" class="form-control" >
+								                            		<option value="1">M.</option>
+								                            		<option value="2">Mme.</option>
+								                            		<option value="3">Mlle</option>
+								                            	</select>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="sexe" class="control-label col-sm-4">Sexe</label> 
+								                            <div class="col-sm-8 text-center">
+								                            	<label class="radio-inline mr-3">
+						    										<input type="radio" name="sexe" value="oui" checked> M
+																</label>
+							                            	
+							                            	 	<label class="radio-inline mr-3">
+						    										<input type="radio" name="sexe" value="oui" > F
+																</label>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="nomFr" class="control-label col-sm-4">Nom</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="nomFr" class="form-control" placeholder="Nom"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="prenomFr" class="control-label col-sm-4">Prénom</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="prenomFr" class="form-control" placeholder="Prénom"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="cin" class="control-label col-sm-4">CIN</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="cin" class="form-control " placeholder="C.I.N." />
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="dateNiassance" class="control-label col-sm-4">Date de naissance</label> 
+								                            
+								                            	<div class="col-sm-2">
+								                            	<select name="ddnJour" class="form-control" >
+								                            		<option value="01">01</option>
+								                            		<option value="02">02</option>
+								                            		<option value="03">03</option>
+								                            	</select>
+								                            	</div>
+								                            	<div class="col-sm-3">
+								                            	<select name="ddnMois" class="form-control" >
+								                            		<option value="01">Janvier</option>
+								                            		<option value="02">Février</option>
+								                            		<option value="03">Mars</option>
+								                            		<option value="04">Avril</option>
+								                            	</select>
+								                            	</div>
+								                            	<div class="col-sm-3">
+								                            	<select name="ddnAnnee" class="form-control" >
+								                            		<option value="1961">1961</option>
+								                            		<option value="">1962</option>
+								                            		<option>1963</option>
+								                            		<option>1964</option>
+								                            	</select>
+								                            	</div>
+								                            
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="lieuNiassance" class="control-label col-sm-4 float-right">Lieu de naissance</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="lieuNiassance" class="form-control" placeholder="Lieu de Naissance" />
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="nationalite" class="control-label col-sm-4">Nationnalité</label> 
+								                            <div class="col-sm-8 text-center">
+								                            	<input type="text" name="nationalite" class="form-control" placeholder="Nationalité"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            	<label for="Photo" class="control-label col-sm-4">Photo</label>
+									                            <div class="col-sm-8 text-center">
+									                            	<!-- Début : photo etudiant upload -->
+									                            		
+
+															        
+															          <div class="form-group mb-3">
+															            <div class="custom-file">
+															              <input type="file" class="custom-file-input"  id="photo_etudiant_input">
+															              <label id="photo_etudiant_label" class="custom-file-label" for="image">Select file</label>
+															              <input id="photo_etudiant_hidden_input" type="text" name="photoEtudiant">
+															            </div>
+															          </div>
+																
+															
+																   
+															          <button  id="upload_photo_etudiant_btn" class="btn btn-primary d-none">Charger</button>
+															
+															          <button class="btn btn-primary d-none" id="loading_photo_etudiant_btn" type="button" disabled>
+															            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+															            Chargement...
+															          </button>
+															
+															          <button type="button" id="cancel_upload_photo_Etudiant_btn" class="btn btn-secondary d-none">Annuler</button>
+															
+															       
+															
+															        <div id="progress_photo_etudiant_wrapper" class="d-none">
+															          <label id="progress_photo_etudiant_status"></label>
+															          <div class="progress mb-3">
+															            <div id="progress_photo_etudiant" class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+															          </div>
+															        </div>
+															
+															        <div id="alert_photo_etudiant_wrapper"></div>
+									                            	<!-- Fin : photo etudiant upload -->
+									                            </div>
+								                       	</div>
+								                    </div>
+							                        <!-- colone Arabe -->
+							                        <div class="col-md-6"> 
+							                        	<div class="form-group  mt-lg">
+								                            <label for="nomAr" class="control-label col-sm-4 float-right">الإسم العائلي</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="nomAr" style="direction:RTL;" class="form-control" placeholder="الإسم العائلي بالعربية"/>
+								                            </div>
+								                            
+								                        </div>
+								                        <div class="form-group  mt-lg">
+								                            <label for="prenomAr" class="control-label col-sm-4 float-right">الإسم الشخصي</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="prenomAr" style="direction:RTL;" class="form-control" placeholder="الإسم الشخصي بالعربية"/>
+								                            </div>
+								                            
+								                        </div>
+								                        <div class="form-group  mt-lg">
+								                            <label for="lieuNaissAr" class="control-label col-sm-4 float-right">مكان الإزدياد</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="lieuNaissAr" style="direction:RTL;" class="form-control" placeholder="مكان الإزدياد بالعربية"/>
+								                            </div>
+								                           
+								                        </div>
+							                        </div>
+						   						</div>
+					   						<!-- Fin : Etat Civil -->
+					   						</div>
+					   						<div id="content-tab-Scolarite" class="tab-pane" role="tabpanel" aria-labelledby="">
+					   							<!-- Début : Scolarité  -->
+					   							<div class="row">
+						   							<!-- colone Francais -->
+								                	<div class="col-md-6">
+								                       <div class="form-group row mt-lg">
+								                            <label for="filiere" class="control-label col-sm-4">Filière</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="filiere" class="form-control" >
+								  										<!-- On charge ici les filières dynamiqument -->
+								                            	</select>
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="cne" class="control-label col-sm-4">CNE</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="cne" class="form-control " placeholder="CNE" />
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="numeroInscription" class="control-label col-sm-4">N° Inscription</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="numeroInscription" class="form-control " placeholder="N° Inscription" />
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="anneeBac" class="control-label col-sm-4">Année Bac.</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="anneeBac" class="form-control" >
+								                            		<option>2000</option>
+								                            		<option>2001</option>
+								                            		<option>2002</option>
+								                            		<option>2003</option>
+								                            	</select>
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="optionBac" class="control-label col-sm-4">Option Bac.</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="optionBac" class="form-control" >
+								                            		<!-- On charge ici les options du Bac dynamiqument -->
+								                            	</select>
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="mentionBac" class="control-label col-sm-4">Mention Bac.</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="mentionBac" class="form-control" >
+								                            		<!-- On charge ici les mentions du Bac dynamiqument -->
+								                            	</select>
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="moyenneBac" class="control-label col-sm-4">Moyenne Bac.</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="moyenneBac" class="form-control " placeholder="Moyenne Bac." />
+								                            </div>
+								                        </div>
+								                    </div>
+								                    <div class="col-md-6">
+								                    	<div class="form-group row mt-lg">
+								                            <label for="candidat" class="control-label col-sm-4">Candidat</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="candidat" class="form-control" >
+								                            		<option value="1">Officiel</option>
+								                            		<option value="2">Libre</option>
+								                            	</select>
+								                            </div>
+								                       </div>
+								                       <div class="form-group row mt-lg">
+								                            <label for="etat" class="control-label col-sm-4">Etat</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="etat" class="form-control" >
+								                            		<option value="1">Scolarisé</option>
+								                            		<option value="2">Diplomé</option>
+								                            		<option value="3">Abandon</option>
+								                            		<option value="4">Exclu</option>
+								                            	</select>
+								                            </div>
+								                       </div>
+								                       <fieldset>
+								                       <legend style="font-size: 16px;">Etablissement d'origine</legend>
+								                       		<div class="form-group row mt-lg">
+									                            <label for="region" class="control-label col-sm-4">Région</label> 
+									                            <div class="col-sm-8">
+									                            	<select name="region" class="form-control" >
+									                            		<option value="1">Rabat-Kénitra</option>
+									                            		<option value="2">Marrakech-Tanssifte</option>
+									                            		<option value="3">Tanger-Tétouan</option>
+									                            		<option value="4">CasaBlanca</option>
+									                            	</select>
+									                            </div>
+								                       		</div>
+								                       		<div class="form-group row mt-lg">
+									                            <label for="province" class="control-label col-sm-4">Province</label> 
+									                            <div class="col-sm-8">
+									                            	<select name="province" class="form-control" >
+									                            		<option value="1">Rabat</option>
+									                            		<option value="2">Salée</option>
+									                            		<option value="3">Temara</option>
+									                            		<option value="4">Kénitra</option>
+									                            	</select>
+									                            </div>
+								                       		</div>
+								                       		<div class="form-group row mt-lg">
+									                            <label for="etablissement" class="control-label col-sm-4">Etablissement</label> 
+									                            <div class="col-sm-8">
+									                            	<select name="etablissement" class="form-control" >
+									                            		<option value="1">Lycée Technique Ibn Sian</option>
+									                            		<option value="2">Lycée Taha Hssine</option>
+									                            		<option value="3">Lycée Mohammed V</option>
+									                            		<option value="4">Lycée Idriss Premier</option>
+									                            	</select>
+									                            </div>
+								                       		</div>
+								                       </fieldset>
+								                    </div>
+								                </div>
+								                <!-- Fin : Scolarité  -->
+					   						</div>
+					   						<div id="content-tab-Contact" class="tab-pane" role="tabpanel" aria-labelledby="">
+					   						<!-- Début : Contact  -->
+					   							<div class="row">
+					   								<!-- colone Francais -->
+								                	<div class="col-md-6">
+								                        <div class="form-group row">
+								                            <label for="email" class="control-label col-md-4">Email</label> 
+								                            <div class="col-md-8">
+								                                <input type="email" name="email" class="form-control" placeholder="Email"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="telMobile" class="control-label col-md-4">Tél. Mobile</label> 
+								                            <div class="col-md-8">
+								                                <input type="text" name="telMobile" class="form-control" placeholder="Télèphone Mobile"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="telDomicile" class="control-label col-md-4">Tél. Domicile</label> 
+								                            <div class="col-md-8">
+								                                <input type="text" name="telDomicile" class="form-control" placeholder="Télèphone domocile" />
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="adresseFr" class="control-label col-md-4">Adresse</label> 
+								                            <div class="col-md-8">
+								                            	<textarea name="adresseFr" class="form-control" placeholder="Adresse complète"></textarea>
+								                            </div>
+								                        </div>
+							                   		</div>
+							                        <!-- colone Arabe -->
+							                        <div class="col-md-6">
+							                        	<div class="form-group">
+								                            <label for="adresseAr" class="control-label col-md-4 float-right">العنوان الشخصي</label> 
+								                            <div class="col-md-8">
+								                            	<textarea name="adresseAr" style="direction:RTL;" class="form-control" placeholder="العنوان الشخصي بالعربية"></textarea>
+								                            </div>
+								                        </div>
+							                        </div>
+					   							</div>
+					   						<!-- Fin : Contact -->
+					   						</div>
+					   						<div id="content-tab-Parent" class="tab-pane" role="tabpanel" aria-labelledby="">
+					   							<!-- Début : Parent -->
+					   							<div class="row">
+					   								<!-- colone Francais -->
+								                	<div class="col-md-6">
+								                       <div class="form-group row mt-lg">
+								                            <label for="titreParent" class="control-label col-sm-4">Titre</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="titreParent" class="form-control" >
+								                            		<option value="1">M.</option>
+								                            		<option value="2">Mme.</option>
+								                            		<option value="3">Mlle</option>
+								                            	</select>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="nomFrParent" class="control-label col-sm-4">Nom</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="nomFrParent" class="form-control" placeholder="Nom"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="prenomFrParent" class="control-label col-sm-4">Prénom</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="prenomFrParent" class="form-control" placeholder="Prénom"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="lienParente" class="control-label col-sm-4">Lien familliale</label> 
+								                            <div class="col-sm-8">
+								                            	<select name="lienParente" class="form-control" >
+								                            		<option value="1">Père</option>
+								                            		<option value="2">Mère</option>
+								                            		<option value="2">Oncle</option>
+								                            		<option value="2">Tante</option>
+								                            		<option value="3">Frère</option>
+								                            		<option value="3">Soeure</option>
+								                            		<option value="3">Parrain</option>
+								                            	</select>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row mt-lg">
+								                            <label for="cinParent" class="control-label col-sm-4">CIN</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="cinParent" class="form-control " placeholder="C.I.N." />
+								                            </div>
+								                        </div>
+								                       	<div class="form-group row mt-lg">
+								                            <label for="photoParent" class="control-label col-sm-4">Photo</label> 
+								                            <div class="col-sm-8">
+								                                <input type="file" name="photoParent" class="form-control" placeholder="Photo"/>
+								                            </div>
+								                        </div>
+								                    </div>
+							                        <!-- colone Arabe -->
+							                        <div class="col-md-6">
+							                        	<div class="form-group  mt-lg">
+								                            <label for="nomArParent" class="control-label col-sm-4 float-right">الإسم العائلي</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="nomArParent" style="direction:RTL;" class="form-control" placeholder="الإسم العائلي بالعربية"/>
+								                            </div>
+								                            
+								                        </div>
+								                        <div class="form-group  mt-lg">
+								                            <label for="prenomArParent" class="control-label col-sm-4 float-right">الإسم الشخصي</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="prenomArParent" style="direction:RTL;" class="form-control" placeholder="الإسم الشخصي بالعربية"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="emailParent" class="control-label col-sm-4">Email</label> 
+								                            <div class="col-sm-8">
+								                                <input type="email" name="emailParent" class="form-control" placeholder="Email"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="telMobileParent" class="control-label col-sm-4">Tél. Mobile</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="telMobileParent" class="form-control" placeholder="Télèphone Mobile"/>
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="telDomicileParent" class="control-label col-sm-4">Tél. Domicile</label> 
+								                            <div class="col-sm-8">
+								                                <input type="text" name="telDomicileParent" class="form-control" placeholder="Télèphone domocile" />
+								                            </div>
+								                        </div>
+								                        <div class="form-group row">
+								                            <label for="adresseFrParent" class="control-label col-sm-4">Adresse</label> 
+								                            <div class="col-sm-8">
+								                            	<textarea name="adresseFrParent" class="form-control" placeholder="Adresse complète"></textarea>
+								                            </div>
+								                        </div>
+								                    </div>
+					   							</div>
+					   							<!-- Fin : Parent -->
+					   						</div>
+										</div>
+									</div>
+				        		</div>
+				          		<!-- Fin: Formulaire Ajout étudiant -->
+				      		</div>
+				        <div class="modal-footer ">
+			        		<input type="submit" class="btn btn-primary" value="Enregistrer" />
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+			      		</div>
+				        </div>
+				   	</form>
+					</div>
+			    </div>
+			 <!-- Fin : Modal Add New Etudiant -->
+			 <!-- Début : Modal Update Etudiant -->
+				<div id="etudiant_Update_Modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true" data-backdrop="false">
+					<div class="modal-dialog">
+					<form id="etudiant_Update_Form" method="POST" action="../Etudiant/Update" >
+				      	<div class="modal-content shadow-lg p-3 mb-5 bg-white rounded">
+				          	<div class="modal-header">
+				        		<h4 class="modal-title custom_align">
+				        			Modifier un etudiant
+				        		</h4>
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			    					<span aria-hidden="true">&times;</span>
+			  					</button>
+				        	</div>
+				          	<div class="modal-body">
+				          		<div class="form-group row">
+						    		<label for="etudiant_code" class="col-sm-3 control-label">Code</label>
+								    <div class="col-sm-9">
+								      <input  type="hidden" class="form-control" name="id" />
+								      <input id="etudiant_code" type="text" class="form-control" name="code" placeholder="Code du etudiant"/>
+								    </div>
+						  		</div>
+								<div class="form-group row">
+								  <label for="etudiant_Nom_Fr" class="col-sm-3 control-label">Nom Fr</label>
+								  <div class="col-sm-9">
+								    <input id="etudiant_Nom_Fr" type="text" class="form-control" name="nom_Fr" placeholder="Nom du etudiant"/>
+								  </div>
+								</div>
+						  		<div class="form-group row">
+								  <label for="etudiant_Nom_Ar" class="col-sm-3 control-label">Nom Ar</label>
+								  <div class="col-sm-9">
+								    <input id="etudiant_Nom_Ar" type="text" class="form-control" name="nom_Ar" dir="rtl" placeholder="إسم السلك بالعربية"/>
+								  </div>
+								</div>
+				      	</div>
+				        <div class="modal-footer ">
+			        		<input type="submit" class="btn btn-primary" value="Enregistrer" />
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+			      		</div>
+				        </div>
+				   	</form>
+					</div>
+			    </div>
+			 <!-- Fin : Modal Update Etudiant -->
+			 <!-- Début : Modal Details Etudiant -->
+				<div id="etudiant_Details_Modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true" data-backdrop="false">
+					<div class="modal-dialog">
+				      	<div class="modal-content shadow-lg p-3 mb-5 bg-white rounded">
+				          	<div class="modal-header bg-info">
+				        		<h4 class="modal-title text-white">
+				        			Détails du etudiant
+				        		</h4>
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			    					<span aria-hidden="true">&times;</span>
+			  					</button>
+				        	</div>
+				          	<div class="modal-body">
+				          		<ul class="list-group">
+									<!-- Affichage dynamique des détails du etudiant-->
+								</ul>
+							</div>
+							<div class="modal-footer ">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Fermer</button>
+							</div>
+				        </div>
+					</div>
+			    </div>
+			   <!-- Fin : Modal Details Etudiant -->
+		</div> <!-- /Col 1 -->
+		<div class="col-md-3"> <!-- Col 2 -->
+			<div class="panel with-nav-tabs panel-primary">
+			<div class="panel">
+		     <div class="panel-heading">
+					<nav class="nav nav-tabs flex-column flex-sm-row"  id="Tab-Content-2" role="tablist">
+					    <a id="tab_Annonces" href="#content-tab-Annonces" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="content-tab-Annonces" aria-selected="false">
+					        <span class="fa fa-bullhorn"> Annonces
+					    </a>
+					    <a  id="tab_Actualites" href="#content-tab-Actualites" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="content-tab-Actualites" aria-selected="false">
+					        <span class="fa fa-newspaper"> Actualites
+					    </a>
+					</nav>
+			</div>
+		    <div class="panel-body">
+		    	<!-- Début : Tab content  2-->
+				<div class="tab-content" id="Tab-Content-Communication">
+						<!-- Content tab 1 	: Annonces-->
+					  	<div id="content-tab-Annonces" class="tab-pane active" role="tabpanel" aria-labelledby="content-tab-Annonces">
+					     <ul>
+							<li>Annonce 1</li>
+							<li>Annonce 2</li>
+							<li>Annonce 3</li>
+						 </ul>
+					  	</div>
+						<!-- /Content tab 1 : Annonces-->
+						<!-- Content tab 2 	: Actualites-->
+						<div id="content-tab-Actualites" class="tab-pane" role="tabpanel" aria-labelledby="content-tab-Actualites">
+						 <ul>	
+							<li>Actualité 1</li>
+							<li>Actualité 2</li>
+							<li>Actualité 3</li>
+							<li>Actualite 4</li>
+							<li>Actualité 5</li>
+						 </ul>
+						</div>
+						<!-- /Content tab 2	: Actualites-->
+				</div>
+				<!-- Fin : Tab content 2 -->
+			 </div>
+		</div>
+	</div>
+		</div> <!-- /Col 2 -->
+	</div><!-- /row 1 -->
+	<!-- /Page Content  -->
+</div>
+</div>
+</div>
+<!-- Modal Success -->
+	<div id="modalSuccess" class="modal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-dialog-centered modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box bg-success">
+					<i class="material-icons fa fa-check"></i>
+				</div>				
+				<h4 class="modal-title text-center">Succès !</h4>	
+			</div>
+			<div class="modal-body">
+				<p class="text-center">
+					<!-- On affiche ici le message obtenu du coté serveur -->
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success btn-block" data-dismiss="modal">Fermer</button>
+			</div>
+		</div>
+	  </div>
+	</div>
+<!-- Fin : Moad Success -->
+<!-- Début : Modal error -->
+	<div id="modalError" class="modal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-dialog-centered modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box bg-danger">
+					<i class="material-icons fa fa-exclamation-triangle"></i>
+				</div>				
+				<h4 class="modal-title text-center">Echec !</h4>	
+			</div>
+			<div class="modal-body">
+				<p class="text-center">
+					<!-- On affiche ici le message obtenu du coté serveur -->
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary btn-block" data-dismiss="modal">Fermer</button>
+			</div>
+		</div>
+	  </div>
+	</div>
+<!-- Fin : Moad Error -->
+<!-- Début : Moad Confirmation -->
+<div id="modalConfirm" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-dialog-centered modal-confirm " role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+				<div class="icon-box bg-warning">
+					<i class="material-icons fa fa-exclamation-triangle"></i>
+				</div>				
+				<h4 class="modal-title text-center">Supprimer ?</h4>	
+		  </div>
+		  <div class="modal-body">
+				<p class="text-center">
+					Etes vous sûre de vouloir supprimer cet enregistrement ?
+				</p>
+		  </div>
+		  <div class="modal-footer">
+		    <button type="button" data-dismiss="modal" class="btn btn-warning  mr-auto" id="delete">Supprimer</button>
+		    <button type="button" data-dismiss="modal" class="btn btn-secondary  ">Annuler</button>
+		  </div>
+		 </div>
+  	</div>
+</div>
+<!-- Fin : Moad Confirmation-->
+<!-- Début : Moad Loading Ajax -->
+<div id="loading-image" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-sm" >
+        <div class="modal-content" style="width: 48px; color:orange;">
+            <span class="fa fa-spinner fa-spin fa-3x"></span>
+        </div>
+    </div>
+</div>
+<!-- Fin : Moad Loading Ajax -->
+
+	<script src="../js/jquery.min.js" ></script>
+	<script src="../js/jquery-ui.min.js" ></script>
+	
+	<script src="../js/popper.js" type="text/javascript"></script>
+	
+	
+	<script src="../js/jquery.dataTables.min.js" type="text/javascript"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../js/main.js" type="text/javascript"></script>
+    
+    
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" type="text/javascript"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" type="text/javascript"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" type="text/javascript"></script>
+	<script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js" type="text/javascript"></script>
+    
+    
+  	<script type="text/javascript">
+  	
+  	$(document).ready(function() {
+  		/**************** Début : Ajax Load Animation *************************/
+  		$(document).ajaxStart(function(){
+  			$('#loading-image').show();
+		 });
+  		$(document).ajaxStop(function(){
+  			$('#loading-image').hide();
+		 });
+		/*******************Fin : Ajax Load Animation *************************/
+		
+	
+  		/************** DataTable du Tab : Etudiants **************/
+	  		// Initialisation du DataTable Etudiants
+	  		$('#data_table_etudiants').DataTable(
+	  			{	
+	  				"paging": true,
+	  				"autoWidth": true,
+	  				"columnDefs": [
+	  					{ "orderable": false, "targets": 3 }
+	  				],
+	  				dom: 'Bfrtip',
+	  		        buttons: [
+	  		            'copy', 
+	  		            'csv', 
+	  		            'excel', 
+	  		            'pdf', 
+	  		            'print'
+	  		        ]
+	  			}
+	  		);
+	  		/******* fonction pour charger la liste des Etudiants dans la TableData Etudiants ******/
+			function populateEtudiantDataTable(){
+				var tableData = $('#data_table_etudiants').DataTable();
+				//tableData.DataTable().rows().remove().draw();		// Vider la TableData 
+				$.ajax({
+					url : "../Etudiant/List",
+					type: "GET",
+					dataType: 'json',
+					success: function(response,textStatus ,jqXHR){
+						for(i=0;i<response.length;i++){
+							var rang =i+1;
+							var btns='<div class="btn-group dropleft"> \
+										  <button type="button" class="btn btn-outline-info btn-sm" title="Actions"><span class="fa fa-ellipsis-h"></span></button> \
+										  <button type="button" class="btn btn-outline-info btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
+										    <span class="sr-only">Toggle Dropdown</span> \
+										  </button> \
+										  <div class="dropdown-menu shadow p-3 mb-5 bg-white rounded" id="dropdownEtudiant"> \
+										    <div class="bg-info text-white px-3 py-1"><span class="fa fa-ellipsis-h mr-4"></span> Actions</div> \
+									        <div class="dropdown-divider"></div> \
+										  	<a class="dropdown-item etudiant-details text-primary" href="#" etudiantId="'+response[i].id+'"><span class="fa fa-info-circle mr-4"></span>Détails</a> \
+										  	<a class="dropdown-item etudiant-update text-primary" href="#" etudiantId="'+response[i].id+'"><span class="fa fa-pen mr-4"></span>Modifier</a> \
+										  	<a class="dropdown-item etudiant-delete text-primary" href="#" etudiantId="'+response[i].id+'"><span class="fa fa-trash mr-4"></span>Supprimer</a> \
+										  </div> \
+										</div> ';
+							var nomComplet = response[i].nom_Fr+" "+response[i].prenom_Fr;
+							tableData.row.add( [
+							             rang,
+							             response[i].cne,
+							             nomComplet,
+							             btns
+							         ] ).draw( false );
+						}
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	$("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError .modal-body p').modal('show'); 
+				        }
+				});
+			};
+			/*  
+			/* On charger la liste des Etudiants dans la TableData Etudiants
+			*/
+			
+			populateEtudiantDataTable();
+			
+			
+  			/********** Ajouter un nouveau Etudiant **********************/
+  			//Effacer dabord le formulaire
+  			$('#etudiant_Add_Modal').on('shown.bs.modal', function(evt){
+  				//Effacer le formulaure d'ajout de l'étudiant
+  				$('#etudiant_Add_Form').trigger('reset');
+	  			//Chargement des Filiers dans Select filiere
+					$.ajax({
+					url : "../Filiere/List",
+					type: "GET",
+					dataType: 'json',
+					contentType: "application/json; charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						$("#etudiant_Add_Form select[name=filiere]").html("");
+						for(i=0;i<response.length;i++){
+							var item  ='<option value="'+response[i].id+'">'+response[i].code+'</option>';
+							$("#etudiant_Add_Form select[name=filiere]").append(item);       
+						}	
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	$("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError .modal-body p').modal('show'); 
+				        }
+				});
+				//Chargement des option du Bac dans Select optionBac
+					$.ajax({
+					url : "../OptionBac/List",
+					type: "GET",
+					dataType: 'json',
+					contentType: "application/json; charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						$("#etudiant_Add_Form select[name=optionBac]").html("");
+						for(i=0;i<response.length;i++){
+							var item  ='<option value="'+response[i].id+'">'+response[i].code+'</option>';
+							$("#etudiant_Add_Form select[name=optionBac]").append(item);       
+						}	
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	$("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError .modal-body p').modal('show'); 
+				        }
+				});
+				//Chargement des mentions du Bac dans Select mentionBac
+					$.ajax({
+					url : "../Mention/List",
+					type: "GET",
+					dataType: 'json',
+					contentType: "application/json; charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						$("#etudiant_Add_Form select[name=mentionBac]").html("");
+						for(i=0;i<response.length;i++){
+							var item  ='<option value="'+response[i].id+'">'+response[i].code+'</option>';
+							$("#etudiant_Add_Form select[name=mentionBac]").append(item);       
+						}	
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	$("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError .modal-body p').modal('show'); 
+				        }
+				});
+  			});
+  			//Envoyer le formulaire via ajax
+  			$("#etudiant_Add_Form").submit(function(event){ 
+				var post_url = $(this).attr("action"); 			//Lire l'action (URL) du formulaire
+				var request_method = $(this).attr("method"); 	//Lire la méthode du formulaire  GET/POST 
+				var form_data = $(this).serialize(); 			//Encoder les données du formulaire pour envoie
+				$('#etudiant_Add_Modal').modal('hide');			//Fermer la fenetre modal apres envoie du formulaire
+				$.ajax({
+					url : post_url,
+					type: request_method,
+					data : form_data,
+					dataType: 'json',
+					contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						$("#modalSuccess .modal-body p").html("");
+						$("#modalSuccess .modal-body p").html(response);
+				   		$('#modalSuccess').modal('show');
+				    	//setTimeout(function() { $('#modalSuccess').modal('hide'); }, 5000);
+				    },
+				    error: function(response,textStatus ,jqXHR){
+	                    $("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError').modal('show'); 
+				        },
+					complete: function (response,textStatus ,jqXHR) {
+				    	
+						//Effacer le DataTable Etudiants
+						$('#data_table_etudiants').DataTable().rows().remove().draw();
+			  			//Raffrichir le DataTable Etudiants
+						populateEtudiantDataTable();    
+				    }
+				});
+				return false;
+			});	
+  			
+  			/*********** Modification d'un Etudiant ****************
+  			/* 1 - Récuperer l' Id du Etudiant séléctionner sur la DataTable Etudiants
+  			/* 2 - Charger par ajax le Etudiant concerné
+  			/* 3 - Remplir les champs de formulaire de modification avec les données du Etudiant concerné
+  			/* 4 - Afficher le formulaire de modification
+  			*****************************************************/
+  			
+  			$('#data_table_etudiants').on('click','.etudiant-update', function(evt){
+				$this = $(this);
+				var id= $this.attr('etudiantId');
+				$.ajax({
+					url : "../Etudiant/Details?id="+id,
+					type: "GET",
+					dataType: 'json',
+					contentType: "application/json; charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						$("#etudiant_Update_Form input[name=id]").val(response.id);
+						$("#etudiant_Update_Form input[name=code]").val(response.code);
+						$("#etudiant_Update_Form input[name=nom_Fr]").val(response.nom_Fr);
+						$("#etudiant_Update_Form input[name=nom_Ar]").val(response.nom_Ar);
+						$('#etudiant_Update_Modal').modal('show');
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	$("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError .modal-body p').modal('show'); 
+				        }
+				});
+				
+				return false;
+			});
+  			/* 5- Envoie du formulaire de modification */
+  			
+  			$("#etudiant_Update_Form").submit(function(event){ 
+				var post_url = $(this).attr("action"); 			//Lire l'action (URL) du formulaire
+				var request_method = $(this).attr("method"); 	//Lire la méthode du formulaire  GET/POST 
+				var form_data = $(this).serialize(); 			//Encoder les données du formulaire pour envoie
+				$('#etudiant_Update_Modal').modal('hide');			//Fermer la fenetre modal apres envoie du formulaire
+				$.ajax({
+					url : post_url,
+					type: request_method,
+					data : form_data,
+					dataType: 'json',
+					contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						$("#modalSuccess .modal-body p").html("");
+						$("#modalSuccess .modal-body p").html(response);
+				   		$('#modalSuccess').modal('show');
+				    	//setTimeout(function() { $('#modalSuccess').modal('hide'); }, 5000);
+						
+				    },
+				    error: function(response,textStatus ,jqXHR){
+	                    $("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(response);
+				   		$('#modalError').modal('show'); 
+				        },
+				    complete: function (response,textStatus ,jqXHR) {
+				    	
+						//Effacer le DataTable Etudiants
+						$('#data_table_etudiants').DataTable().rows().remove().draw();
+			  			//Raffrichir le DataTable Etudiants
+						populateEtudiantDataTable();    
+				    }   
+				});
+				return false;
+			});	
+  			/*********** Suppression d'un Etudiant ****************
+  			/* 1 - Récuperer l' Id du Etudiant séléctionner sur la DataTable Etudiants
+  			/* 2 - Supprimer par ajax le Etudiant concerné
+  			*****************************************************/
+  			
+  			$('#data_table_etudiants').on('click','.etudiant-delete', function(evt){
+				$this = $(this);
+				var id= $this.attr('etudiantId');
+				$('#modalConfirm').modal('show');
+				$('#modalConfirm').on('click', '#delete', function(e) {
+					
+						$.ajax({
+							url : "../Etudiant/Delete?id="+id,
+							type: "GET",
+							dataType: 'json',
+							success: function(response,textStatus ,jqXHR){
+								$("#modalSuccess .modal-body p").html("");
+								$("#modalSuccess .modal-body p").html(response);
+						   		$('#modalSuccess').modal('show');
+						    	
+						    },
+						    error: function(response,textStatus ,jqXHR){
+						    	$("#modalError .modal-body p").html("");
+								$("#modalError .modal-body p").html(textStatus);
+						   		$('#modalError').modal('show'); 
+						    },
+						    complete: function (response,textStatus ,jqXHR) {
+						    	
+								//Effacer le DataTable Etudiants
+								$('#data_table_etudiants').DataTable().rows().remove().draw();
+					  			//Raffrichir le DataTable Etudiants
+								populateEtudiantDataTable();    
+						    }
+						});
+				  });
+				
+				
+				return false;
+			});
+  			
+  			/*********** Affichage des détails d'un Etudiant ****************
+  			/* 1 - Récuperer l' Id du Etudiant séléctionner sur la DataTable Etudiants
+  			/* 2 - Charger par ajax le Etudiant concerné
+  			/* 3 - Afficher les détails du Etudiant concerné 
+  			*****************************************************/
+  			
+  			$('#data_table_etudiants').on('click','.etudiant-details', function(evt){
+				$this = $(this);
+				var id= $this.attr('etudiantId');
+				$.ajax({
+					url : "../Etudiant/Details?id="+id,
+					type: "GET",
+					dataType: 'json',
+					contentType: "application/json; charset=UTF-8",
+					success: function(response,textStatus ,jqXHR){
+						var idItem   ='<li class="list-group-item"><span><strong>ID    </strong></span><span class="float-right">'+response.id+'</span></li>';
+						var nom_FrItem ='<li class="list-group-item"><span><strong>Nom  </strong></span><span class="float-right">'+response.nom_Fr+" " +response.prenom_Fr+'</span></li>';
+						var nom_ArItem ='<li class="list-group-item"><span><strong>الإسم</strong></span><span class="float-right" dir="rtl">'+response.nom_Ar+" " +response.prenom_Ar+'</span></li>';
+						
+						var filiereItem   ='<li class="list-group-item"><span><strong>Filiere    </strong></span><span class="float-right">'+response.filiere.code+'</span></li>';
+						var cinItem   ='<li class="list-group-item"><span><strong>CIN    </strong></span><span class="float-right">'+response.cin+'</span></li>';
+						var cneItem   ='<li class="list-group-item"><span><strong>CNE    </strong></span><span class="float-right">'+response.cne+'</span></li>';
+						var ddnItem   ='<li class="list-group-item"><span><strong>date de Naissance    </strong></span><span class="float-right">'+response.dateNais+'</span></li>';
+						
+						$("#etudiant_Details_Modal .list-group").html("");
+						$("#etudiant_Details_Modal .list-group").append(idItem);
+						$("#etudiant_Details_Modal .list-group").append(nom_FrItem);
+						$("#etudiant_Details_Modal .list-group").append(nom_ArItem);
+						
+						$("#etudiant_Details_Modal .list-group").append(filiereItem);
+						$("#etudiant_Details_Modal .list-group").append(cinItem);
+						$("#etudiant_Details_Modal .list-group").append(cneItem);
+						$("#etudiant_Details_Modal .list-group").append(ddnItem);
+						
+						$('#etudiant_Details_Modal').modal('show');
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	$("#modalError .modal-body p").html("");
+						$("#modalError .modal-body p").html(jqXHR.responseText);
+				   		$('#modalError .modal-body p').modal('show'); 
+				        }
+				});
+				
+				return false;
+			});	
+  			
+  			/*
+  			/*Upload de la photo de l'étudiant
+  			/*
+  			*/
+  			var xhrPhotoEtudiant=null;
+  			$('#photo_etudiant_input').on('change', function(evt){
+				$('#photo_etudiant_label').html($(this).val());
+				//Une fois la photo selectionnée afficher le bouton de chargement
+				$('#upload_photo_etudiant_btn').removeClass("d-none");
+				$('#progress_photo_etudiant_wrapper').addClass("d-none");
+  			});
+  			$('#upload_photo_etudiant_btn').on('click', function(evt){
+  				//Une fois le fhargement commence :
+  				// 0- Masquer le bouton Charger
+  				// 1- Afficher le spinner Loading
+  				// 2 - Afficher le bouton Annuler 
+  				// 3 - Afficher la barre de progression
+  				// 
+  				$('#upload_photo_etudiant_btn').addClass("d-none");  
+  				$('#loading_photo_etudiant_btn').removeClass("d-none");
+  				$('#cancel_upload_photo_Etudiant_btn').removeClass("d-none");
+  				$('#progress_photo_etudiant_wrapper').removeClass("d-none");
+  				
+  				var photoEtudiant= $('input[type=file]')[0].files[0];
+  				if (!$('#photo_etudiant_input').val()) {
+					var message='<div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert"> \
+		  			      			<span>Aucune image séléctionnée</span> \
+		  			      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+		  			        			<span aria-hidden="true">&times;</span> \
+		  			      			</button> \
+  			    				</div>';
+  				   $('#alert_photo_etudiant_wrapper').html(message);
+
+  				 }else if(photoEtudiant.type != "image/jpeg") {
+  					// Si la photo n'est pas une image Jpep, afficher un message d'erreur
+  					var message='<div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert"> \
+			      			<span>Seules les images .JPG sont admissibles </span> \
+			      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+			        			<span aria-hidden="true">&times;</span> \
+			      			</button> \
+	    				</div>';
+		   			$('#alert_photo_etudiant_wrapper').html(message);  
+  				     
+  				 }else if(photoEtudiant.size > 10*1024*1024) {
+  					//Si la photo est supérieure à 10 Mo, afficher un message d'erreur
+   					var message='<div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert"> \
+		      			<span>Le fichier est trops volumineux, la admissible est &lt; 3Mo  </span> \
+		      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+		        			<span aria-hidden="true">&times;</span> \
+		      			</button> \
+    				</div>';
+	   			$('#alert_photo_etudiant_wrapper').html(message);  
+				     
+				}else{
+  					var formData = new FormData();
+  					formData.append('test',1245);
+  					formData.append('photoEtudiant',photoEtudiant); 
+  					$.ajax(
+  					{
+  					type: "POST",
+  					url: "../Document/Upload",
+  					enctype: 'multipart/form-data',
+  					dataType: false,
+  					processData: false,
+  					contentType: false,
+  					data:formData,
+					success: function(response,textStatus ,jqXHR){
+						var message='<div id="alert" class="alert alert-success alert-dismissible fade show" role="alert"> \
+		  			      			<span>La photo a été chargée avec succés</span> \
+		  			      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+		  			        			<span aria-hidden="true">&times;</span> \
+		  			      			</button> \
+				    				</div>';
+			  			$('#alert_photo_etudiant_wrapper').html(message);
+			  			$('#photo_etudiant_hidden_input').val(response);
+			  			
+				    },
+				    error: function(response,textStatus ,jqXHR){
+				    	var message='<div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert"> \
+  			      			<span>Echec :'+response+'</span> \
+  			      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+  			        			<span aria-hidden="true">&times;</span> \
+  			      			</button> \
+		    				</div>';
+	  					$('#alert_photo_etudiant_wrapper').html(message);
+				    },
+				    xhr: function(){
+				        // trouver l'ojet natif XmlHttpRequest de ajax jquery
+				        xhrPhotoEtudiant = $.ajaxSettings.xhr() ;
+				        // définir l'evenement uplod progess de l'objet XmlHttpRequest
+				        xhrPhotoEtudiant.upload.onprogress = function(evt){ 
+				        	var loaded = evt.loaded;
+				            var total = evt.total;
+				            var pourcent_load= Math.floor((loaded/total)*100);
+
+				            // Afficher les données sur la barre de progression
+				            $('#progress_photo_etudiant').attr('style','width: '+pourcent_load+'%');;
+				            $('#progress_photo_etudiant_status').html(pourcent_load+'%');
+				            // Desactiver la selection d'une autre photo pendant le chargement
+				            $('#photo_etudiant_input').prop( "disabled", true );
+				        	} ;
+				        // set the onload event handler
+				        xhrPhotoEtudiant.upload.onload = function(){ 
+				        	var message='<div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert"> \
+	  			      			<span>La photo à été chargée avec succes</span> \
+	  			      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+	  			        			<span aria-hidden="true">&times;</span> \
+	  			      			</button> \
+			    				</div>';
+		  					$('#alert_photo_etudiant_wrapper').html(message);
+		  					$('#loading_photo_etudiant_btn').addClass("d-none");
+		  	  				$('#cancel_upload_photo_Etudiant_btn').addClass("d-none");
+		  	  				$('#photo_etudiant_input').prop( "disabled", false );
+		  	  				$('#photo_etudiant_hidden_input').val(response);
+				        	};
+				        // retourner l'objet XmlHttpRequest personnalisé 
+				        return xhrPhotoEtudiant ;
+				    }
+  					});
+  					 
+  				 }
+  				
+  				return false;
+  			});
+  			$('#cancel_upload_photo_Etudiant_btn').on('click', function(evt){
+  				xhrPhotoEtudiant.abort();
+  				$('#loading_photo_etudiant_btn').addClass("d-none");
+  				$('#progress_photo_etudiant_wrapper').addClass("d-none");
+  				$('#cancel_upload_photo_Etudiant_btn').addClass("d-none");
+  				$('#photo_etudiant_label').html("");
+  			});
+  	});
+    </script>
+   
+</body>
+</html>

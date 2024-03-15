@@ -1,0 +1,731 @@
+package dao.etudiant;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import Domaine.classe.AnneeScolaire;
+import Domaine.classe.Classe;
+import Domaine.classe.ClasseGenerique;
+import Domaine.classe.Cycle;
+import Domaine.classe.Filiere;
+import Domaine.classe.Niveau;
+import Domaine.etablissement.Etablissement;
+import Domaine.etudiant.Etudiant;
+import Domaine.etudiant.Mention;
+import Domaine.etudiant.OptionBac;
+import Domaine.etudiant.Scolarite;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+
+import dao.database.Db;
+
+public class ScolariteDAO {
+	private Connection con;
+	public ScolariteDAO() {
+		this.con = Db.getInstance().con;
+	}
+	public void insert(Scolarite scolarite) throws SQLException{
+		String query="INSERT INTO `scolarite` (\r\n" + 
+				"`ID` ,\r\n" + 
+				"`EtudiantUtilisateurID` ,\r\n" + 
+				"`ClasseID` ,\r\n" + 
+				"`DateInscription` ,\r\n" + 
+				"`DecisionFinAnnee` ,\r\n" + 
+				"`MentionID` ,\r\n" + 
+				"`Moyenne` ,\r\n" + 
+				"`Etat` ,\r\n" + 
+				"`Observation`\r\n" + 
+				")\r\n" + 
+				"VALUES (\r\n" + 
+				"NULL , ?, ?, ?, ? , ? , ? , ? , ?);";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setInt(1, scolarite.getEtudiant().getId());
+		statement.setInt(2, scolarite.getClasse().getId());
+		statement.setDate(3, new java.sql.Date(scolarite.getDateInscription().getTime()));
+		statement.setString(4, scolarite.getDecisionFinAnnee());
+		statement.setInt(5, scolarite.getMention().getId());
+		statement.setFloat(6, scolarite.getMoyenne());
+		statement.setString(7, scolarite.getEtat());
+		statement.setString(8, scolarite.getObservation());
+		statement.execute();
+		statement.close();
+	}
+	public ArrayList<Scolarite> getAll() throws SQLException{
+		String query="SELECT \r\n" + 
+		"	`scolarite`.`ID` AS ScolariteID,\r\n" + 
+		"	`scolarite`.`DateInscription` ,\r\n" + 
+		"	`scolarite`.`DecisionFinAnnee` ,\r\n" + 
+		"	`mention1`.`ID` as MentionID,\r\n" +
+		"	`mention1`.`Code` as MentionCode,\r\n" +
+		"	`mention1`.`Nom_Fr` as MentionNom_Fr,\r\n" +
+		"	`mention1`.`Nom_Ar` as MentionNom_Ar,\r\n" +
+		"	`scolarite`.`Moyenne` ,\r\n" + 
+		"	`scolarite`.`Etat` ,\r\n" + 
+		"	`scolarite`.`Observation`,\r\n" + 
+		"	`classe`.`ID` AS `classeID`,\r\n" + 
+		"	`classe`.`Label` AS `classeLabel`,\r\n" +
+		"	`classegenerique`.`ID` AS `classegeneriqueID`,\r\n" + 
+		"	`classegenerique`.`Description`,\r\n" + 
+		"	`anneescolaire`.`ID` AS `AnneeScolaireID`,\r\n" +
+		"	`anneescolaire`.`Code` AS `AnneeScolaireCode`,\r\n" +
+		"	`anneescolaire`.`DateDebut` AS `AnneeScolaireDateDebut`,\r\n" +
+		"	`anneescolaire`.`DateFin` AS `AnneeScolaireDateFin`,\r\n" +
+		"	`cycle`.`ID` AS `cycleID`,\r\n" + 
+		"	`cycle`.`Code` AS `cycleCode`,\r\n" + 
+		"	`cycle`.`Nom_Fr` AS `cycleNom_Fr`,\r\n" +
+		"	`cycle`.`Nom_Ar` AS `cycleNom_Ar`,\r\n" +
+		"	`filiere1`.`ID` AS `filiereClasseID`,\r\n" + 
+		"	`filiere1`.`Code` AS `filiereClasseCode`,\r\n" +
+		"	`filiere1`.`Nom_Fr` AS `filiereClasseNom_Fr`,\r\n" + 
+		"	`filiere1`.`Nom_Ar` AS `filiereClasseNom_Ar`,\r\n" +
+		"	`niveau`.`ID` AS `niveauID`,\r\n" + 
+		"	`niveau`.`Code` AS `niveauCode`,\r\n" + 
+		"	`niveau`.`Nom_Fr` AS `niveauNom_Fr`,\r\n" + 
+		"	`niveau`.`Nom_Ar` AS `niveauNom_Ar`,\r\n" +
+		"	`utilisateur`.`Titre`,\r\n" +
+		"	`utilisateur`.`Sexe`,\r\n" +
+		"	`utilisateur`.`Cin`,\r\n" +
+		"	`utilisateur`.`Nom_Fr`,\r\n" + 
+		"	`utilisateur`.`Prenom_Fr`,\r\n" + 
+		"	`utilisateur`.`Nom_Ar`,\r\n" + 
+		"	`utilisateur`.`Prenom_Ar`,\r\n" + 
+		"	`utilisateur`.`Nationalite`,\r\n" + 
+		"	`utilisateur`.`DateNais`,\r\n" +
+		"	`utilisateur`.`LieuNais_Fr`,\r\n" +
+		"	`utilisateur`.`LieuNais_Ar`,\r\n" +
+		"	`utilisateur`.`Adresse_Fr`,\r\n" +
+		"	`utilisateur`.`Adresse_Ar`,\r\n" +
+		"	`utilisateur`.`Email`,\r\n" +
+		"	`utilisateur`.`SituationF`,\r\n" +
+		"	`utilisateur`.`TeleMobile`,\r\n" +
+		"	`utilisateur`.`TeleDomicile`,\r\n" +
+		"	`utilisateur`.`Photo`,\r\n" +
+		"	`etudiant`.`UtilisateurID` as EtudiantID ,\r\n" +
+		"	`etudiant`.`Cne`,\r\n" +
+		"	`etudiant`.`NumInscription`,\r\n" +
+		"	`etudiant`.`AnneeBac`,\r\n" +
+		"	`etudiant`.`Candidat`,\r\n" +
+		"	`etudiant`.`Etat`,\r\n" +
+		"	`optionbac`.`ID` as OptionBacID,\r\n" +
+		"	`optionbac`.`Code` as OptionBacCode,\r\n" +
+		"	`optionbac`.`Nom_Fr` as OptionBacNom_Fr,\r\n" +
+		"	`optionbac`.`Nom_Ar` as OptionBacNom_Ar,\r\n" +
+		"	`etudiant`.`MoyenneBac`,\r\n" +
+		"	`mention2`.`ID` as MentionBacID,\r\n" +
+		"	`mention2`.`Code` as MentionBacCode,\r\n" +
+		"	`mention2`.`Nom_Fr` as MentionBacNom_Fr,\r\n" +
+		"	`mention2`.`Nom_Ar` as MentionBacNom_Ar,\r\n" +
+		"	`filiere2`.`ID` as FiliereID,\r\n" +
+		"	`filiere2`.`Code` as FiliereCode,\r\n" +
+		"	`filiere2`.`Nom_Fr` as FiliereNom_Fr,\r\n" +
+		"	`filiere2`.`Nom_Ar` as FiliereNom_Ar,\r\n" +
+		"	`etablissement`.`ID` as EtablissementID,\r\n" +
+		"	`etablissement`.`Code` as EtablissementCode,\r\n" +
+		"	`etablissement`.`Nom_Fr` as EtablissementNom_Fr,\r\n" +
+		"	`etablissement`.`Nom_Ar` as EtablissementNom_Ar,\r\n" +
+		"	`etablissement`.`Adresse_Fr` as EtablissementAdresse_Fr,\r\n" +
+		"	`etablissement`.`Adresse_Ar` as EtablissementAdresse_Ar,\r\n" +
+		"	`etablissement`.`Telephone` as EtablissementTel,\r\n" +
+		"	`etablissement`.`Email` as EtablissementEmail\r\n" +
+		"	FROM \r\n" + 
+		"	`scolarite`,`mention` AS `mention1`,`classe`,`classegenerique`, `filiere` AS `filiere1`,`anneescolaire`, `cycle`, `niveau`,`mention` AS `mention2`,`utilisateur`, `etudiant`, `optionbac`, `filiere` AS `filiere2` , `etablissement` \r\n" + 
+		"	WHERE \r\n" + 
+		"	(`scolarite`.`EtudiantUtilisateurID` = `etudiant`.`UtilisateurID` ) AND\r\n" +
+		"	(`scolarite`.`ClasseID` = `classe`.`ID` ) AND\r\n" +
+		"	(`classe`.`ClasseGeneriqueID`= `classegenerique`.`ID`) AND\r\n" +
+		"	(`classe`.`AnneeScolaireID`= `anneescolaire`.`ID`) AND\r\n" +
+		"	(`classegenerique`.`CycleID`= `cycle`.`ID`) AND\r\n" + 
+		"	(`classegenerique`.`FiliereID`= `filiere1`.`ID`) AND\r\n" + 
+		"	(`classegenerique`.`NiveauID`= `niveau`.`ID`) AND\r\n" + 
+		"	(`scolarite`.`MentionID` = `mention1`.`ID` ) AND\r\n" +
+		"	(`etudiant`.`UtilisateurID` = `utilisateur`.`ID` ) AND\r\n" + 
+		"	(`etudiant`.`OptionBacID` = `optionbac`.`ID`) AND\r\n" + 
+		"	(`etudiant`.`MentionID` = `mention2`.`ID`) AND\r\n" +
+		"	(`etudiant`.`FiliereID` = `filiere2`.`ID`) AND\r\n" + 
+		"	(`etudiant`.`EtablissementID` = `etablissement`.`ID`);";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Scolarite> scolarites = new ArrayList<Scolarite>();
+		while (rs.next()) {
+			Scolarite scolarite = new Scolarite();
+			scolarite.setId(rs.getInt("ScolariteID"));
+			scolarite.setDateInscription(rs.getDate("DateInscription"));
+			scolarite.setDecisionFinAnnee(rs.getString("DecisionFinAnnee"));
+			
+			Mention mention = new Mention();
+			mention.setId(rs.getInt("MentionID"));
+			mention.setCode(rs.getString("MentionCode"));
+			mention.setNom_Fr(rs.getString("MentionNom_Fr"));
+			mention.setNom_Ar(rs.getString("MentionNom_Ar"));
+			scolarite.setMention(mention);
+			
+			scolarite.setMoyenne(rs.getFloat("Moyenne"));
+			scolarite.setEtat(rs.getString("Etat"));
+			scolarite.setObservation(rs.getString("Observation"));
+			
+			Etudiant etudiant = new Etudiant();
+			etudiant.setId(rs.getInt("EtudiantID"));
+			etudiant.setTitre(rs.getString("Titre"));
+			etudiant.setSexe(rs.getString("Sexe"));
+			etudiant.setCin(rs.getString("Cin"));
+			etudiant.setNom_Fr(rs.getString("Nom_Fr"));
+			etudiant.setPrenom_Fr(rs.getString("Prenom_Fr"));
+			etudiant.setNom_Ar(rs.getString("Nom_Ar"));
+			etudiant.setPrenom_Ar(rs.getString("Prenom_Ar"));
+			etudiant.setNationalite(rs.getString("Nationalite"));
+			etudiant.setDateNais(rs.getDate("DateNais"));
+			etudiant.setLieuNais_Fr(rs.getString("LieuNais_Fr"));
+			etudiant.setLieuNais_Ar(rs.getString("LieuNais_Ar"));
+			etudiant.setAdresse_Fr(rs.getString("Adresse_Fr"));
+			etudiant.setAdresse_Ar(rs.getString("Adresse_Ar"));
+			etudiant.setEmail(rs.getString("Email"));
+			etudiant.setSituationF(rs.getString("SituationF"));
+			etudiant.setTeleMobile(rs.getString("TeleMobile"));
+			etudiant.setTeleDomicile(rs.getString("TeleDomicile"));
+			etudiant.setCne(rs.getString("Cne"));
+			etudiant.setNumInscription(rs.getString("NumInscription"));
+			etudiant.setAnneeBac(rs.getString("AnneeBac"));
+			etudiant.setMoyenneBac(rs.getFloat("AnneeBac"));
+			etudiant.setCandidat(rs.getString("Candidat"));
+			etudiant.setEtat(rs.getString("Etat"));
+			etudiant.setPhoto(rs.getString("Photo"));
+			
+			OptionBac optionBac = new OptionBac();
+			optionBac.setId(rs.getInt("OptionBacID"));
+			optionBac.setCode(rs.getString("OptionBacCode"));
+			optionBac.setNom_Fr(rs.getString("OptionBacNom_Fr"));
+			optionBac.setNom_Ar(rs.getString("OptionBacNom_Ar"));
+			etudiant.setOptionBac(optionBac);
+			
+			Mention mentionBac = new Mention();
+			mentionBac.setId(rs.getInt("MentionBacID"));
+			mentionBac.setCode(rs.getString("MentionBacCode"));
+			mentionBac.setNom_Fr(rs.getString("MentionBacNom_Fr"));
+			mentionBac.setNom_Ar(rs.getString("MentionBacNom_Ar"));
+			etudiant.setMentionBac(mentionBac);
+			
+			Filiere filiere = new Filiere();
+			filiere.setId(rs.getInt("FiliereID"));
+			filiere.setCode(rs.getString("FiliereCode"));
+			filiere.setNom_Fr(rs.getString("FiliereNom_Fr"));
+			filiere.setNom_Ar(rs.getString("FiliereNom_Ar"));
+			etudiant.setFiliere(filiere);
+			
+			Etablissement etablissement = new Etablissement();
+			etablissement.setId(rs.getInt("EtablissementID"));
+			etablissement.setCode(rs.getString("EtablissementCode"));
+			etablissement.setNom_Fr(rs.getString("EtablissementNom_Fr"));
+			etablissement.setNom_Ar(rs.getString("EtablissementNom_Ar"));
+			etablissement.setAdresse_Fr(rs.getString("EtablissementAdresse_Fr"));
+			etablissement.setAdresse_Ar(rs.getString("EtablissementAdresse_Ar"));
+			etablissement.setTelephone(rs.getString("EtablissementTel"));
+			etablissement.setEmail(rs.getString("EtablissementEmail"));
+			etudiant.setEtabOrigine(etablissement);
+			
+			scolarite.setEtudiant(etudiant);
+			
+			Cycle cycle= new Cycle();
+			cycle.setId(rs.getInt("cycleID"));
+			cycle.setCode(rs.getString("cycleCode"));
+			cycle.setNom_Fr(rs.getString("cycleNom_Fr"));
+			cycle.setNom_Ar(rs.getString("cycleNom_Ar"));
+			
+			Filiere filiereClasse = new Filiere();
+			filiereClasse.setId(rs.getInt("filiereClasseID"));
+			filiereClasse.setCode(rs.getString("filiereClasseCode"));
+			filiereClasse.setNom_Fr(rs.getString("filiereClasseNom_Fr"));
+			filiereClasse.setNom_Ar(rs.getString("filiereClasseNom_Ar"));
+			
+			Niveau niveau= new Niveau();
+			niveau.setId(rs.getInt("niveauID"));
+			niveau.setCode(rs.getString("niveauCode"));
+			niveau.setNom_Fr(rs.getString("niveauNom_Fr"));
+			niveau.setNom_Ar(rs.getString("niveauNom_Ar"));
+			
+			ClasseGenerique classeGenerique =new ClasseGenerique();
+			classeGenerique.setCycle(cycle);
+			classeGenerique.setFiliere(filiereClasse);
+			classeGenerique.setNiveau(niveau);
+			classeGenerique.setId(rs.getInt("classegeneriqueID"));
+			classeGenerique.setDescription(rs.getString("Description"));
+			classeGenerique.setCode();
+			
+			AnneeScolaire anneeScolaire = new AnneeScolaire();
+			anneeScolaire.setId(rs.getInt("AnneeScolaireID"));
+			anneeScolaire.setCode(rs.getString("AnneeScolaireCode"));
+			anneeScolaire.setDateDebut(rs.getDate("AnneeScolaireDateDebut"));
+			anneeScolaire.setDateFin(rs.getDate("AnneeScolaireDateFin"));
+			
+			Classe classe = new Classe();
+			
+			classe.setId(rs.getInt("classeID"));
+			classe.setLabel(rs.getString("classeLabel"));
+			classe.setClasseGenerique(classeGenerique);
+			classe.setAnneeScolaire(anneeScolaire);
+			classe.setCode();
+			
+			scolarite.setClasse(classe);
+			
+			scolarites.add(scolarite);
+		}
+		rs.close();
+		statement.close();
+		return scolarites;	
+	}
+	public Scolarite getById(int id) throws SQLException{
+		String query="";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setInt(1, id);
+		ResultSet rs = statement.executeQuery();
+		Scolarite scolarite = new Scolarite();
+		while (rs.next()) {
+			//TODO : Compléter plus tard
+		}
+		rs.close();
+		statement.close();
+		return scolarite;		
+	}
+	public ArrayList<Scolarite> getByClasse(Classe classe) throws SQLException{
+		String query="SELECT \r\n" + 
+		"	`scolarite`.`ID` AS ScolariteID,\r\n" + 
+		"	`scolarite`.`DateInscription` ,\r\n" + 
+		"	`scolarite`.`DecisionFinAnnee` ,\r\n" + 
+		"	`mention1`.`ID` as MentionID,\r\n" +
+		"	`mention1`.`Code` as MentionCode,\r\n" +
+		"	`mention1`.`Nom_Fr` as MentionNom_Fr,\r\n" +
+		"	`mention1`.`Nom_Ar` as MentionNom_Ar,\r\n" +
+		"	`scolarite`.`Moyenne` ,\r\n" + 
+		"	`scolarite`.`Etat` ,\r\n" + 
+		"	`scolarite`.`Observation`,\r\n" + 
+		"	`classe`.`ID` AS `classeID`,\r\n" + 
+		"	`classe`.`Label` AS `classeLabel`,\r\n" +
+		"	`classegenerique`.`ID` AS `classegeneriqueID`,\r\n" + 
+		"	`classegenerique`.`Description`,\r\n" + 
+		"	`anneescolaire`.`ID` AS `AnneeScolaireID`,\r\n" +
+		"	`anneescolaire`.`Code` AS `AnneeScolaireCode`,\r\n" +
+		"	`anneescolaire`.`DateDebut` AS `AnneeScolaireDateDebut`,\r\n" +
+		"	`anneescolaire`.`DateFin` AS `AnneeScolaireDateFin`,\r\n" +
+		"	`cycle`.`ID` AS `cycleID`,\r\n" + 
+		"	`cycle`.`Code` AS `cycleCode`,\r\n" + 
+		"	`cycle`.`Nom_Fr` AS `cycleNom_Fr`,\r\n" +
+		"	`cycle`.`Nom_Ar` AS `cycleNom_Ar`,\r\n" +
+		"	`filiere1`.`ID` AS `filiereClasseID`,\r\n" + 
+		"	`filiere1`.`Code` AS `filiereClasseCode`,\r\n" +
+		"	`filiere1`.`Nom_Fr` AS `filiereClasseNom_Fr`,\r\n" + 
+		"	`filiere1`.`Nom_Ar` AS `filiereClasseNom_Ar`,\r\n" +
+		"	`niveau`.`ID` AS `niveauID`,\r\n" + 
+		"	`niveau`.`Code` AS `niveauCode`,\r\n" + 
+		"	`niveau`.`Nom_Fr` AS `niveauNom_Fr`,\r\n" + 
+		"	`niveau`.`Nom_Ar` AS `niveauNom_Ar`,\r\n" +
+		"	`utilisateur`.`Titre`,\r\n" +
+		"	`utilisateur`.`Sexe`,\r\n" +
+		"	`utilisateur`.`Cin`,\r\n" +
+		"	`utilisateur`.`Nom_Fr`,\r\n" + 
+		"	`utilisateur`.`Prenom_Fr`,\r\n" + 
+		"	`utilisateur`.`Nom_Ar`,\r\n" + 
+		"	`utilisateur`.`Prenom_Ar`,\r\n" + 
+		"	`utilisateur`.`Nationalite`,\r\n" + 
+		"	`utilisateur`.`DateNais`,\r\n" +
+		"	`utilisateur`.`LieuNais_Fr`,\r\n" +
+		"	`utilisateur`.`LieuNais_Ar`,\r\n" +
+		"	`utilisateur`.`Adresse_Fr`,\r\n" +
+		"	`utilisateur`.`Adresse_Ar`,\r\n" +
+		"	`utilisateur`.`Email`,\r\n" +
+		"	`utilisateur`.`SituationF`,\r\n" +
+		"	`utilisateur`.`TeleMobile`,\r\n" +
+		"	`utilisateur`.`TeleDomicile`,\r\n" +
+		"	`utilisateur`.`Photo`,\r\n" +
+		"	`etudiant`.`UtilisateurID` as EtudiantID ,\r\n" +
+		"	`etudiant`.`Cne`,\r\n" +
+		"	`etudiant`.`NumInscription`,\r\n" +
+		"	`etudiant`.`AnneeBac`,\r\n" +
+		"	`etudiant`.`Candidat`,\r\n" +
+		"	`etudiant`.`Etat`,\r\n" +
+		"	`optionbac`.`ID` as OptionBacID,\r\n" +
+		"	`optionbac`.`Code` as OptionBacCode,\r\n" +
+		"	`optionbac`.`Nom_Fr` as OptionBacNom_Fr,\r\n" +
+		"	`optionbac`.`Nom_Ar` as OptionBacNom_Ar,\r\n" +
+		"	`etudiant`.`MoyenneBac`,\r\n" +
+		"	`mention2`.`ID` as MentionBacID,\r\n" +
+		"	`mention2`.`Code` as MentionBacCode,\r\n" +
+		"	`mention2`.`Nom_Fr` as MentionBacNom_Fr,\r\n" +
+		"	`mention2`.`Nom_Ar` as MentionBacNom_Ar,\r\n" +
+		"	`filiere2`.`ID` as FiliereID,\r\n" +
+		"	`filiere2`.`Code` as FiliereCode,\r\n" +
+		"	`filiere2`.`Nom_Fr` as FiliereNom_Fr,\r\n" +
+		"	`filiere2`.`Nom_Ar` as FiliereNom_Ar,\r\n" +
+		"	`etablissement`.`ID` as EtablissementID,\r\n" +
+		"	`etablissement`.`Code` as EtablissementCode,\r\n" +
+		"	`etablissement`.`Nom_Fr` as EtablissementNom_Fr,\r\n" +
+		"	`etablissement`.`Nom_Ar` as EtablissementNom_Ar,\r\n" +
+		"	`etablissement`.`Adresse_Fr` as EtablissementAdresse_Fr,\r\n" +
+		"	`etablissement`.`Adresse_Ar` as EtablissementAdresse_Ar,\r\n" +
+		"	`etablissement`.`Telephone` as EtablissementTel,\r\n" +
+		"	`etablissement`.`Email` as EtablissementEmail\r\n" +
+		"	FROM \r\n" + 
+		"	`scolarite`,`mention` AS `mention1`,`classe`,`classegenerique`, `filiere` AS `filiere1`,`anneescolaire`, `cycle`, `niveau`,`mention` AS `mention2`,`utilisateur`, `etudiant`, `optionbac`, `filiere` AS `filiere2` , `etablissement` \r\n" + 
+		"	WHERE \r\n" + 
+		"	(`scolarite`.`EtudiantUtilisateurID` = `etudiant`.`UtilisateurID` ) AND\r\n" +
+		"	(`scolarite`.`ClasseID` = `classe`.`ID` ) AND\r\n" +
+		"	(`classe`.`ClasseGeneriqueID`= `classegenerique`.`ID`) AND\r\n" +
+		"	(`classe`.`AnneeScolaireID`= `anneescolaire`.`ID`) AND\r\n" +
+		"	(`classegenerique`.`CycleID`= `cycle`.`ID`) AND\r\n" + 
+		"	(`classegenerique`.`FiliereID`= `filiere1`.`ID`) AND\r\n" + 
+		"	(`classegenerique`.`NiveauID`= `niveau`.`ID`) AND\r\n" + 
+		"	(`scolarite`.`MentionID` = `mention1`.`ID` ) AND\r\n" +
+		"	(`etudiant`.`UtilisateurID` = `utilisateur`.`ID` ) AND\r\n" + 
+		"	(`etudiant`.`OptionBacID` = `optionbac`.`ID`) AND\r\n" + 
+		"	(`etudiant`.`MentionID` = `mention2`.`ID`) AND\r\n" +
+		"	(`etudiant`.`FiliereID` = `filiere2`.`ID`) AND\r\n" + 
+		"	(`etudiant`.`EtablissementID` = `etablissement`.`ID`) AND \r\n" +
+		"	(`scolarite`.`ClasseID` = ? );";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setInt(1, classe.getId());
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Scolarite> scolarites = new ArrayList<Scolarite>();
+		while (rs.next()) {
+			Scolarite scolarite = new Scolarite();
+			scolarite.setId(rs.getInt("ScolariteID"));
+			scolarite.setDateInscription(rs.getDate("DateInscription"));
+			scolarite.setDecisionFinAnnee(rs.getString("DecisionFinAnnee"));
+			
+			Mention mention = new Mention();
+			mention.setId(rs.getInt("MentionID"));
+			mention.setCode(rs.getString("MentionCode"));
+			mention.setNom_Fr(rs.getString("MentionNom_Fr"));
+			mention.setNom_Ar(rs.getString("MentionNom_Ar"));
+			scolarite.setMention(mention);
+			
+			scolarite.setMoyenne(rs.getFloat("Moyenne"));
+			scolarite.setEtat(rs.getString("Etat"));
+			scolarite.setObservation(rs.getString("Observation"));
+			
+			Etudiant etudiant = new Etudiant();
+			etudiant.setId(rs.getInt("EtudiantID"));
+			etudiant.setTitre(rs.getString("Titre"));
+			etudiant.setSexe(rs.getString("Sexe"));
+			etudiant.setCin(rs.getString("Cin"));
+			etudiant.setNom_Fr(rs.getString("Nom_Fr"));
+			etudiant.setPrenom_Fr(rs.getString("Prenom_Fr"));
+			etudiant.setNom_Ar(rs.getString("Nom_Ar"));
+			etudiant.setPrenom_Ar(rs.getString("Prenom_Ar"));
+			etudiant.setNationalite(rs.getString("Nationalite"));
+			etudiant.setDateNais(rs.getDate("DateNais"));
+			etudiant.setLieuNais_Fr(rs.getString("LieuNais_Fr"));
+			etudiant.setLieuNais_Ar(rs.getString("LieuNais_Ar"));
+			etudiant.setAdresse_Fr(rs.getString("Adresse_Fr"));
+			etudiant.setAdresse_Ar(rs.getString("Adresse_Ar"));
+			etudiant.setEmail(rs.getString("Email"));
+			etudiant.setSituationF(rs.getString("SituationF"));
+			etudiant.setTeleMobile(rs.getString("TeleMobile"));
+			etudiant.setTeleDomicile(rs.getString("TeleDomicile"));
+			etudiant.setCne(rs.getString("Cne"));
+			etudiant.setNumInscription(rs.getString("NumInscription"));
+			etudiant.setAnneeBac(rs.getString("AnneeBac"));
+			etudiant.setMoyenneBac(rs.getFloat("AnneeBac"));
+			etudiant.setCandidat(rs.getString("Candidat"));
+			etudiant.setEtat(rs.getString("Etat"));
+			etudiant.setPhoto(rs.getString("Photo"));
+			
+			OptionBac optionBac = new OptionBac();
+			optionBac.setId(rs.getInt("OptionBacID"));
+			optionBac.setCode(rs.getString("OptionBacCode"));
+			optionBac.setNom_Fr(rs.getString("OptionBacNom_Fr"));
+			optionBac.setNom_Ar(rs.getString("OptionBacNom_Ar"));
+			etudiant.setOptionBac(optionBac);
+			
+			Mention mentionBac = new Mention();
+			mentionBac.setId(rs.getInt("MentionBacID"));
+			mentionBac.setCode(rs.getString("MentionBacCode"));
+			mentionBac.setNom_Fr(rs.getString("MentionBacNom_Fr"));
+			mentionBac.setNom_Ar(rs.getString("MentionBacNom_Ar"));
+			etudiant.setMentionBac(mentionBac);
+			
+			Filiere filiere = new Filiere();
+			filiere.setId(rs.getInt("FiliereID"));
+			filiere.setCode(rs.getString("FiliereCode"));
+			filiere.setNom_Fr(rs.getString("FiliereNom_Fr"));
+			filiere.setNom_Ar(rs.getString("FiliereNom_Ar"));
+			etudiant.setFiliere(filiere);
+			
+			Etablissement etablissement = new Etablissement();
+			etablissement.setId(rs.getInt("EtablissementID"));
+			etablissement.setCode(rs.getString("EtablissementCode"));
+			etablissement.setNom_Fr(rs.getString("EtablissementNom_Fr"));
+			etablissement.setNom_Ar(rs.getString("EtablissementNom_Ar"));
+			etablissement.setAdresse_Fr(rs.getString("EtablissementAdresse_Fr"));
+			etablissement.setAdresse_Ar(rs.getString("EtablissementAdresse_Ar"));
+			etablissement.setTelephone(rs.getString("EtablissementTel"));
+			etablissement.setEmail(rs.getString("EtablissementEmail"));
+			etudiant.setEtabOrigine(etablissement);
+			
+			scolarite.setEtudiant(etudiant);
+			
+			Cycle cycle= new Cycle();
+			cycle.setId(rs.getInt("cycleID"));
+			cycle.setCode(rs.getString("cycleCode"));
+			cycle.setNom_Fr(rs.getString("cycleNom_Fr"));
+			cycle.setNom_Ar(rs.getString("cycleNom_Ar"));
+			
+			Filiere filiereClasse = new Filiere();
+			filiereClasse.setId(rs.getInt("filiereClasseID"));
+			filiereClasse.setCode(rs.getString("filiereClasseCode"));
+			filiereClasse.setNom_Fr(rs.getString("filiereClasseNom_Fr"));
+			filiereClasse.setNom_Ar(rs.getString("filiereClasseNom_Ar"));
+			
+			Niveau niveau= new Niveau();
+			niveau.setId(rs.getInt("niveauID"));
+			niveau.setCode(rs.getString("niveauCode"));
+			niveau.setNom_Fr(rs.getString("niveauNom_Fr"));
+			niveau.setNom_Ar(rs.getString("niveauNom_Ar"));
+			
+			ClasseGenerique classeGenerique =new ClasseGenerique();
+			classeGenerique.setCycle(cycle);
+			classeGenerique.setFiliere(filiereClasse);
+			classeGenerique.setNiveau(niveau);
+			classeGenerique.setId(rs.getInt("classegeneriqueID"));
+			classeGenerique.setDescription(rs.getString("Description"));
+			classeGenerique.setCode();
+			
+			AnneeScolaire anneeScolaire = new AnneeScolaire();
+			anneeScolaire.setId(rs.getInt("AnneeScolaireID"));
+			anneeScolaire.setCode(rs.getString("AnneeScolaireCode"));
+			anneeScolaire.setDateDebut(rs.getDate("AnneeScolaireDateDebut"));
+			anneeScolaire.setDateFin(rs.getDate("AnneeScolaireDateFin"));
+			
+			classe.setId(rs.getInt("classeID"));
+			classe.setLabel(rs.getString("classeLabel"));
+			classe.setClasseGenerique(classeGenerique);
+			classe.setAnneeScolaire(anneeScolaire);
+			classe.setCode();
+			
+			scolarite.setClasse(classe);
+			
+			scolarites.add(scolarite);
+		}
+		rs.close();
+		statement.close();
+		return scolarites;	
+	}
+	
+	public void update (Scolarite scolarite) throws SQLException{
+		String query="UPDATE `scolarite` SET \r\n" + 
+				"`EtudiantUtilisateurID` = ?,\r\n" +
+				"`ClasseID` = ?,\r\n" + 
+				"`DateInscription` = ?,\r\n" + 
+				"`DecisionFinAnnee` = ?,\r\n" + 
+				"`MentionID` = ?,\r\n" + 
+				"`Moyenne` = ?,\r\n" + 
+				"`Etat` = ?,\r\n" + 
+				"`Observation` = ? \r\n" +
+				" WHERE \r\n" +
+				"`scolarite`.`ID` = ? ;";
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setInt(1, scolarite.getEtudiant().getId());
+		statement.setInt(2, scolarite.getClasse().getId());
+		statement.setDate(3, new java.sql.Date(scolarite.getDateInscription().getTime()));
+		statement.setString(4, scolarite.getDecisionFinAnnee());
+		statement.setInt(5, scolarite.getMention().getId());
+		statement.setFloat(6, scolarite.getMoyenne());
+		statement.setString(7, scolarite.getEtat());
+		statement.setString(8, scolarite.getObservation());
+		statement.setInt(9, scolarite.getId());
+		statement.execute();
+	}
+	public void delete(Scolarite scolarite) throws SQLException{
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement("DELETE FROM `scolarite` WHERE `ID` = ?");
+		statement.setInt(1, scolarite.getId());
+		statement.execute();
+		statement.close();
+	}
+	/*
+	 * Retourne les étudiants inscrit et qui non pas de classe pour l'année scolaire passée comme paramètre
+	 */
+	public ArrayList<Etudiant> getEtudiantNonAffectes(AnneeScolaire anneScolaire)throws SQLException{
+/*		
+		String query="SELECT \r\n" + 
+		"	`utilisateur`.`Titre`,\r\n" +
+		"	`utilisateur`.`Sexe`,\r\n" +
+		"	`utilisateur`.`Cin`,\r\n" +
+		"	`utilisateur`.`Nom_Fr`,\r\n" + 
+		"	`utilisateur`.`Prenom_Fr`,\r\n" + 
+		"	`utilisateur`.`Nom_Ar`,\r\n" + 
+		"	`utilisateur`.`Prenom_Ar`,\r\n" + 
+		"	`utilisateur`.`Nationalite`,\r\n" + 
+		"	`utilisateur`.`DateNais`,\r\n" +
+		"	`utilisateur`.`LieuNais_Fr`,\r\n" +
+		"	`utilisateur`.`LieuNais_Ar`,\r\n" +
+		"	`utilisateur`.`Adresse_Fr`,\r\n" +
+		"	`utilisateur`.`Adresse_Ar`,\r\n" +
+		"	`utilisateur`.`Email`,\r\n" +
+		"	`utilisateur`.`SituationF`,\r\n" +
+		"	`utilisateur`.`TeleMobile`,\r\n" +
+		"	`utilisateur`.`TeleDomicile`,\r\n" +
+		"	`utilisateur`.`Photo`,\r\n" +
+		"	`etudiant`.`UtilisateurID` as EtudiantID ,\r\n" +
+		"	`etudiant`.`Cne`,\r\n" +
+		"	`etudiant`.`NumInscription`,\r\n" +
+		"	`etudiant`.`AnneeBac`,\r\n" +
+		"	`etudiant`.`Candidat`,\r\n" +
+		"	`etudiant`.`Etat`,\r\n" +
+		"	`optionbac`.`ID` as OptionBacID,\r\n" +
+		"	`optionbac`.`Code` as OptionBacCode,\r\n" +
+		"	`optionbac`.`Nom_Fr` as OptionBacNom_Fr,\r\n" +
+		"	`optionbac`.`Nom_Ar` as OptionBacNom_Ar,\r\n" +
+		"	`etudiant`.`MoyenneBac`,\r\n" +
+		"	`mention`.`ID` as MentionBacID,\r\n" +
+		"	`mention`.`Code` as MentionBacCode,\r\n" +
+		"	`mention`.`Nom_Fr` as MentionBacNom_Fr,\r\n" +
+		"	`mention`.`Nom_Ar` as MentionBacNom_Ar,\r\n" +
+		"	`filiere`.`ID` as FiliereID,\r\n" +
+		"	`filiere`.`Code` as FiliereCode,\r\n" +
+		"	`filiere`.`Nom_Fr` as FiliereNom_Fr,\r\n" +
+		"	`filiere`.`Nom_Ar` as FiliereNom_Ar,\r\n" +
+		"	`etablissement`.`ID` as EtablissementID,\r\n" +
+		"	`etablissement`.`Code` as EtablissementCode,\r\n" +
+		"	`etablissement`.`Nom_Fr` as EtablissementNom_Fr,\r\n" +
+		"	`etablissement`.`Nom_Ar` as EtablissementNom_Ar,\r\n" +
+		"	`etablissement`.`Adresse_Fr` as EtablissementAdresse_Fr,\r\n" +
+		"	`etablissement`.`Adresse_Ar` as EtablissementAdresse_Ar,\r\n" +
+		"	`etablissement`.`Telephone` as EtablissementTel,\r\n" +
+		"	`etablissement`.`Email` as EtablissementEmail\r\n" +
+		"	FROM \r\n" + 
+		"	`scolarite`,`classe`,`anneescolaire`,`utilisateur`, `etudiant`, `optionbac`,`mention`, `filiere`,`etablissement` \r\n" + 
+		"	WHERE \r\n" + 
+		"	NOT EXISTS ( SELECT * FROM  `scolarite` WHERE `scolarite`.`EtudiantUtilisateurID` = `etudiant`.`UtilisateurID` ) AND\r\n" +
+		"	(`scolarite`.`ClasseID` = `classe`.`ID` ) AND\r\n" +
+		"	(`classe`.`AnneeScolaireID`= `anneescolaire`.`ID`) AND\r\n" +
+		"	(`anneescolaire`.`Code`= ? ) AND\r\n" +
+		"	(`etudiant`.`UtilisateurID` = `utilisateur`.`ID` ) AND\r\n" + 
+		"	(`etudiant`.`OptionBacID` = `optionbac`.`ID`) AND\r\n" + 
+		"	(`etudiant`.`MentionID` = `mention`.`ID`) AND\r\n" +
+		"	(`etudiant`.`FiliereID` = `filiere`.`ID`) AND\r\n" + 
+		"	(`etudiant`.`EtablissementID` = `etablissement`.`ID`);";
+		
+*/
+		String query="SELECT \r\n" + 
+		"	`utilisateur`.`Titre`,\r\n" +
+		"	`utilisateur`.`Sexe`,\r\n" +
+		"	`utilisateur`.`Cin`,\r\n" +
+		"	`utilisateur`.`Nom_Fr`,\r\n" + 
+		"	`utilisateur`.`Prenom_Fr`,\r\n" + 
+		"	`utilisateur`.`Nom_Ar`,\r\n" + 
+		"	`utilisateur`.`Prenom_Ar`,\r\n" + 
+		"	`utilisateur`.`Nationalite`,\r\n" + 
+		"	`utilisateur`.`DateNais`,\r\n" +
+		"	`utilisateur`.`LieuNais_Fr`,\r\n" +
+		"	`utilisateur`.`LieuNais_Ar`,\r\n" +
+		"	`utilisateur`.`Adresse_Fr`,\r\n" +
+		"	`utilisateur`.`Adresse_Ar`,\r\n" +
+		"	`utilisateur`.`Email`,\r\n" +
+		"	`utilisateur`.`SituationF`,\r\n" +
+		"	`utilisateur`.`TeleMobile`,\r\n" +
+		"	`utilisateur`.`TeleDomicile`,\r\n" +
+		"	`utilisateur`.`Photo`,\r\n" +
+		"	`etudiant`.`UtilisateurID` as EtudiantID ,\r\n" +
+		"	`etudiant`.`Cne`,\r\n" +
+		"	`etudiant`.`NumInscription`,\r\n" +
+		"	`etudiant`.`AnneeBac`,\r\n" +
+		"	`etudiant`.`Candidat`,\r\n" +
+		"	`etudiant`.`Etat`,\r\n" +
+		"	`optionbac`.`ID` as OptionBacID,\r\n" +
+		"	`optionbac`.`Code` as OptionBacCode,\r\n" +
+		"	`optionbac`.`Nom_Fr` as OptionBacNom_Fr,\r\n" +
+		"	`optionbac`.`Nom_Ar` as OptionBacNom_Ar,\r\n" +
+		"	`etudiant`.`MoyenneBac`,\r\n" +
+		"	`mention`.`ID` as MentionBacID,\r\n" +
+		"	`mention`.`Code` as MentionBacCode,\r\n" +
+		"	`mention`.`Nom_Fr` as MentionBacNom_Fr,\r\n" +
+		"	`mention`.`Nom_Ar` as MentionBacNom_Ar,\r\n" +
+		"	`filiere`.`ID` as FiliereID,\r\n" +
+		"	`filiere`.`Code` as FiliereCode,\r\n" +
+		"	`filiere`.`Nom_Fr` as FiliereNom_Fr,\r\n" +
+		"	`filiere`.`Nom_Ar` as FiliereNom_Ar,\r\n" +
+		"	`etablissement`.`ID` as EtablissementID,\r\n" +
+		"	`etablissement`.`Code` as EtablissementCode,\r\n" +
+		"	`etablissement`.`Nom_Fr` as EtablissementNom_Fr,\r\n" +
+		"	`etablissement`.`Nom_Ar` as EtablissementNom_Ar,\r\n" +
+		"	`etablissement`.`Adresse_Fr` as EtablissementAdresse_Fr,\r\n" +
+		"	`etablissement`.`Adresse_Ar` as EtablissementAdresse_Ar,\r\n" +
+		"	`etablissement`.`Telephone` as EtablissementTel,\r\n" +
+		"	`etablissement`.`Email` as EtablissementEmail\r\n" +
+		"	FROM \r\n" + 
+		"	`scolarite` JOIN `classe` ON `scolarite`.`ClasseID` = `classe`.`ID` JOIN `etudiant` ON `scolarite`.`EtudiantUtilisateurID` <> `etudiant`.`UtilisateurID` JOIN `utilisateur` ON `etudiant`.`UtilisateurID` = `utilisateur`.`ID` JOIN `optionbac` ON `etudiant`.`OptionBacID` = `optionbac`.`ID` JOIN `mention` ON `etudiant`.`MentionID` = `mention`.`ID` JOIN `filiere` ON `etudiant`.`FiliereID` = `filiere`.`ID` JOIN `etablissement` ON `etudiant`.`EtablissementID` = `etablissement`.`ID` JOIN `anneescolaire` ON `classe`.`AnneeScolaireID`= `anneescolaire`.`ID` \r\n" + 
+		"	WHERE \r\n" + 
+		"	(`anneescolaire`.`Code`= ? );";
+		
+		PreparedStatement statement = (PreparedStatement) con.prepareStatement(query);
+		statement.setString(1,anneScolaire.getCode());
+		ResultSet rs = statement.executeQuery();
+		ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
+		Etudiant etudiant=null;
+		while (rs.next()) {
+			etudiant = new Etudiant();
+			etudiant.setId(rs.getInt("EtudiantID"));
+			etudiant.setTitre(rs.getString("Titre"));
+			etudiant.setSexe(rs.getString("Sexe"));
+			etudiant.setCin(rs.getString("Cin"));
+			etudiant.setNom_Fr(rs.getString("Nom_Fr"));
+			etudiant.setPrenom_Fr(rs.getString("Prenom_Fr"));
+			etudiant.setNom_Ar(rs.getString("Nom_Ar"));
+			etudiant.setPrenom_Ar(rs.getString("Prenom_Ar"));
+			etudiant.setNationalite(rs.getString("Nationalite"));
+			etudiant.setDateNais(rs.getDate("DateNais"));
+			etudiant.setLieuNais_Fr(rs.getString("LieuNais_Fr"));
+			etudiant.setLieuNais_Ar(rs.getString("LieuNais_Ar"));
+			etudiant.setAdresse_Fr(rs.getString("Adresse_Fr"));
+			etudiant.setAdresse_Ar(rs.getString("Adresse_Ar"));
+			etudiant.setEmail(rs.getString("Email"));
+			etudiant.setSituationF(rs.getString("SituationF"));
+			etudiant.setTeleMobile(rs.getString("TeleMobile"));
+			etudiant.setTeleDomicile(rs.getString("TeleDomicile"));
+			etudiant.setCne(rs.getString("Cne"));
+			etudiant.setNumInscription(rs.getString("NumInscription"));
+			etudiant.setAnneeBac(rs.getString("AnneeBac"));
+			etudiant.setMoyenneBac(rs.getFloat("AnneeBac"));
+			etudiant.setCandidat(rs.getString("Candidat"));
+			etudiant.setEtat(rs.getString("Etat"));
+			etudiant.setPhoto(rs.getString("Photo"));
+			
+			OptionBac optionBac = new OptionBac();
+			optionBac.setId(rs.getInt("OptionBacID"));
+			optionBac.setCode(rs.getString("OptionBacCode"));
+			optionBac.setNom_Fr(rs.getString("OptionBacNom_Fr"));
+			optionBac.setNom_Ar(rs.getString("OptionBacNom_Ar"));
+			etudiant.setOptionBac(optionBac);
+			
+			Mention mentionBac = new Mention();
+			mentionBac.setId(rs.getInt("MentionBacID"));
+			mentionBac.setCode(rs.getString("MentionBacCode"));
+			mentionBac.setNom_Fr(rs.getString("MentionBacNom_Fr"));
+			mentionBac.setNom_Ar(rs.getString("MentionBacNom_Ar"));
+			etudiant.setMentionBac(mentionBac);
+			
+			Filiere filiere = new Filiere();
+			filiere.setId(rs.getInt("FiliereID"));
+			filiere.setCode(rs.getString("FiliereCode"));
+			filiere.setNom_Fr(rs.getString("FiliereNom_Fr"));
+			filiere.setNom_Ar(rs.getString("FiliereNom_Ar"));
+			etudiant.setFiliere(filiere);
+			
+			Etablissement etablissement = new Etablissement();
+			etablissement.setId(rs.getInt("EtablissementID"));
+			etablissement.setCode(rs.getString("EtablissementCode"));
+			etablissement.setNom_Fr(rs.getString("EtablissementNom_Fr"));
+			etablissement.setNom_Ar(rs.getString("EtablissementNom_Ar"));
+			etablissement.setAdresse_Fr(rs.getString("EtablissementAdresse_Fr"));
+			etablissement.setAdresse_Ar(rs.getString("EtablissementAdresse_Ar"));
+			etablissement.setTelephone(rs.getString("EtablissementTel"));
+			etablissement.setEmail(rs.getString("EtablissementEmail"));
+			etudiant.setEtabOrigine(etablissement);
+			
+			etudiants.add(etudiant);
+		}
+		rs.close();
+		statement.close();
+		return etudiants;
+	}
+}

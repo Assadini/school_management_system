@@ -1,0 +1,103 @@
+package controllers.classe;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+import Domaine.evaluation.FormeExamen;
+import Domaine.matiere.ClasseGUnite;
+import Domaine.matiere.ConfigurationMatiere;
+import Domaine.matiere.Matiere;
+import Domaine.matiere.Periode;
+import dao.matiere.ConfigurationMatiereDAO;
+
+/**
+ * Servlet implementation class ClasseGeneriqueController
+ */
+@WebServlet("/ClasseGenerique/Unite/Matiere/Add")
+public class ClasseGeneriqueUniteMatiereAdd extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private ConfigurationMatiereDAO configurationMatiereDAO;
+       
+    public ClasseGeneriqueUniteMatiereAdd() {
+        super();
+        configurationMatiereDAO = new ConfigurationMatiereDAO();
+    }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int classeGUniteId = Integer.parseInt(request.getParameter("classeGUniteId"));
+		int matiereId = Integer.parseInt(request.getParameter("matiere"));
+		int periodeId = Integer.parseInt(request.getParameter("periode"));
+		Short volumeHoraire= Short.parseShort(request.getParameter("volumeHoraire"));
+		Short horaireHebdo= Short.parseShort(request.getParameter("horaireHebdo"));
+		Short nbreControles= Short.parseShort(request.getParameter("nbreControles"));
+		int formeControleId = Integer.parseInt(request.getParameter("formeControle"));
+		float noteEliminatoire = Float.parseFloat(request.getParameter("noteEliminatoire"));
+		
+		
+		ClasseGUnite classeGUnite = new ClasseGUnite();
+		classeGUnite.setId(classeGUniteId);
+		
+		Matiere matiere = new Matiere();
+		matiere.setId(matiereId);
+		
+		Periode periode = new Periode();
+		periode.setId(periodeId);
+		
+		FormeExamen formeControle = new FormeExamen();
+		formeControle.setId(formeControleId);
+		
+		ConfigurationMatiere configurationMatiere= new ConfigurationMatiere();
+		configurationMatiere.setClasseGUnite(classeGUnite);
+		configurationMatiere.setMatiere(matiere);
+		configurationMatiere.setPeriode(periode);
+		configurationMatiere.setFormeControle(formeControle);
+		configurationMatiere.setVolumeHoraire(volumeHoraire);
+		configurationMatiere.setHoraireHebdo(horaireHebdo);
+		configurationMatiere.setNbreControles(nbreControles);
+		configurationMatiere.setNoteEliminatoire(noteEliminatoire);
+		
+		
+		String message=null;
+		boolean success =false;
+		boolean warning = false;
+		
+		try {
+			//TODO : ce test est incomplet : à corriger pour 
+			// éviter la duplication d'une matière dans d'autre unités de la meme classes génériques
+			if(configurationMatiereDAO.exists(configurationMatiere)== null){
+				configurationMatiereDAO.insert(configurationMatiere);
+				success=true;
+				warning = false;
+				message="La matière a élé ajoutée avec succès à l'unité ";
+				
+			}else{
+				success=true;
+				warning = true;
+				message="Cette matière existe déja dans l'une des unités ";
+			}
+		} catch (SQLException e1) {
+			success=false;
+			warning = false;
+			message="Impossible d'ajouter la matière à l'unité ";
+			e1.printStackTrace();
+		}
+		
+		String json = new Gson().toJson(message);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();
+	}
+
+}
